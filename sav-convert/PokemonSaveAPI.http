@@ -1,0 +1,6 @@
+@PokemonSaveAPI_HostAddress = http://localhost:5148
+
+GET {{PokemonSaveAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
