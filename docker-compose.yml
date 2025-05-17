@@ -35,6 +35,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/pokehome
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
+    volumes:
+      - ./backend:/app  # Monta o diretório local no container
     depends_on:
       - postgres
     networks:
@@ -44,8 +46,14 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app          # bind-mount do código
+      - /app/node_modules       # impede sobreposição de node_modules
     ports:
-      - "4200:80"
+      - "4200:4200"
+      - "49153:49153"
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Angular 12+ precisa desse flag em alguns volumes :contentReference[oaicite:4]{index=4}
     depends_on:
       - backend
     networks:

@@ -1,18 +1,8 @@
-
-FROM node:21 as builder
-
+# Dockerfile.dev
+FROM node:21
 WORKDIR /app
-
-COPY . .
-
+COPY package*.json ./
 RUN npm install
-RUN npm install run build
-
-FROM nginx:alpine
-COPY --from=builder /app/dist/pokehome/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY mime.types /etc/nginx/mime.types
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Exponha a porta Angular e a porta de live-reload
+EXPOSE 4200 49153
+CMD ["npm", "start"]
