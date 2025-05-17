@@ -1,13 +1,18 @@
-# Stage 1: build
-FROM node:16-alpine AS build
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build -- --prod
 
-# Stage 2: serve via Nginx
+FROM node:21 as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm install run build
+
 FROM nginx:alpine
-COPY --from=build /usr/src/app/dist/your-app-name /usr/share/nginx/html
+COPY --from=builder /app/dist/pokehome/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY mime.types /etc/nginx/mime.types
+
 EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+
+CMD ["nginx", "-g", "daemon off;"]

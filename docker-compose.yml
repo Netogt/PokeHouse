@@ -1,11 +1,13 @@
 version: '3.8'
 services:
   sav-convert:
-    build: ./sav-convert
+    build: 
+      context: ./sav-convert
+      dockerfile: Dockerfile
     environment:
       - ASPNETCORE_URLS=http://+:8000
     ports:
-      - "5000:80"
+      - "5000:8000"   # mapeia porta 8000 interna para 5000 externa
     networks:
       - app-network
   
@@ -30,9 +32,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/meu_banco
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/pokehome
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: sua_senha
+      SPRING_DATASOURCE_PASSWORD: password
     depends_on:
       - postgres
     networks:
