@@ -6,7 +6,7 @@ using PKHeX.Core;
 namespace PokemonSaveAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/save")]
     public class SaveController : ControllerBase
     {
         [HttpPost("upload")]
@@ -16,11 +16,9 @@ namespace PokemonSaveAPI.Controllers
                 return BadRequest("Nenhum arquivo enviado.");
 
             byte[] data;
-            using (var ms = new MemoryStream())
-            {
-                await file.CopyToAsync(ms);
-                data = ms.ToArray();
-            }
+            using var ms = new MemoryStream();
+            await file.CopyToAsync(ms);
+            data = ms.ToArray();
 
             var sav = SaveUtil.GetVariantSAV(data);
             if (sav == null)
@@ -40,7 +38,6 @@ namespace PokemonSaveAPI.Controllers
             };
 
             var json = JsonConvert.SerializeObject(sav, settings);
-
             return Ok(json);
         }
     }

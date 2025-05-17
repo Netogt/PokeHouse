@@ -70,3 +70,4 @@ D:\Users\luiz\area\pokeworld\sav-convert\obj\Debug\net9.0\refint\PokemonSaveAPI.
 D:\Users\luiz\area\pokeworld\sav-convert\obj\Debug\net9.0\PokemonSaveAPI.pdb
 D:\Users\luiz\area\pokeworld\sav-convert\obj\Debug\net9.0\PokemonSaveAPI.genruntimeconfig.cache
 D:\Users\luiz\area\pokeworld\sav-convert\obj\Debug\net9.0\ref\PokemonSaveAPI.dll
+D:\Users\luiz\area\pokeworld\sav-convert\obj\Debug\net9.0\PokemonSaveAPI.sourcelink.json
