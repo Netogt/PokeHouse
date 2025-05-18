@@ -26,6 +26,8 @@ import reactor.core.publisher.Mono;
 @Service
 public class FileService {
     private final String UPLOAD_DIR;
+    private final String UPLOAD_DIR_SAV;
+    private final String UPLOAD_DIR_JSON;
     private final Gson gson;
     private final WebClient webClient;
 
@@ -33,6 +35,8 @@ public class FileService {
         this.gson = gson;
         this.webClient = webClient1;
         this.UPLOAD_DIR = "uploads/";
+        this.UPLOAD_DIR_SAV = this.UPLOAD_DIR + "sav/";
+        this.UPLOAD_DIR_JSON = this.UPLOAD_DIR +  "json/";
     }
 
     public HashMap<String, String> saveFile(MultipartFile file){
@@ -45,12 +49,12 @@ public class FileService {
             }
 
             // Criar um diretorio sav
-            Files.createDirectories(Paths.get(this.UPLOAD_DIR + "/sav"));
+            Files.createDirectories(Paths.get(this.UPLOAD_DIR_SAV));
 
             // Criar um nome unico
             UUID UUID_File = UUID.randomUUID();
             String fileName = UUID_File + "_" + file.getOriginalFilename();
-            Path filePath = Paths.get(this.UPLOAD_DIR + "/sav", fileName);
+            Path filePath = Paths.get(this.UPLOAD_DIR_SAV, fileName);
 
             // salvar o arquivo
             Files.write(filePath, file.getBytes());
@@ -61,17 +65,17 @@ public class FileService {
                 throw new IOException(convertResponse.get("error"));
             }
             // Criar um diretorio json
-            Files.createDirectories(Paths.get(this.UPLOAD_DIR + "/json"));
+            Files.createDirectories(Paths.get(this.UPLOAD_DIR_JSON));
             // Criar um nome único para o arquivo JSON
             String jsonFileName = UUID_File + "_sav.json";
-            Path jsonFilePath = Paths.get(this.UPLOAD_DIR + "/json", jsonFileName);
+            Path jsonFilePath = Paths.get(this.UPLOAD_DIR_JSON, jsonFileName);
 
             // Salvar o JSON retornado pela API
             Files.writeString(jsonFilePath, convertResponse.get("content"));
 
             response.put("status", "success");
             response.put("error", null);
-            response.put("content", convertResponse.get("content"));
+            response.put("content", jsonFileName);
             return response;
 
         } catch (Exception e) {
@@ -123,5 +127,44 @@ public class FileService {
         }
     }
 
+    public HashMap<String, Object> jsonToObject(String jsonFileName){
+        HashMap<String, Object> response = new HashMap<>();
+        try{
+            // Validar o nome do arquivo
+            if (jsonFileName == null || jsonFileName.contains("..") || jsonFileName.contains("/")) {
+                throw new IllegalArgumentException("Nome de arquivo inválido");
+            }
+
+            // Construir o caminho do arquivo
+            Path jsonFilePath = Paths.get(this.UPLOAD_DIR_JSON, jsonFileName);
+
+            // Verificar se o arquivo existe
+            if (!Files.exists(jsonFilePath)) {
+                throw new IOException("Arquivo não encontrado: " + jsonFileName);
+            }
+
+            // Ler o conteúdo do arquivo JSON
+            String jsonContent = Files.readString(jsonFilePath);
+
+            // Desserializar o JSON em um objeto PokeSav
+            PokeSav pokeSav;
+            try {
+                pokeSav = gson.fromJson(jsonContent, PokeSav.class);
+            } catch (Exception e) {
+                throw new IOException("Erro ao desserializar JSON: " + e.getMessage());
+            }
+
+            response.put("status", "success");
+            response.put("error", null);
+            response.put("content", pokeSav);
+            return response;
+
+        } catch (IOException e) {
+            response.put("status", "error");
+            response.put("error", e.getMessage());
+            response.put("content", null);
+            return response;
+        }
+    }
 
 }

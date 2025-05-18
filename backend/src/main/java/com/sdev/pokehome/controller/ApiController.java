@@ -33,4 +33,20 @@ public class ApiController {
         }
     }
 
+    @GetMapping("convert/obj")
+    public ResponseEntity<String> convert(@RequestParam("jsonName") String jsonName){
+        try {
+            if(jsonName.isEmpty()){
+                throw new IOException("por favor informe o nome do arquivo json");
+            }
+
+            HashMap<String, String> response = fileService.jsonToObject(jsonName);
+            if(response.get("status").equals("error")){
+                throw new IOException(response.get("error"));
+            }
+            return ResponseEntity.ok( response.get("content"));
+        } catch (IOException e) {
+            return  ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
