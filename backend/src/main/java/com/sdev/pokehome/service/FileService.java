@@ -44,19 +44,34 @@ public class FileService {
                 throw new Exception("o argumento passado não é um arquivo valido");
             }
 
-            // Criar um diretorio
-            Files.createDirectories(Paths.get(this.UPLOAD_DIR));
+            // Criar um diretorio sav
+            Files.createDirectories(Paths.get(this.UPLOAD_DIR + "/sav"));
 
             // Criar um nome unico
-            String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-            Path filePath = Paths.get(this.UPLOAD_DIR, fileName);
+            UUID UUID_File = UUID.randomUUID();
+            String fileName = UUID_File + "_" + file.getOriginalFilename();
+            Path filePath = Paths.get(this.UPLOAD_DIR + "/sav", fileName);
 
             // salvar o arquivo
             Files.write(filePath, file.getBytes());
 
+            HashMap<String, String> convertResponse = this.convertToJson(file);
+
+            if(convertResponse.get("status").equals("error")){
+                throw new IOException(convertResponse.get("error"));
+            }
+            // Criar um diretorio json
+            Files.createDirectories(Paths.get(this.UPLOAD_DIR + "/json"));
+            // Criar um nome único para o arquivo JSON
+            String jsonFileName = UUID_File + "_sav.json";
+            Path jsonFilePath = Paths.get(this.UPLOAD_DIR + "/json", jsonFileName);
+
+            // Salvar o JSON retornado pela API
+            Files.writeString(jsonFilePath, convertResponse.get("content"));
+
             response.put("status", "success");
             response.put("error", null);
-            response.put("content", fileName);
+            response.put("content", convertResponse.get("content"));
             return response;
 
         } catch (Exception e) {
@@ -67,34 +82,29 @@ public class FileService {
         }
     }
 
-    public HashMap<String, String> convertToJson(String fileName) throws IOException, InterruptedException {
+    public HashMap<String, String> convertToJson(MultipartFile file) throws IOException, InterruptedException {
         HashMap<String, String> response = new HashMap<>();
-        try{
-            if (fileName.contains("..") || fileName.contains("/")) {
-                throw new Exception("Nome de arquivo inválido");
+        try {
+            if (file.isEmpty()) {
+                throw new Exception("O argumento passado não é um arquivo válido");
             }
 
-            Path filePath = Paths.get(this.UPLOAD_DIR, fileName);
-            if (!Files.exists(filePath)) {
-                throw new Exception("Arquivo não encontrado: " + fileName);
-            }
-
-            byte[] fileContent = Files.readAllBytes(filePath);
-            String originalFileName = fileName.substring(fileName.indexOf("_") + 1);
+            // Converter MultipartFile em ByteArrayResource
+            byte[] fileContent = file.getBytes();
             ByteArrayResource resource = new ByteArrayResource(fileContent) {
                 @Override
                 public String getFilename() {
-                    return originalFileName;
+                    return file.getOriginalFilename();
                 }
             };
 
-            // Enviar para a API externa e esperar resposta como String
+            // Enviar para a API externa
             Mono<String> apiResponseMono = webClient.post()
                     .uri("http://localhost:5148/api/save/upload")
                     .contentType(MediaType.MULTIPART_FORM_DATA)
                     .body(BodyInserters.fromMultipartData("file", resource))
                     .retrieve()
-                    .bodyToMono(String.class) // Alterado de Map para String
+                    .bodyToMono(String.class)
                     .onErrorResume(e -> Mono.just("Erro ao enviar para API: " + e.getMessage()));
 
             // Bloquear para obter a resposta
@@ -104,7 +114,7 @@ public class FileService {
             response.put("error", null);
             response.put("content", apiResponse);
             return response;
-            //return gson.fromJson(json, PokeSav.class);
+
         } catch (Exception e) {
             response.put("status", "error");
             response.put("error", e.getMessage());
@@ -112,4 +122,6 @@ public class FileService {
             return response;
         }
     }
+
+
 }

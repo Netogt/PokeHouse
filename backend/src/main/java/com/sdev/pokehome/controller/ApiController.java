@@ -27,22 +27,10 @@ public class ApiController {
             if(response.get("status").equals("error")){
                 throw new IOException(response.get("error"));
             }
-            return ResponseEntity.ok("arquivo salvo com o nome:" +  response.get("content"));
+            return ResponseEntity.ok( response.get("content"));
         } catch (IOException e) {
             return  ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @GetMapping("convert/file")
-    public ResponseEntity<String> convertFile(@RequestParam("fileName") String fileName) {
-        try {
-            HashMap<String, String> response = fileService.convertToJson(fileName);
-            if(response.get("status").equals("error")){
-                throw new IOException(response.get("error"));
-            }
-            return ResponseEntity.ok(response.get("content"));
-        } catch (IOException | InterruptedException e) {
-            return  ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
 }
