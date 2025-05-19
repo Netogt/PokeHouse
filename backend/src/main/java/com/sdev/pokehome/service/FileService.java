@@ -1,21 +1,17 @@
 package com.sdev.pokehome.service;
 
 import com.sdev.pokehome.dto.PokeSav;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sdev.pokehome.utilities.Response;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
-import org.springframework.http.client.MultipartBodyBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -25,128 +21,58 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class FileService {
-    private final String UPLOAD_DIR;
-    private final String UPLOAD_DIR_SAV;
-    private final String UPLOAD_DIR_JSON;
-    private final Gson gson;
-    private final WebClient webClient;
+    private static final String UPLOAD_ROOT = "uploads";
+    private static final String SAV_DIR = UPLOAD_ROOT + "/sav";
+    private static final String JSON_DIR = UPLOAD_ROOT + "/json";
 
-    public FileService(WebClient webClient, Gson gson, WebClient webClient1) {
+    private final WebClient webClient;
+    private final Gson gson;
+
+    public FileService(WebClient webClient, Gson gson) {
         this.gson = gson;
-        this.webClient = webClient1;
-        this.UPLOAD_DIR = "uploads/";
-        this.UPLOAD_DIR_SAV = this.UPLOAD_DIR + "sav/";
-        this.UPLOAD_DIR_JSON = this.UPLOAD_DIR +  "json/";
+        this.webClient = webClient;
+
+        createDirectories(Path.of(SAV_DIR), Path.of(JSON_DIR));
     }
 
-    public HashMap<String, String> saveFile(MultipartFile file){
-        HashMap<String, String> response = new HashMap<>();
-
+    public Response<String> saveFile(MultipartFile file){
         try {
-
             if (file.isEmpty()) {
                 throw new Exception("o argumento passado não é um arquivo valido");
             }
 
-            // Criar um diretorio sav
-            Files.createDirectories(Paths.get(this.UPLOAD_DIR_SAV));
-
-            // Criar um nome unico
-            UUID UUID_File = UUID.randomUUID();
-            String fileName = UUID_File + "_" + file.getOriginalFilename();
-            Path filePath = Paths.get(this.UPLOAD_DIR_SAV, fileName);
-
-            // salvar o arquivo
+            String uuid = UUID.randomUUID().toString();
+            Path filePath = Paths.get(SAV_DIR, uuid + "_" + file.getOriginalFilename());
             Files.write(filePath, file.getBytes());
 
-            HashMap<String, String> convertResponse = this.convertToJson(file);
-
-            if(convertResponse.get("status").equals("error")){
-                throw new IOException(convertResponse.get("error"));
+            Response<String> convertResponse = this.convertSav(file);
+            if(convertResponse.status().equals("error")){
+                throw new IOException(convertResponse.error());
             }
-            // Criar um diretorio json
-            Files.createDirectories(Paths.get(this.UPLOAD_DIR_JSON));
-            // Criar um nome único para o arquivo JSON
-            String jsonFileName = UUID_File + "_sav.json";
-            Path jsonFilePath = Paths.get(this.UPLOAD_DIR_JSON, jsonFileName);
 
-            // Salvar o JSON retornado pela API
-            Files.writeString(jsonFilePath, convertResponse.get("content"));
+            String jsonFileName = uuid + "_sav.json";
+            Path jsonFilePath = Paths.get(JSON_DIR, jsonFileName);
+            Files.writeString(jsonFilePath, convertResponse.content());
 
-            response.put("status", "success");
-            response.put("error", null);
-            response.put("content", jsonFileName);
-            return response;
+            return Response.success(jsonFileName);
 
         } catch (Exception e) {
-            response.put("status", "error");
-            response.put("error", e.getMessage());
-            response.put("content", null);
-            return response;
+            return Response.error(e.getMessage());
         }
     }
 
-    public HashMap<String, String> convertToJson(MultipartFile file) throws IOException, InterruptedException {
-        HashMap<String, String> response = new HashMap<>();
-        try {
-            if (file.isEmpty()) {
-                throw new Exception("O argumento passado não é um arquivo válido");
-            }
-
-            // Converter MultipartFile em ByteArrayResource
-            byte[] fileContent = file.getBytes();
-            ByteArrayResource resource = new ByteArrayResource(fileContent) {
-                @Override
-                public String getFilename() {
-                    return file.getOriginalFilename();
-                }
-            };
-
-            // Enviar para a API externa
-            Mono<String> apiResponseMono = webClient.post()
-                    .uri("http://localhost:5148/api/save/upload")
-                    .contentType(MediaType.MULTIPART_FORM_DATA)
-                    .body(BodyInserters.fromMultipartData("file", resource))
-                    .retrieve()
-                    .bodyToMono(String.class)
-                    .onErrorResume(e -> Mono.just("Erro ao enviar para API: " + e.getMessage()));
-
-            // Bloquear para obter a resposta
-            String apiResponse = apiResponseMono.block();
-
-            response.put("status", "success");
-            response.put("error", null);
-            response.put("content", apiResponse);
-            return response;
-
-        } catch (Exception e) {
-            response.put("status", "error");
-            response.put("error", e.getMessage());
-            response.put("content", null);
-            return response;
-        }
-    }
-
-    public HashMap<String, Object> jsonToObject(String jsonFileName){
-        HashMap<String, Object> response = new HashMap<>();
+    public Response<String> jsonToObject(String jsonFileName){
         try{
-            // Validar o nome do arquivo
             if (jsonFileName == null || jsonFileName.contains("..") || jsonFileName.contains("/")) {
                 throw new IllegalArgumentException("Nome de arquivo inválido");
             }
 
-            // Construir o caminho do arquivo
-            Path jsonFilePath = Paths.get(this.UPLOAD_DIR_JSON, jsonFileName);
-
-            // Verificar se o arquivo existe
+            Path jsonFilePath = Paths.get(JSON_DIR, jsonFileName);
             if (!Files.exists(jsonFilePath)) {
                 throw new IOException("Arquivo não encontrado: " + jsonFileName);
             }
 
-            // Ler o conteúdo do arquivo JSON
             String jsonContent = Files.readString(jsonFilePath);
-
-            // Desserializar o JSON em um objeto PokeSav
             PokeSav pokeSav;
             try {
                 pokeSav = gson.fromJson(jsonContent, PokeSav.class);
@@ -154,17 +80,43 @@ public class FileService {
                 throw new IOException("Erro ao desserializar JSON: " + e.getMessage());
             }
 
-            response.put("status", "success");
-            response.put("error", null);
-            response.put("content", pokeSav);
-            return response;
-
+            return Response.success(pokeSav.getOT());
         } catch (IOException e) {
-            response.put("status", "error");
-            response.put("error", e.getMessage());
-            response.put("content", null);
-            return response;
+            return Response.error(e.getMessage());
         }
     }
 
+    // ------------- Métodos Auxiliares -------------
+
+    private void createDirectories(Path... paths) {
+        for (Path p : paths) {
+            try {
+                Files.createDirectories(p);
+            } catch (IOException ignored) {
+                System.out.println("não foi possivel criar o diretorio" + JSON_DIR);
+            }
+        }
+    }
+
+    private Response<String> convertSav(MultipartFile file) throws IOException {
+        try {
+            byte[] bytes = file.getBytes();
+            ByteArrayResource resource = new ByteArrayResource(bytes) {
+                @Override public String getFilename() {
+                    return file.getOriginalFilename();
+                }
+            };
+
+            Mono<String> responseMono = webClient.post()
+                    .uri("http://localhost:5148/api/save/upload")
+                    .contentType(MediaType.MULTIPART_FORM_DATA)
+                    .body(BodyInserters.fromMultipartData("file", resource))
+                    .retrieve()
+                    .bodyToMono(String.class);
+
+            return Response.success(responseMono.block());
+        } catch (Exception e) {
+            return Response.error(e.getMessage());
+        }
+    }
 }
