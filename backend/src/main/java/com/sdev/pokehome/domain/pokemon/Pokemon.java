@@ -27,7 +27,8 @@ public class Pokemon {
     private String Ability; // habilidade
     private Integer CurrentFriendship; // amizade atula
     private String Language; // indioma
-    private String Version; // versão do jogo que foi capturado
+    private String gameVersion; // versão do jogo que foi capturado
+    private String generation;
     private String MetLocation; // local encontrado
     private Integer Ball; // em que pokebola esta
     private Integer MetLevel; // nivel que foi encontrado
@@ -40,10 +41,11 @@ public class Pokemon {
     private String OriginalTrainerName;
     private Integer OriginalTrainerGender;
 
-    public Pokemon() {
+    public Pokemon(){
+
     }
 
-    public Pokemon(UUID id, Integer user_id, Integer sav_id, Integer box_id, Integer PID, Integer isShiny, Integer gender, String species, String nickname, Integer EXP, String nature, Integer heldItem, String ability, Integer currentFriendship, String language, String version, String metLocation, Integer ball, Integer metLevel, String stats, String IVs, String EVs, String moves, String marking, Integer TID16, String originalTrainerName, Integer originalTrainerGender) {
+    public Pokemon(UUID id, Integer user_id, Integer sav_id, Integer box_id, Integer PID, Integer isShiny, Integer gender, String species, String nickname, Integer EXP, String nature, Integer heldItem, String ability, Integer currentFriendship, String language, String gameVersion, String generation, String metLocation, Integer ball, Integer metLevel, String stats, String IVs, String EVs, String moves, String marking, Integer TID16, String originalTrainerName, Integer originalTrainerGender) {
         this.id = id;
         this.user_id = user_id;
         Sav_id = sav_id;
@@ -59,7 +61,8 @@ public class Pokemon {
         Ability = ability;
         CurrentFriendship = currentFriendship;
         Language = language;
-        Version = version;
+        this.gameVersion = gameVersion;
+        this.generation = generation;
         MetLocation = metLocation;
         Ball = ball;
         MetLevel = metLevel;
@@ -193,12 +196,20 @@ public class Pokemon {
         Language = language;
     }
 
-    public String getVersion() {
-        return Version;
+    public String getGameVersion() {
+        return gameVersion;
     }
 
-    public void setVersion(String version) {
-        Version = version;
+    public void setGameVersion(String gameVersion) {
+        this.gameVersion = gameVersion;
+    }
+
+    public String getGeneration() {
+        return generation;
+    }
+
+    public void setGeneration(String generation) {
+        this.generation = generation;
     }
 
     public String getMetLocation() {
