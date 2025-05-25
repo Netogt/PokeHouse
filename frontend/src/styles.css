@@ -11,6 +11,9 @@
     --box-margin: 25px;
     --color-hover: #edeff5;
     --pokeball-bg: #e9ecf3;
+    --border-color: #d9d9d9;
+    --pk-female: #f4a3b8;
+    --pk-male: #a3c4f4;
 }
 
 *{

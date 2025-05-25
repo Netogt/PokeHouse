@@ -24,6 +24,36 @@ aside {
         }
     }
 
+    .box-gender{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        top: 20px;
+        right: 20px;
+
+        div{
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        .gender.male{
+            background-color: var(--pk-male);
+            border-color: #0057ff;
+            color: #0057ff;
+        }
+        .gender.female{
+            background-color: var(--pk-female);
+            border-color: #ff4d4d;
+            color: #ff4d4d;
+        }
+    }
+
     section {
         margin-top: 110px;
         display: flex;
@@ -88,7 +118,7 @@ aside {
                 padding: 7px 20px;
                 border-radius: 50px;
                 font-size: .8rem;
-                border: 1px solid var(--text-secondary);
+                border: 1px solid var(--border-color);
             }
         }
     }
