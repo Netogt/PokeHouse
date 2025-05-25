@@ -1,4 +1,4 @@
-package com.sdev.pokehome.configuration;
+package com.sdev.pokehome.config;
 
 import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;

@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #f1f4f9;
+    --bg-block-color: #ffffff93;
+    --text-primary: #0B1D33;
+    --text-secondary: #807C77;
+    --color-main: #0057ff;
+    --border-rd: 15px;
+    --box-margin: 25px;
+    --color-hover: #edeff5;
+    --pokeball-bg: #e9ecf3;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+}
+
+body{
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+.card{
+    background-color: var(--bg-block-color);
+    border-radius: var(--border-rd);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}

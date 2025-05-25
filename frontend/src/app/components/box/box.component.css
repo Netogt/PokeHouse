@@ -1,0 +1,64 @@
+header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--box-margin);
+
+    button,
+    div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div {
+        width: 100%;
+    }
+
+    button {
+        width: 100px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            background-color: var(--color-hover);
+        }
+    }
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    padding: var(--box-margin);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .row {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        width: 100%;
+    }
+
+    .box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        img {
+            height: 80%;
+            object-fit: contain;
+        }
+
+        svg{
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+            color: var(--text-secondary);
+        }
+    }
+}

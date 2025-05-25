@@ -1,0 +1,149 @@
+aside {
+    width: 350px;
+    height: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    padding-top: 0;
+
+    .imagePoke {
+        height: 250px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: -130px;
+
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    section {
+        margin-top: 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+
+        .pokeID {
+            font-weight: 800;
+        }
+
+        .pokeSpecies {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+        }
+
+        .boxType {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 8px;
+
+            .type{
+                background-color: rgb(249, 255, 83);
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        h4{
+            margin-top: 10px;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .boxAbilities{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            width: 100%;
+
+            div{
+                display: flex;
+                width: 50%;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--bg-color);
+                padding: 7px 20px;
+                border-radius: 50px;
+                font-size: .8rem;
+                border: 1px solid var(--text-secondary);
+            }
+        }
+    }
+
+    .box-evolution{
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+        align-items: center;
+
+        img{
+            height: 100%;
+            object-fit: contain;
+        }
+
+        span{
+            height: 25px;
+            width: 60px;
+            background-color: var(--bg-color);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;  
+            color: var(--text-secondary);
+        }
+    }
+    
+    .box-pagination{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        button{
+            width: 100%;
+            height: 40px;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            img{
+                height: 75%;
+            }
+
+            &:hover{
+                background-color: var(--color-hover);
+            }
+        }
+    }
+}
