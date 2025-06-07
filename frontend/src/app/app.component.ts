@@ -8,7 +8,7 @@ import { MainComponent } from "./components/main/main.component";
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, MainComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'PokeHouse';

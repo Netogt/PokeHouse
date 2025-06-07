@@ -6,7 +6,7 @@ import { AsideComponent } from "../aside/aside.component";
   selector: 'app-main',
   imports: [BoxComponent, AsideComponent],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.scss'
 })
 export class MainComponent {
 
