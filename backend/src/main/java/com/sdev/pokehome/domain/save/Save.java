@@ -1,5 +1,5 @@
-package com.sdev.pokehome.domain.user;
-
+package com.sdev.pokehome.domain.save;
+import com.sdev.pokehome.domain.pokemon.Pokemon;
 import com.sdev.pokehome.domain.trainer.Trainer;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,23 +13,25 @@ import java.util.UUID;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "saves")
+public class Save {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
-    private String email;
-    private String password;
-    private String image;
+    private String path_json;
+    private String path_sav;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Trainer> trainers = new ArrayList<>();
+    @OneToMany(mappedBy = "save", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pokemon> pokemons = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "trainer_id")
+    private Trainer trainers;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
     @LastModifiedDate
     @Column(name = "updated_at")
-    private LocalDateTime  updatedAt;
+    private LocalDateTime updatedAt;
 }

@@ -1,5 +1,7 @@
-package com.sdev.pokehome.domain.user;
+package com.sdev.pokehome.domain.inventory;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sdev.pokehome.domain.pokemon.Pokemon;
 import com.sdev.pokehome.domain.trainer.Trainer;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -7,29 +9,28 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "inventory")
+public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
-    private String email;
-    private String password;
-    private String image;
+    private Integer itemID;
+    private String itemName;
+    private Integer itemCount;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Trainer> trainers = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "trainer_id", nullable = false)
+    @JsonIgnore
+    private Trainer trainer;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createAt;
     @LastModifiedDate
     @Column(name = "updated_at")
-    private LocalDateTime  updatedAt;
+    private LocalDateTime updatedAt;
 }
