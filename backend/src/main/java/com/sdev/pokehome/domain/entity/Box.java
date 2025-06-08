@@ -16,9 +16,12 @@ public class Box {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private Integer box;
-    private Integer column;
-    private Integer row;
+    @Column(name = "box_number")
+    private Integer boxNumber;
+    @Column(name = "box_column")
+    private Integer boxColumn;
+    @Column(name = "box_row")
+    private Integer boxRow;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -39,11 +42,11 @@ public class Box {
     public Box() {
     }
 
-    public Box(UUID id, Integer box, Integer column, Integer row, User user, Pokemon pokemon, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Box(UUID id, Integer boxNumber, Integer boxColumn, Integer boxRow, User user, Pokemon pokemon, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.box = box;
-        this.column = column;
-        this.row = row;
+        this.boxNumber = boxNumber;
+        this.boxColumn = boxColumn;
+        this.boxRow = boxRow;
         this.user = user;
         this.pokemon = pokemon;
         this.createdAt = createdAt;
@@ -58,28 +61,28 @@ public class Box {
         this.id = id;
     }
 
-    public Integer getBox() {
-        return box;
+    public Integer getBoxNumber() {
+        return boxNumber;
     }
 
-    public void setBox(Integer box) {
-        this.box = box;
+    public void setBoxNumber(Integer boxNumber) {
+        this.boxNumber = boxNumber;
     }
 
-    public Integer getColumn() {
-        return column;
+    public Integer getBoxColumn() {
+        return boxColumn;
     }
 
-    public void setColumn(Integer column) {
-        this.column = column;
+    public void setBoxColumn(Integer boxColumn) {
+        this.boxColumn = boxColumn;
     }
 
-    public Integer getRow() {
-        return row;
+    public Integer getBoxRow() {
+        return boxRow;
     }
 
-    public void setRow(Integer row) {
-        this.row = row;
+    public void setBoxRow(Integer boxRow) {
+        this.boxRow = boxRow;
     }
 
     public User getUser() {
