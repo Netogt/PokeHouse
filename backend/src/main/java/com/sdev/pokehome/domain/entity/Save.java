@@ -17,8 +17,10 @@ public class Save {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String path_json;
-    private String path_sav;
+    @Column(name = "path_json")
+    private String pathJson;
+    @Column(name = "path_sav")
+    private String pathSav;
 
     @OneToMany(mappedBy = "save", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pokemon> pokemons = new ArrayList<>();
@@ -36,10 +38,10 @@ public class Save {
     public Save() {
     }
 
-    public Save(UUID id, String path_json, String path_sav, List<Pokemon> pokemons, Trainer trainers, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Save(UUID id, String pathJson, String pathSav, List<Pokemon> pokemons, Trainer trainers, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.path_json = path_json;
-        this.path_sav = path_sav;
+        this.pathJson = pathJson;
+        this.pathSav = pathSav;
         this.pokemons = pokemons;
         this.trainers = trainers;
         this.createdAt = createdAt;
@@ -54,20 +56,20 @@ public class Save {
         this.id = id;
     }
 
-    public String getPath_json() {
-        return path_json;
+    public String getPathJson() {
+        return pathJson;
     }
 
-    public void setPath_json(String path_json) {
-        this.path_json = path_json;
+    public void setPathJson(String pathJson) {
+        this.pathJson = pathJson;
     }
 
-    public String getPath_sav() {
-        return path_sav;
+    public String getPathSav() {
+        return pathSav;
     }
 
-    public void setPath_sav(String path_sav) {
-        this.path_sav = path_sav;
+    public void setPathSav(String pathSav) {
+        this.pathSav = pathSav;
     }
 
     public List<Pokemon> getPokemons() {
