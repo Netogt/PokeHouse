@@ -34,4 +34,73 @@ public class Save {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Save() {
+    }
+
+    public Save(UUID id, String path_json, String path_sav, List<Pokemon> pokemons, Trainer trainers, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.path_json = path_json;
+        this.path_sav = path_sav;
+        this.pokemons = pokemons;
+        this.trainers = trainers;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getPath_json() {
+        return path_json;
+    }
+
+    public void setPath_json(String path_json) {
+        this.path_json = path_json;
+    }
+
+    public String getPath_sav() {
+        return path_sav;
+    }
+
+    public void setPath_sav(String path_sav) {
+        this.path_sav = path_sav;
+    }
+
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
+    public Trainer getTrainers() {
+        return trainers;
+    }
+
+    public void setTrainers(Trainer trainers) {
+        this.trainers = trainers;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

@@ -1,7 +1,6 @@
 package com.sdev.pokehome.domain.inventory;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sdev.pokehome.domain.pokemon.Pokemon;
 import com.sdev.pokehome.domain.trainer.Trainer;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -33,4 +32,73 @@ public class Inventory {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Inventory() {
+    }
+
+    public Inventory(UUID id, Integer itemID, String itemName, Integer itemCount, Trainer trainer, LocalDateTime createAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.itemID = itemID;
+        this.itemName = itemName;
+        this.itemCount = itemCount;
+        this.trainer = trainer;
+        this.createAt = createAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Integer getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(Integer itemID) {
+        this.itemID = itemID;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public Integer getItemCount() {
+        return itemCount;
+    }
+
+    public void setItemCount(Integer itemCount) {
+        this.itemCount = itemCount;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public LocalDateTime getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
