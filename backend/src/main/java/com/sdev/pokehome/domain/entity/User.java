@@ -1,6 +1,5 @@
-package com.sdev.pokehome.domain.user;
+package com.sdev.pokehome.domain.entity;
 
-import com.sdev.pokehome.domain.trainer.Trainer;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

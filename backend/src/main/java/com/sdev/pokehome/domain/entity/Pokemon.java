@@ -1,9 +1,6 @@
-package com.sdev.pokehome.domain.pokemon;
+package com.sdev.pokehome.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sdev.pokehome.domain.box.Box;
-import com.sdev.pokehome.domain.save.Save;
-import com.sdev.pokehome.domain.user.User;
 import com.sdev.pokehome.utilities.JsonConverter;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;

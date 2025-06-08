@@ -1,4 +1,4 @@
-package com.sdev.pokehome.domain.pokemon;
+package com.sdev.pokehome.utilities;
 
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,6 @@
-package com.sdev.pokehome.domain.inventory;
+package com.sdev.pokehome.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sdev.pokehome.domain.trainer.Trainer;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -28,7 +27,7 @@ public class Inventory {
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
@@ -36,13 +35,13 @@ public class Inventory {
     public Inventory() {
     }
 
-    public Inventory(UUID id, Integer itemID, String itemName, Integer itemCount, Trainer trainer, LocalDateTime createAt, LocalDateTime updatedAt) {
+    public Inventory(UUID id, Integer itemID, String itemName, Integer itemCount, Trainer trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemCount = itemCount;
         this.trainer = trainer;
-        this.createAt = createAt;
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
@@ -87,11 +86,11 @@ public class Inventory {
     }
 
     public LocalDateTime getCreateAt() {
-        return createAt;
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setCreateAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {
