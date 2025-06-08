@@ -76,18 +76,24 @@ public class UserService {
     }
 
     public Response<User> getUserByEmail(String email){
-        User user = userRepository.findByEmail(email).orElseThrow(
-                () -> new RuntimeException("Usuario não encontrado")
-        );
+        try {
+            User user = userRepository.findByEmail(email).orElseThrow(
+                    () -> new RuntimeException("Usuario não encontrado")
+            );
 
-        return Response.success(user);
+            return Response.success(user);
+
+        } catch (Exception e) {
+            return Response.error(e.getMessage());
+        }
     }
 
     public Response<String> storeData(PokeSav data){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
 
-            this.setTrainer(data);
+            Response<String> setTrainer = this.setTrainer(data);
+            if(setTrainer.status().equals("error")) throw new Exception(setTrainer.error());
 //            this.setPokemons(data);
 //            this.setSave(data);
 
@@ -110,9 +116,11 @@ public class UserService {
             newTrainer.setPlayTime(data.getPlayTimeString());
             newTrainer.setSeenCount(data.getSeenCount());
             newTrainer.setCaughtCount(data.getCaughtCount());
-            newTrainer.setGameVersion(PokeEnums.Version.fromValue(data.getVersion()).name());
+            newTrainer.setGameVersion("" + data.getVersion());
             newTrainer.setGameGeneration(data.getGeneration());
-            newTrainer.setUser(this.getUserByEmail("luiz@gmail.com").content());
+            Response<User> getUser = this.getUserByEmail("luiz@gmail.com");
+            if(getUser.status().equals("error")) throw new Exception(getUser.error());
+            newTrainer.setUser(getUser.content());
 
             trainerRepository.saveAndFlush(newTrainer);
             return Response.success("treinador salvo");

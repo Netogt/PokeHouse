@@ -14,7 +14,7 @@ public class BeenFactory {
         ExchangeStrategies strategies = ExchangeStrategies.builder()
                 .codecs(configurer -> {
                     ClientCodecConfigurer.ClientDefaultCodecs codecs = configurer.defaultCodecs();
-                    codecs.maxInMemorySize(1024 * 1024 * 10); // 20 MB
+                    codecs.maxInMemorySize(1024 * 1024 * 20); // 20 MB
                 })
                 .build();
 
