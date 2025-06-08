@@ -91,14 +91,16 @@ public class UserService {
         }
     }
 
-    public Response<String> storeData(PokeSav data, Save save){
+    public Response<String> storeData(User user, PokeSav data, Save save){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
 
-            Response<Trainer> storeTrainerSB = this.storeTrainerSB(data, save);
+            Response<Trainer> storeTrainerSB = this.storeTrainerSB(user, data, save);
             if(storeTrainerSB.status().equals("error")) throw new Exception(storeTrainerSB.error());
-//
-//            Response<Pokemon> storePokemonDB = this.storePokemonDB(data, save, storeTrainerSB.content());
+
+//            Response<Pokemon> storePokemonDB = this.storePokemonDB(
+//                    user, data, save,
+//                    storeTrainerSB.content());
 //            if(storePokemonDB.status().equals("error")) throw new Exception(storePokemonDB.error());
 
 
@@ -108,27 +110,11 @@ public class UserService {
         }
     }
 
-    private Response<Trainer> storeTrainerSB(PokeSav data, Save save){
+    private Response<Trainer> storeTrainerSB(User user, PokeSav data, Save save){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
-            Response<User> getUser = this.getUserByEmail("luiz@gmail.com");
-            if(getUser.status().equals("error")) throw new Exception(getUser.error());
 
-            Trainer newTrainer = new Trainer();
-            newTrainer.settID(data.getTid16());
-            newTrainer.setsID(data.getSid16());
-            newTrainer.setName(data.getOt());
-            newTrainer.setGender(data.getGender());
-            newTrainer.setBadges(data.getBadges());
-            newTrainer.setMoney(data.getMoney());
-            newTrainer.setPlayTime(data.getPlayTimeString());
-            newTrainer.setSeenCount(data.getSeenCount());
-            newTrainer.setCaughtCount(data.getCaughtCount());
-            newTrainer.setGameVersion("" + data.getVersion());
-            newTrainer.setGameGeneration(data.getGeneration());
-            newTrainer.setUser(getUser.content());
-            newTrainer.setSave(save);
-
+            Trainer newTrainer = getNewTrainer(data, save, user);
             trainerRepository.saveAndFlush(newTrainer);
             return Response.success(newTrainer);
         } catch (Exception e) {
@@ -136,13 +122,72 @@ public class UserService {
         }
     }
 
-    private Response<Pokemon> storePokemonDB(Object data, Save save, Trainer trainer){
-        try {
-            if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
-            Pokemon newPokemon = new Pokemon();
-            return Response.success(newPokemon);
-        } catch (Exception e) {
-            return Response.error(e.getMessage());
-        }
+//    private Response<Pokemon> storePokemonDB(User user, PokeSav data, Save save, Trainer trainer){
+//        try {
+//            if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
+//
+//            Pokemon newPokemon = getNewPokemon(user, data, save);
+//            return Response.success(newPokemon);
+//        } catch (Exception e) {
+//            return Response.error(e.getMessage());
+//        }
+//    }
+
+    private static Trainer getNewTrainer(PokeSav data, Save save, User user) {
+        Trainer newTrainer = new Trainer();
+        newTrainer.settID(data.getTid16());
+        newTrainer.setsID(data.getSid16());
+        newTrainer.setName(data.getOt());
+        newTrainer.setGender(data.getGender());
+        newTrainer.setBadges(data.getBadges());
+        newTrainer.setMoney(data.getMoney());
+        newTrainer.setPlayTime(data.getPlayTimeString());
+        newTrainer.setSeenCount(data.getSeenCount());
+        newTrainer.setCaughtCount(data.getCaughtCount());
+        newTrainer.setGameVersion("" + data.getVersion());
+        newTrainer.setGameGeneration(data.getGeneration());
+        newTrainer.setUser(user);
+        newTrainer.setSave(save);
+        return newTrainer;
     }
+
+//    private static Pokemon getNewPokemon(User user, PokeSav data, Save save){
+//        Pokemon newPokemon = new Pokemon();
+//        newPokemon.setpID(data.get);
+//        newPokemon.setIsShiny();
+//        newPokemon.setGender();
+//        newPokemon.setSpecies();
+//        newPokemon.setNickname();
+//        newPokemon.seteXP();
+//        newPokemon.setNature();
+//        newPokemon.setHeldItem();
+//        newPokemon.setAbility();
+//        newPokemon.setCurrentFriendship();
+//        newPokemon.setLanguage();
+//        newPokemon.setGameVersion();
+//        newPokemon.setGeneration();
+//        newPokemon.setMetLocation();
+//        newPokemon.setBall();
+//        newPokemon.setMetLevel();
+//        newPokemon.setStats();
+//        newPokemon.setIvs();
+//        newPokemon.setEvs();
+//        newPokemon.setMoves();
+//
+//        newPokemon.setMarkingCircle();
+//        newPokemon.setMarkingTriangle();
+//        newPokemon.setMarkingSquare();
+//        newPokemon.setMarkingHeart();
+//        newPokemon.setMarkingCross();
+//        newPokemon.setMarkingStar();
+//        newPokemon.setMarkingDiamond();
+//        newPokemon.settID16();
+//        newPokemon.setOriginalTrainerName();
+//        newPokemon.setOriginalTrainerGender();
+//        newPokemon.setMetLevel();
+//
+//        newPokemon.setSave(save);
+//        newPokemon.setUser(user);
+//        return newPokemon;
+//    }
 }

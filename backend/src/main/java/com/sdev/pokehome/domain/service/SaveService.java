@@ -54,6 +54,9 @@ public class SaveService {
                 throw new Exception("o argumento passado não é um arquivo valido");
             }
 
+            Response<User> responseUser = this.userService.getUserByEmail("luiz@gmail.com");
+            if(responseUser.status().equals("error")) throw new Exception(responseUser.error());
+
             String uuid = UUID.randomUUID().toString();
             Path filePath = Paths.get(SAV_DIR, uuid + "_" + file.getOriginalFilename());
             Files.write(filePath, file.getBytes());
@@ -71,11 +74,15 @@ public class SaveService {
             if(jsonToObject.status().equals("error")) throw new Exception(jsonToObject.error());
 
             Response<Save> storeSaveDB = this.storeSaveDB(
+                    responseUser.content(),
                     jsonFilePath.toString(),
                     filePath.toString());
             if(storeSaveDB.status().equals("error")) throw new Exception(storeSaveDB.error());
 
-            Response<String> storeData = userService.storeData(jsonToObject.content(), storeSaveDB.content());
+            Response<String> storeData = userService.storeData(
+                    responseUser.content(),
+                    jsonToObject.content(),
+                    storeSaveDB.content());
             if(storeData.status().equals("error")) throw new Exception(storeData.error());
 
             return Response.success("dados salvo com sucesso");
@@ -104,18 +111,16 @@ public class SaveService {
         }
     }
 
-    private Response<Save> storeSaveDB(String jsonPath, String savePath){
+    private Response<Save> storeSaveDB(User user, String jsonPath, String savePath){
         try {
             if(jsonPath.isEmpty() || savePath.isEmpty() ) {
                 throw new Exception("dados invalidos para salvar");
             }
 
-            Response<User> responseUser = this.userService.getUserByEmail("luiz@gmail.com");
-            if(responseUser.status().equals("error")) throw new Exception(responseUser.error());
             Save newSave = new Save();
             newSave.setPathJson(jsonPath);
             newSave.setPathSav(savePath);
-            newSave.setUser(responseUser.content());
+            newSave.setUser(user);
             saveRepository.saveAndFlush(newSave);
             return Response.success(newSave);
         } catch (Exception e) {
