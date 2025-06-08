@@ -24,9 +24,9 @@ public class Save {
 
     @OneToMany(mappedBy = "save", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pokemon> pokemons = new ArrayList<>();
-    @OneToOne
-    @JoinColumn(name = "trainer_id")
-    private Trainer trainers;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "trainer_id", referencedColumnName = "id")
+    private Trainer trainer;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
@@ -38,12 +38,12 @@ public class Save {
     public Save() {
     }
 
-    public Save(UUID id, String pathJson, String pathSav, List<Pokemon> pokemons, Trainer trainers, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Save(UUID id, String pathJson, String pathSav, List<Pokemon> pokemons, Trainer trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.pathJson = pathJson;
         this.pathSav = pathSav;
         this.pokemons = pokemons;
-        this.trainers = trainers;
+        this.trainer = trainer;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -81,11 +81,11 @@ public class Save {
     }
 
     public Trainer getTrainers() {
-        return trainers;
+        return trainer;
     }
 
-    public void setTrainers(Trainer trainers) {
-        this.trainers = trainers;
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
     }
 
     public LocalDateTime getCreatedAt() {
