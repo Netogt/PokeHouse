@@ -18,17 +18,24 @@ public class Trainer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    @Column(name = "t_id")
     private Integer tID;
+    @Column(name = "s_id")
     private Integer sID;
     private String name;
     private Integer gender;
     private Integer badges;
     private Integer money;
+    @Column(name = "play_time")
     private String playTime;
+    @Column(name = "seen_count")
     private Integer seenCount;
+    @Column(name = "caught_count")
     private Integer caughtCount;
+    @Column(name = "game_version")
     private String gameVersion;
-    private Integer Generation;
+    @Column(name = "game_generation")
+    private Integer gameGeneration;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -49,7 +56,7 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer(UUID id, Integer tID, Integer sID, String name, Integer gender, Integer badges, Integer money, String playTime, Integer seenCount, Integer caughtCount, String gameVersion, Integer generation, User user, Save save, List<Inventory> inventories, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Trainer(UUID id, Integer tID, Integer sID, String name, Integer gender, Integer badges, Integer money, String playTime, Integer seenCount, Integer caughtCount, String gameVersion, Integer gameGeneration, User user, Save save, List<Inventory> inventories, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.tID = tID;
         this.sID = sID;
@@ -61,7 +68,7 @@ public class Trainer {
         this.seenCount = seenCount;
         this.caughtCount = caughtCount;
         this.gameVersion = gameVersion;
-        Generation = generation;
+        this.gameGeneration = gameGeneration;
         this.user = user;
         this.save = save;
         this.inventories = inventories;
@@ -157,12 +164,12 @@ public class Trainer {
         this.gameVersion = gameVersion;
     }
 
-    public Integer getGeneration() {
-        return Generation;
+    public Integer getGameGeneration() {
+        return gameGeneration;
     }
 
-    public void setGeneration(Integer generation) {
-        Generation = generation;
+    public void setGameGeneration(Integer gameGeneration) {
+        this.gameGeneration = gameGeneration;
     }
 
     public User getUser() {
