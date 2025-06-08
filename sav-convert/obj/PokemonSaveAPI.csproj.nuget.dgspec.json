@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\luiz\\area\\pokeworld\\sav-convert\\PokemonSaveAPI.csproj": {}
+    "D:\\Users\\luiz\\area\\PkHouse\\sav-convert\\PokemonSaveAPI.csproj": {}
   },
   "projects": {
-    "D:\\Users\\luiz\\area\\pokeworld\\sav-convert\\PokemonSaveAPI.csproj": {
+    "D:\\Users\\luiz\\area\\PkHouse\\sav-convert\\PokemonSaveAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\luiz\\area\\pokeworld\\sav-convert\\PokemonSaveAPI.csproj",
+        "projectUniqueName": "D:\\Users\\luiz\\area\\PkHouse\\sav-convert\\PokemonSaveAPI.csproj",
         "projectName": "PokemonSaveAPI",
-        "projectPath": "D:\\Users\\luiz\\area\\pokeworld\\sav-convert\\PokemonSaveAPI.csproj",
+        "projectPath": "D:\\Users\\luiz\\area\\PkHouse\\sav-convert\\PokemonSaveAPI.csproj",
         "packagesPath": "C:\\Users\\luizn\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\luiz\\area\\pokeworld\\sav-convert\\obj\\",
+        "outputPath": "D:\\Users\\luiz\\area\\PkHouse\\sav-convert\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
