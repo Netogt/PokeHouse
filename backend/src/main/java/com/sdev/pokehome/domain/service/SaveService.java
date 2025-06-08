@@ -1,6 +1,11 @@
 package com.sdev.pokehome.domain.service;
 
 import com.sdev.pokehome.domain.entity.PokeSav;
+import com.sdev.pokehome.domain.entity.Save;
+import com.sdev.pokehome.domain.entity.Trainer;
+import com.sdev.pokehome.domain.entity.User;
+import com.sdev.pokehome.domain.repository.SaveRepository;
+import com.sdev.pokehome.domain.repository.UserRepository;
 import com.sdev.pokehome.utilities.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -12,6 +17,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -20,9 +27,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Service
-public class FileService {
+public class SaveService {
+    @Autowired
+    SaveRepository saveRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRepository userRepository;
     private static final String UPLOAD_ROOT = "uploads";
     private static final String SAV_DIR = UPLOAD_ROOT + "/sav";
     private static final String JSON_DIR = UPLOAD_ROOT + "/json";
@@ -30,7 +41,7 @@ public class FileService {
     private final WebClient webClient;
     private final Gson gson;
 
-    public FileService(WebClient webClient, Gson gson) {
+    public SaveService(WebClient webClient, Gson gson) {
         this.gson = gson;
         this.webClient = webClient;
 
@@ -59,7 +70,12 @@ public class FileService {
             Response<PokeSav> jsonToObject = this.jsonToObject(convertResponse.content());
             if(jsonToObject.status().equals("error")) throw new Exception(jsonToObject.error());
 
-            Response<String> storeData = userService.storeData(jsonToObject.content());
+            Response<Save> storeSaveDB = this.storeSaveDB(
+                    jsonFilePath.toString(),
+                    filePath.toString());
+            if(storeSaveDB.status().equals("error")) throw new Exception(storeSaveDB.error());
+
+            Response<String> storeData = userService.storeData(jsonToObject.content(), storeSaveDB.content());
             if(storeData.status().equals("error")) throw new Exception(storeData.error());
 
             return Response.success("dados salvo com sucesso");
@@ -84,6 +100,25 @@ public class FileService {
 
             return Response.success(pokeSav);
         } catch (IOException e) {
+            return Response.error(e.getMessage());
+        }
+    }
+
+    private Response<Save> storeSaveDB(String jsonPath, String savePath){
+        try {
+            if(jsonPath.isEmpty() || savePath.isEmpty() ) {
+                throw new Exception("dados invalidos para salvar");
+            }
+
+            Response<User> responseUser = this.userService.getUserByEmail("luiz@gmail.com");
+            if(responseUser.status().equals("error")) throw new Exception(responseUser.error());
+            Save newSave = new Save();
+            newSave.setPathJson(jsonPath);
+            newSave.setPathSav(savePath);
+            newSave.setUser(responseUser.content());
+            saveRepository.saveAndFlush(newSave);
+            return Response.success(newSave);
+        } catch (Exception e) {
             return Response.error(e.getMessage());
         }
     }

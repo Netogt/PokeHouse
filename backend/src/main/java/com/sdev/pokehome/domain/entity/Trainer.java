@@ -41,7 +41,8 @@ public class Trainer {
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore
     private User user;
-    @OneToOne(mappedBy = "trainer")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "save_id", referencedColumnName = "id")
     private Save save;
     @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BagItem> inventories = new ArrayList<>();

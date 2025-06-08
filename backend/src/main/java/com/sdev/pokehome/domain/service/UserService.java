@@ -1,9 +1,8 @@
 package com.sdev.pokehome.domain.service;
 
-import com.sdev.pokehome.domain.entity.PokeSav;
+import com.sdev.pokehome.domain.entity.*;
 import com.sdev.pokehome.domain.dto.UserRequestDTO;
-import com.sdev.pokehome.domain.entity.Trainer;
-import com.sdev.pokehome.domain.entity.User;
+import com.sdev.pokehome.domain.repository.SaveRepository;
 import com.sdev.pokehome.domain.repository.TrainerRepository;
 import com.sdev.pokehome.domain.repository.UserRepository;
 import com.sdev.pokehome.utilities.PokeEnums;
@@ -15,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -23,6 +23,9 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private TrainerRepository trainerRepository;
+    @Autowired
+    private SaveRepository saveRepository;
+
     private final String IMAGE_DIR;
 
     public UserService() {
@@ -88,14 +91,16 @@ public class UserService {
         }
     }
 
-    public Response<String> storeData(PokeSav data){
+    public Response<String> storeData(PokeSav data, Save save){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
 
-            Response<String> setTrainer = this.setTrainer(data);
-            if(setTrainer.status().equals("error")) throw new Exception(setTrainer.error());
-//            this.setPokemons(data);
-//            this.setSave(data);
+            Response<Trainer> storeTrainerSB = this.storeTrainerSB(data, save);
+            if(storeTrainerSB.status().equals("error")) throw new Exception(storeTrainerSB.error());
+//
+//            Response<Pokemon> storePokemonDB = this.storePokemonDB(data, save, storeTrainerSB.content());
+//            if(storePokemonDB.status().equals("error")) throw new Exception(storePokemonDB.error());
+
 
             return Response.success("");
         } catch (Exception e) {
@@ -103,9 +108,12 @@ public class UserService {
         }
     }
 
-    private Response<String> setTrainer(PokeSav data){
+    private Response<Trainer> storeTrainerSB(PokeSav data, Save save){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
+            Response<User> getUser = this.getUserByEmail("luiz@gmail.com");
+            if(getUser.status().equals("error")) throw new Exception(getUser.error());
+
             Trainer newTrainer = new Trainer();
             newTrainer.settID(data.getTid16());
             newTrainer.setsID(data.getSid16());
@@ -118,32 +126,21 @@ public class UserService {
             newTrainer.setCaughtCount(data.getCaughtCount());
             newTrainer.setGameVersion("" + data.getVersion());
             newTrainer.setGameGeneration(data.getGeneration());
-            Response<User> getUser = this.getUserByEmail("luiz@gmail.com");
-            if(getUser.status().equals("error")) throw new Exception(getUser.error());
             newTrainer.setUser(getUser.content());
+            newTrainer.setSave(save);
 
             trainerRepository.saveAndFlush(newTrainer);
-            return Response.success("treinador salvo");
+            return Response.success(newTrainer);
         } catch (Exception e) {
             return Response.error(e.getMessage());
         }
     }
 
-    private Response<String> setPokemons(Object data){
+    private Response<Pokemon> storePokemonDB(Object data, Save save, Trainer trainer){
         try {
             if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
-
-            return Response.success("");
-        } catch (Exception e) {
-            return Response.error(e.getMessage());
-        }
-    }
-
-    private Response<String> setSave(Object data){
-        try {
-            if(data == null) throw new Exception("dados fornecidos invalidos para salvar");
-
-            return Response.success("");
+            Pokemon newPokemon = new Pokemon();
+            return Response.success(newPokemon);
         } catch (Exception e) {
             return Response.error(e.getMessage());
         }
