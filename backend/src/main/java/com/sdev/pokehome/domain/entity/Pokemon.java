@@ -18,42 +18,64 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private Integer pID; // id pokemon
-    private Integer isShiny; // se é shiny
-    private Integer gender; // genero
-    private String species; // especie
-    private String nickname; // apelido
-    private Integer eXP; // xp atual
-    private String nature; // natureza
-    private Integer heldItem; // item que carraga
-    private String ability; // habilidade
-    private Integer currentFriendship; // amizade atula
-    private String language; // indioma
-    private String gameVersion; // versão do jogo que foi capturado
-    private String generation;
-    private String metLocation; // local encontrado
-    private Integer ball; // em que pokebola esta
-    private Integer metLevel; // nivel que foi encontrado
+    @Column(name = "p_id")
+    private Integer pID;
+    @Column(name = "is_shiny")
+    private Integer isShiny;
+    private Integer gender;
+    private String species;
+    private String nickname;
+    @Column(name = "exp")
+    private Integer eXP;
+    private String nature;
+    @Column(name = "held_item")
+    private Integer heldItem;
+    private String ability;
+    @Column(name = "current_friendship")
+    private Integer currentFriendship;
+    @Column(name = "poke_language")
+    private String language;
+    @Column(name = "game_version")
+    private String gameVersion;
+    private Integer generation;
+    @Column(name = "met_location")
+    private String metLocation;
+    private Integer ball;
+    @Column(name = "met_level")
+    private Integer metLevel;
 
     @Lob
     @Convert(converter = JsonConverter.class)
-    private Map<String, Integer> stats; // status
+    private Map<String, Integer> stats;
     @Lob
     @Convert(converter = JsonConverter.class)
-    private Map<String, Integer> ivs; // ivs
+    private Map<String, Integer> ivs;
     @Lob
     @Convert(converter = JsonConverter.class)
-    private Map<String, Integer> evs; // evs
+    private Map<String, Integer> evs;
     @Lob
     @Convert(converter = JsonConverter.class)
     private Map<String, Integer> moves;
 
+    @Column(name = "marking_circle")
     private Boolean markingCircle;
+    @Column(name = "marking_triangle")
     private Boolean markingTriangle;
+    @Column(name = "marking_square")
     private Boolean markingSquare;
+    @Column(name = "marking_heart")
     private Boolean markingHeart;
+    @Column(name = "marking_cross")
+    private Boolean markingCross;
+    @Column(name = "marking_star")
+    private Boolean markingStar;
+    @Column(name = "marking_diamond")
+    private Boolean markingDiamond;
+    @Column(name = "t_id_16")
     private Integer tID16;
+    @Column(name = "original_trainer_name")
     private String originalTrainerName;
+    @Column(name = "original_trainer_gender")
     private Integer originalTrainerGender;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -77,7 +99,7 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public Pokemon(UUID id, Integer pID, Integer isShiny, Integer gender, String species, String nickname, Integer eXP, String nature, Integer heldItem, String ability, Integer currentFriendship, String language, String gameVersion, String generation, String metLocation, Integer ball, Integer metLevel, Map<String, Integer> stats, Map<String, Integer> ivs, Map<String, Integer> evs, Map<String, Integer> moves, Boolean markingCircle, Boolean markingTriangle, Boolean markingSquare, Boolean markingHeart, Integer tID16, String originalTrainerName, Integer originalTrainerGender, User user, Save save, Box box, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Pokemon(UUID id, Integer pID, Integer isShiny, Integer gender, String species, String nickname, Integer eXP, String nature, Integer heldItem, String ability, Integer currentFriendship, String language, String gameVersion, Integer generation, String metLocation, Integer ball, Integer metLevel, Map<String, Integer> stats, Map<String, Integer> ivs, Map<String, Integer> evs, Map<String, Integer> moves, Boolean markingCircle, Boolean markingTriangle, Boolean markingSquare, Boolean markingHeart, Boolean markingCross, Boolean markingStar, Boolean markingDiamond, Integer tID16, String originalTrainerName, Integer originalTrainerGender, User user, Save save, Box box, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.pID = pID;
         this.isShiny = isShiny;
@@ -103,6 +125,9 @@ public class Pokemon {
         this.markingTriangle = markingTriangle;
         this.markingSquare = markingSquare;
         this.markingHeart = markingHeart;
+        this.markingCross = markingCross;
+        this.markingStar = markingStar;
+        this.markingDiamond = markingDiamond;
         this.tID16 = tID16;
         this.originalTrainerName = originalTrainerName;
         this.originalTrainerGender = originalTrainerGender;
@@ -217,11 +242,11 @@ public class Pokemon {
         this.gameVersion = gameVersion;
     }
 
-    public String getGeneration() {
+    public Integer getGeneration() {
         return generation;
     }
 
-    public void setGeneration(String generation) {
+    public void setGeneration(Integer generation) {
         this.generation = generation;
     }
 
@@ -311,6 +336,30 @@ public class Pokemon {
 
     public void setMarkingHeart(Boolean markingHeart) {
         this.markingHeart = markingHeart;
+    }
+
+    public Boolean getMarkingCross() {
+        return markingCross;
+    }
+
+    public void setMarkingCross(Boolean markingCross) {
+        this.markingCross = markingCross;
+    }
+
+    public Boolean getMarkingStar() {
+        return markingStar;
+    }
+
+    public void setMarkingStar(Boolean markingStar) {
+        this.markingStar = markingStar;
+    }
+
+    public Boolean getMarkingDiamond() {
+        return markingDiamond;
+    }
+
+    public void setMarkingDiamond(Boolean markingDiamond) {
+        this.markingDiamond = markingDiamond;
     }
 
     public Integer gettID16() {
