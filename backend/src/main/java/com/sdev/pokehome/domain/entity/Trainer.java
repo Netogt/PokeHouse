@@ -44,7 +44,7 @@ public class Trainer {
     @OneToOne(mappedBy = "trainer")
     private Save save;
     @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Inventory> inventories = new ArrayList<>();
+    private List<BagItem> inventories = new ArrayList<>();
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
@@ -56,7 +56,7 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer(UUID id, Integer tID, Integer sID, String name, Integer gender, Integer badges, Integer money, String playTime, Integer seenCount, Integer caughtCount, String gameVersion, Integer gameGeneration, User user, Save save, List<Inventory> inventories, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Trainer(UUID id, Integer tID, Integer sID, String name, Integer gender, Integer badges, Integer money, String playTime, Integer seenCount, Integer caughtCount, String gameVersion, Integer gameGeneration, User user, Save save, List<BagItem> inventories, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.tID = tID;
         this.sID = sID;
@@ -188,11 +188,11 @@ public class Trainer {
         this.save = save;
     }
 
-    public List<Inventory> getInventories() {
+    public List<BagItem> getInventories() {
         return inventories;
     }
 
-    public void setInventories(List<Inventory> inventories) {
+    public void setInventories(List<BagItem> inventories) {
         this.inventories = inventories;
     }
 

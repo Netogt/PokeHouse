@@ -11,13 +11,16 @@ import java.util.UUID;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "inventory")
-public class Inventory {
+@Table(name = "bag_items")
+public class BagItem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    @Column(name = "item_id")
     private Integer itemID;
+    @Column(name = "item_name")
     private String itemName;
+    @Column(name = "item_count")
     private Integer itemCount;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -32,10 +35,10 @@ public class Inventory {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Inventory() {
+    public BagItem() {
     }
 
-    public Inventory(UUID id, Integer itemID, String itemName, Integer itemCount, Trainer trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public BagItem(UUID id, Integer itemID, String itemName, Integer itemCount, Trainer trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.itemID = itemID;
         this.itemName = itemName;
