@@ -11,12 +11,12 @@ import java.io.IOException;
 
 
 @RestController
-@RequestMapping("/api")
-public class ApiController {
+@RequestMapping("/api/save")
+public class SaveController {
     @Autowired
     FileService fileService;
 
-    @PostMapping("upload/file")
+    @PostMapping("upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             if(file.isEmpty()){
@@ -32,22 +32,4 @@ public class ApiController {
             return  ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-    @GetMapping("convert/obj")
-    public ResponseEntity<String> convert(@RequestParam("jsonName") String jsonName){
-        try {
-            if(jsonName.isEmpty()){
-                throw new IOException("por favor informe o nome do arquivo json");
-            }
-
-            Response<String> response = fileService.jsonToObject(jsonName);
-            if(response.status().equals("error")){
-                throw new IOException(response.error());
-            }
-            return ResponseEntity.ok( response.content());
-        } catch (IOException e) {
-            return  ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
 }

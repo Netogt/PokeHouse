@@ -1,7 +1,8 @@
 package com.sdev.pokehome.domain.service;
 
-import com.sdev.pokehome.domain.dto.PokeSav;
+import com.sdev.pokehome.domain.entity.PokeSav;
 import com.sdev.pokehome.utilities.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class FileService {
+    @Autowired
+    private UserService userService;
     private static final String UPLOAD_ROOT = "uploads";
     private static final String SAV_DIR = UPLOAD_ROOT + "/sav";
     private static final String JSON_DIR = UPLOAD_ROOT + "/json";
@@ -53,33 +56,33 @@ public class FileService {
             Path jsonFilePath = Paths.get(JSON_DIR, jsonFileName);
             Files.writeString(jsonFilePath, convertResponse.content());
 
-            return Response.success(jsonFileName);
+            Response<PokeSav> jsonToObject = this.jsonToObject(convertResponse.content());
+            if(jsonToObject.status().equals("error")) throw new Exception(jsonToObject.error());
+
+            Response<String> storeData = userService.storeData(jsonToObject.content());
+            if(storeData.status().equals("error")) throw new Exception(storeData.error());
+
+            return Response.success("dados salvo com sucesso");
 
         } catch (Exception e) {
             return Response.error(e.getMessage());
         }
     }
 
-    public Response<String> jsonToObject(String jsonFileName){
+    public Response<PokeSav> jsonToObject(String json){
         try{
-            if (jsonFileName == null || jsonFileName.contains("..") || jsonFileName.contains("/")) {
-                throw new IllegalArgumentException("Nome de arquivo inválido");
+            if (json == null) {
+                throw new IllegalArgumentException("Json não é valido");
             }
 
-            Path jsonFilePath = Paths.get(JSON_DIR, jsonFileName);
-            if (!Files.exists(jsonFilePath)) {
-                throw new IOException("Arquivo não encontrado: " + jsonFileName);
-            }
-
-            String jsonContent = Files.readString(jsonFilePath);
             PokeSav pokeSav;
             try {
-                pokeSav = gson.fromJson(jsonContent, PokeSav.class);
+                pokeSav = gson.fromJson(json, PokeSav.class);
             } catch (Exception e) {
                 throw new IOException("Erro ao desserializar JSON: " + e.getMessage());
             }
 
-            return Response.success(pokeSav.getOT());
+            return Response.success(pokeSav);
         } catch (IOException e) {
             return Response.error(e.getMessage());
         }

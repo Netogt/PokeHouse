@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokemonSaveAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10adaa2d7a6a143236cf2863e4c40f729158c107")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a061d2ae810aff69f0785bb5c30042a3c0d3cbc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokemonSaveAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokemonSaveAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

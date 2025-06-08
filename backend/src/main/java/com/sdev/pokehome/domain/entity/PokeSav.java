@@ -1,29 +1,71 @@
-package com.sdev.pokehome.domain.dto;
+package com.sdev.pokehome.domain.entity;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
+import java.util.Map;
 
 public class PokeSav {
+    @SerializedName("Version")
     private int version;
-    private long securityKey;
-    private int partyCount;
-    private int money;
-    private int coin;
-    private String rivalName;
-    private int language;
-    private int generation;
-    private String ot;
-    private int gender;
-    private long id32;
-    private int tid16;
-    private int sid16;
-    private int badges;
-    List<Inventory> inventory;
-    private String playTimeString;
-     List<PartyData> partyData;
-    private int seenCount;
-    private int caughtCount;
-     List<BoxData> boxData;
 
-    // Getters and Setters
+    @SerializedName("SecurityKey")
+    private long securityKey;
+
+    @SerializedName("PartyCount")
+    private int partyCount;
+
+    @SerializedName("Money")
+    private int money;
+
+    @SerializedName("Coin")
+    private int coin;
+
+    @SerializedName("RivalName")
+    private String rivalName;
+
+    @SerializedName("Language")
+    private int language;
+
+    @SerializedName("Generation")
+    private int generation;
+
+    @SerializedName("OT")
+    private String ot;
+
+    @SerializedName("Gender")
+    private int gender;
+
+    @SerializedName("ID32")
+    private long id32;
+
+    @SerializedName("TID16")
+    private int tid16;
+
+    @SerializedName("SID16")
+    private int sid16;
+
+    @SerializedName("Badges")
+    private int badges;
+
+    @SerializedName("Inventory")
+    private List<Inventory> inventory;
+
+    @SerializedName("PlayTimeString")
+    private String playTimeString;
+
+    @SerializedName("PartyData")
+    private List<PartyData> partyData;
+
+    @SerializedName("SeenCount")
+    private int seenCount;
+
+    @SerializedName("CaughtCount")
+    private int caughtCount;
+
+    @SerializedName("BoxData")
+    private List<Object> boxData;
+
+    // Getters and setters
     public int getVersion() { return version; }
     public void setVersion(int version) { this.version = version; }
     public long getSecurityKey() { return securityKey; }
@@ -62,4486 +104,2769 @@ public class PokeSav {
     public void setSeenCount(int seenCount) { this.seenCount = seenCount; }
     public int getCaughtCount() { return caughtCount; }
     public void setCaughtCount(int caughtCount) { this.caughtCount = caughtCount; }
-    public List<BoxData> getBoxData() { return boxData; }
-    public void setBoxData(List<BoxData> boxData) { this.boxData = boxData; }
-}
-
-class Inventory {
-    private int type;
-    private Object info;
-    private int maxCount;
-    private List<Item> items;
-    private int offset;
-    private int pouchDataSize;
-    private long securityKey;
-    private int count;
-    private boolean isCramped;
-
-    // Getters and Setters
-    public int getType() { return type; }
-    public void setType(int type) { this.type = type; }
-    public Object getInfo() { return info; }
-    public void setInfo(Object info) { this.info = info; }
-    public int getMaxCount() { return maxCount; }
-    public void setMaxCount(int maxCount) { this.maxCount = maxCount; }
-    public List<Item> getItems() { return items; }
-    public void setItems(List<Item> items) { this.items = items; }
-    public int getOffset() { return offset; }
-    public void setOffset(int offset) { this.offset = offset; }
-    public int getPouchDataSize() { return pouchDataSize; }
-    public void setPouchDataSize(int pouchDataSize) { this.pouchDataSize = pouchDataSize; }
-    public long getSecurityKey() { return securityKey; }
-    public void setSecurityKey(long securityKey) { this.securityKey = securityKey; }
-    public int getCount() { return count; }
-    public void setCount(int count) { this.count = count; }
-    public boolean isCramped() { return isCramped; }
-    public void setCramped(boolean isCramped) { this.isCramped = isCramped; }
-}
-
-class Item {
-    private int index;
-    private int count;
-
-    // Getters and Setters
-    public int getIndex() { return index; }
-    public void setIndex(int index) { this.index = index; }
-    public int getCount() { return count; }
-    public void setCount(int count) { this.count = count; }
-}
-
-class PartyData {
-    private String data;
-    private int sizeParty;
-    private int sizeStored;
-    private int context;
-    private PersonalInfo personalInfo;
-    private int trashCharCountTrainer;
-    private int trashCharCountNickname;
-    private long pid;
-    private long id32;
-    private int tid16;
-    private int sid16;
-    private String nickname;
-    private int language;
-    private boolean flagIsBadEgg;
-    private boolean flagHasSpecies;
-    private boolean flagIsEgg;
-    private String originalTrainerName;
-    private int markingValue;
-    private int checksum;
-    private int sanity;
-    private int speciesInternal;
-    private int species;
-    private int spriteItem;
-    private int heldItem;
-    private int exp;
-    private int ppUps;
-    private int move1PPUps;
-    private int move2PPUps;
-    private int move3PPUps;
-    private int move4PPUps;
-    private int originalTrainerFriendship;
-    private int move1;
-    private int move2;
-    private int move3;
-    private int move4;
-    private int move1PP;
-    private int move2PP;
-    private int move3PP;
-    private int move4PP;
-    private int evHP;
-    private int evATK;
-    private int evDEF;
-    private int evSPE;
-    private int evSPA;
-    private int evSPD;
-    private int contestCool;
-    private int contestBeauty;
-    private int contestCute;
-    private int contestSmart;
-    private int contestTough;
-    private int contestSheen;
-    private int pokerusState;
-    private int pokerusDays;
-    private int pokerusStrain;
-    private int metLocation;
-    private int origins;
-    private int metLevel;
-    private int version;
-    private int ball;
-    private int originalTrainerGender;
-    private long iv32;
-    private int ivHP;
-    private int ivATK;
-    private int ivDEF;
-    private int ivSPE;
-    private int ivSPA;
-    private int ivSPD;
-    private boolean isEgg;
-    private boolean abilityBit;
-    private int rib0;
-    private int ribbonCountG3Cool;
-    private int ribbonCountG3Beauty;
-    private int ribbonCountG3Cute;
-    private int ribbonCountG3Smart;
-    private int ribbonCountG3Tough;
-    private boolean ribbonChampionG3;
-    private boolean ribbonWinning;
-    private boolean ribbonVictory;
-    private boolean ribbonArtist;
-    private boolean ribbonEffort;
-    private boolean ribbonChampionBattle;
-    private boolean ribbonChampionRegional;
-    private boolean ribbonChampionNational;
-    private boolean ribbonCountry;
-    private boolean ribbonNational;
-    private boolean ribbonEarth;
-    private boolean ribbonWorld;
-    private boolean unused1;
-    private boolean unused2;
-    private boolean unused3;
-    private boolean unused4;
-    private boolean fatefulEncounter;
-    private int ribbonCount;
-    private int statusCondition;
-    private int statLevel;
-    private int heldMailID;
-    private int statHPCurrent;
-    private int statHPMax;
-    private int statATK;
-    private int statDEF;
-    private int statSPE;
-    private int statSPA;
-    private int statSPD;
-    private boolean checksumValid;
-    private int maxMoveID;
-    private int maxSpeciesID;
-    private int maxAbilityID;
-    private int maxItemID;
-    private int maxBallID;
-    private int maxGameID;
-    private int maxIV;
-    private int maxEV;
-    private int maxStringLengthTrainer;
-    private int maxStringLengthNickname;
-    private int psv;
-    private int tsv;
-    private boolean japanese;
-    private int ability;
-    private long encryptionConstant;
-    private int nature;
-    private boolean isNicknamed;
-    private int gender;
-    private int characteristic;
-    private int currentFriendship;
-    private int currentHandler;
-    private int eggLocation;
-    private int markingCount;
-    private boolean markingCircle;
-    private boolean markingTriangle;
-    private boolean markingSquare;
-    private boolean markingHeart;
-    private int form;
-    private int abilityNumber;
-    private boolean valid;
-    private String extension;
-    private String encryptedPartyData;
-    private String encryptedBoxData;
-    private String decryptedPartyData;
-    private String decryptedBoxData;
-    private int format;
-    private int trainerIDDisplayFormat;
-    private int statNature;
-    private int trainerTID7;
-    private int trainerSID7;
-    private int displayTID;
-    private int displaySID;
-    private boolean korean;
-    private int metYear;
-    private int metMonth;
-    private int metDay;
-    private String handlingTrainerName;
-    private int handlingTrainerGender;
-    private int handlingTrainerFriendship;
-    private Object metDate;
-    private int eggYear;
-    private int eggMonth;
-    private int eggDay;
-    private Object eggMetDate;
-    private int relearnMove1;
-    private int relearnMove2;
-    private int relearnMove3;
-    private int relearnMove4;
-    private int minGameID;
-    private boolean isShiny;
-    private int shinyXor;
-    private boolean e;
-    private boolean frlg;
-    private boolean pt;
-    private boolean hgss;
-    private boolean bw;
-    private boolean b2w2;
-    private boolean xy;
-    private boolean ao;
-    private boolean sm;
-    private boolean usum;
-    private boolean go;
-    private boolean vc1;
-    private boolean vc2;
-    private boolean lgpe;
-    private boolean swsh;
-    private boolean bdsp;
-    private boolean la;
-    private boolean sv;
-    private boolean goLgpe;
-    private boolean goHome;
-    private boolean vc;
-    private boolean gg;
-    private boolean gen9;
-    private boolean gen8;
-    private boolean gen7;
-    private boolean gen6;
-    private boolean gen5;
-    private boolean gen4;
-    private boolean gen3;
-    private boolean gen2;
-    private boolean gen1;
-    private boolean genU;
-    private int generation;
-    private boolean isPokerusInfected;
-    private boolean isPokerusCured;
-    private int currentLevel;
-    private int ivTotal;
-    private int maximumIV;
-    private int flawlessIVCount;
-    private String fileName;
-    private String fileNameWithoutExtension;
-    private List<Integer> ivs;
-    private List<Integer> stats;
-    private List<Integer> moves;
-    private int moveCount;
-    private List<Integer> relearnMoves;
-    private int pidAbility;
-    private int hpPower;
-    private int hpType;
-    private boolean wasEgg;
-    private boolean wasTradedEgg;
-    private boolean isTradedEgg;
-    private boolean isUntraded;
-    private boolean isOriginValid;
-    private boolean hasOriginalMetLocation;
-    private int potentialRating;
-    private boolean partyStatsPresent;
-    private int hpBitValPower;
-    private int hpBitValType;
-
-    public String getData() {
-        return data;
-    }
+    public List<Object> getBoxData() { return boxData; }
+    public void setBoxData(List<Object> boxData) { this.boxData = boxData; }
 
-    public void setData(String data) {
-        this.data = data;
-    }
+    public static class Inventory {
+        @SerializedName("Type")
+        private int type;
 
-    public int getSizeParty() {
-        return sizeParty;
-    }
+        @SerializedName("Info")
+        private Map<String, Object> info;
 
-    public void setSizeParty(int sizeParty) {
-        this.sizeParty = sizeParty;
-    }
+        @SerializedName("MaxCount")
+        private int maxCount;
 
-    public int getSizeStored() {
-        return sizeStored;
-    }
+        @SerializedName("Items")
+        private List<Item> items;
 
-    public void setSizeStored(int sizeStored) {
-        this.sizeStored = sizeStored;
-    }
+        @SerializedName("Offset")
+        private int offset;
 
-    public int getContext() {
-        return context;
-    }
+        @SerializedName("PouchDataSize")
+        private int pouchDataSize;
 
-    public void setContext(int context) {
-        this.context = context;
-    }
+        @SerializedName("SecurityKey")
+        private long securityKey;
 
-    public PersonalInfo getPersonalInfo() {
-        return personalInfo;
-    }
+        @SerializedName("Count")
+        private int count;
 
-    public void setPersonalInfo(PersonalInfo personalInfo) {
-        this.personalInfo = personalInfo;
-    }
+        @SerializedName("IsCramped")
+        private boolean isCramped;
 
-    public int getTrashCharCountTrainer() {
-        return trashCharCountTrainer;
+        // Getters and setters
+        public int getType() { return type; }
+        public void setType(int type) { this.type = type; }
+        public Map<String, Object> getInfo() { return info; }
+        public void setInfo(Map<String, Object> info) { this.info = info; }
+        public int getMaxCount() { return maxCount; }
+        public void setMaxCount(int maxCount) { this.maxCount = maxCount; }
+        public List<Item> getItems() { return items; }
+        public void setItems(List<Item> items) { this.items = items; }
+        public int getOffset() { return offset; }
+        public void setOffset(int offset) { this.offset = offset; }
+        public int getPouchDataSize() { return pouchDataSize; }
+        public void setPouchDataSize(int pouchDataSize) { this.pouchDataSize = pouchDataSize; }
+        public long getSecurityKey() { return securityKey; }
+        public void setSecurityKey(long securityKey) { this.securityKey = securityKey; }
+        public int getCount() { return count; }
+        public void setCount(int count) { this.count = count; }
+        public boolean isCramped() { return isCramped; }
+        public void setCramped(boolean cramped) { isCramped = cramped; }
     }
 
-    public void setTrashCharCountTrainer(int trashCharCountTrainer) {
-        this.trashCharCountTrainer = trashCharCountTrainer;
-    }
+    public static class Item {
+        @SerializedName("Index")
+        private int index;
 
-    public int getTrashCharCountNickname() {
-        return trashCharCountNickname;
-    }
+        @SerializedName("Count")
+        private int count;
 
-    public void setTrashCharCountNickname(int trashCharCountNickname) {
-        this.trashCharCountNickname = trashCharCountNickname;
+        // Getters and setters
+        public int getIndex() { return index; }
+        public void setIndex(int index) { this.index = index; }
+        public int getCount() { return count; }
+        public void setCount(int count) { this.count = count; }
     }
 
-    public long getPid() {
-        return pid;
-    }
+    public static class PartyData {
+        @SerializedName("Data")
+        private String data;
 
-    public void setPid(long pid) {
-        this.pid = pid;
-    }
+        @SerializedName("SIZE_PARTY")
+        private int sizeParty;
 
-    public long getId32() {
-        return id32;
-    }
+        @SerializedName("SIZE_STORED")
+        private int sizeStored;
 
-    public void setId32(long id32) {
-        this.id32 = id32;
-    }
+        @SerializedName("Context")
+        private int context;
 
-    public int getTid16() {
-        return tid16;
-    }
+        @SerializedName("PersonalInfo")
+        private PersonalInfo personalInfo;
 
-    public void setTid16(int tid16) {
-        this.tid16 = tid16;
-    }
+        @SerializedName("TrashCharCountTrainer")
+        private int trashCharCountTrainer;
 
-    public int getSid16() {
-        return sid16;
-    }
+        @SerializedName("TrashCharCountNickname")
+        private int trashCharCountNickname;
 
-    public void setSid16(int sid16) {
-        this.sid16 = sid16;
-    }
+        @SerializedName("PID")
+        private long pid;
 
-    public String getNickname() {
-        return nickname;
-    }
+        @SerializedName("ID32")
+        private long id32;
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+        @SerializedName("TID16")
+        private int tid16;
 
-    public int getLanguage() {
-        return language;
-    }
+        @SerializedName("SID16")
+        private int sid16;
 
-    public void setLanguage(int language) {
-        this.language = language;
-    }
+        @SerializedName("Nickname")
+        private String nickname;
 
-    public boolean isFlagIsBadEgg() {
-        return flagIsBadEgg;
-    }
+        @SerializedName("Language")
+        private int language;
 
-    public void setFlagIsBadEgg(boolean flagIsBadEgg) {
-        this.flagIsBadEgg = flagIsBadEgg;
-    }
+        @SerializedName("FlagIsBadEgg")
+        private boolean flagIsBadEgg;
 
-    public boolean isFlagHasSpecies() {
-        return flagHasSpecies;
-    }
+        @SerializedName("FlagHasSpecies")
+        private boolean flagHasSpecies;
 
-    public void setFlagHasSpecies(boolean flagHasSpecies) {
-        this.flagHasSpecies = flagHasSpecies;
-    }
+        @SerializedName("FlagIsEgg")
+        private boolean flagIsEgg;
 
-    public boolean isFlagIsEgg() {
-        return flagIsEgg;
-    }
+        @SerializedName("OriginalTrainerName")
+        private String originalTrainerName;
 
-    public void setFlagIsEgg(boolean flagIsEgg) {
-        this.flagIsEgg = flagIsEgg;
-    }
+        @SerializedName("MarkingValue")
+        private int markingValue;
 
-    public String getOriginalTrainerName() {
-        return originalTrainerName;
-    }
+        @SerializedName("Checksum")
+        private int checksum;
 
-    public void setOriginalTrainerName(String originalTrainerName) {
-        this.originalTrainerName = originalTrainerName;
-    }
+        @SerializedName("Sanity")
+        private int sanity;
 
-    public int getMarkingValue() {
-        return markingValue;
-    }
+        @SerializedName("SpeciesInternal")
+        private int speciesInternal;
 
-    public void setMarkingValue(int markingValue) {
-        this.markingValue = markingValue;
-    }
+        @SerializedName("Species")
+        private int species;
 
-    public int getChecksum() {
-        return checksum;
-    }
+        @SerializedName("SpriteItem")
+        private int spriteItem;
 
-    public void setChecksum(int checksum) {
-        this.checksum = checksum;
-    }
+        @SerializedName("HeldItem")
+        private int heldItem;
 
-    public int getSanity() {
-        return sanity;
-    }
+        @SerializedName("EXP")
+        private int exp;
 
-    public void setSanity(int sanity) {
-        this.sanity = sanity;
-    }
+        @SerializedName("PPUps")
+        private int ppUps;
 
-    public int getSpeciesInternal() {
-        return speciesInternal;
-    }
+        @SerializedName("Move1_PPUps")
+        private int move1PPUps;
 
-    public void setSpeciesInternal(int speciesInternal) {
-        this.speciesInternal = speciesInternal;
-    }
+        @SerializedName("Move2_PPUps")
+        private int move2PPUps;
 
-    public int getSpecies() {
-        return species;
-    }
+        @SerializedName("Move3_PPUps")
+        private int move3PPUps;
 
-    public void setSpecies(int species) {
-        this.species = species;
-    }
+        @SerializedName("Move4_PPUps")
+        private int move4PPUps;
 
-    public int getSpriteItem() {
-        return spriteItem;
-    }
+        @SerializedName("OriginalTrainerFriendship")
+        private int originalTrainerFriendship;
 
-    public void setSpriteItem(int spriteItem) {
-        this.spriteItem = spriteItem;
-    }
+        @SerializedName("Move1")
+        private int move1;
 
-    public int getHeldItem() {
-        return heldItem;
-    }
+        @SerializedName("Move2")
+        private int move2;
 
-    public void setHeldItem(int heldItem) {
-        this.heldItem = heldItem;
-    }
+        @SerializedName("Move3")
+        private int move3;
 
-    public int getExp() {
-        return exp;
-    }
+        @SerializedName("Move4")
+        private int move4;
 
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
+        @SerializedName("Move1_PP")
+        private int move1PP;
 
-    public int getPpUps() {
-        return ppUps;
-    }
+        @SerializedName("Move2_PP")
+        private int move2PP;
 
-    public void setPpUps(int ppUps) {
-        this.ppUps = ppUps;
-    }
+        @SerializedName("Move3_PP")
+        private int move3PP;
 
-    public int getMove1PPUps() {
-        return move1PPUps;
-    }
+        @SerializedName("Move4_PP")
+        private int move4PP;
 
-    public void setMove1PPUps(int move1PPUps) {
-        this.move1PPUps = move1PPUps;
-    }
+        @SerializedName("EV_HP")
+        private int evHP;
 
-    public int getMove2PPUps() {
-        return move2PPUps;
-    }
+        @SerializedName("EV_ATK")
+        private int evATK;
 
-    public void setMove2PPUps(int move2PPUps) {
-        this.move2PPUps = move2PPUps;
-    }
+        @SerializedName("EV_DEF")
+        private int evDEF;
 
-    public int getMove3PPUps() {
-        return move3PPUps;
-    }
+        @SerializedName("EV_SPE")
+        private int evSPE;
 
-    public void setMove3PPUps(int move3PPUps) {
-        this.move3PPUps = move3PPUps;
-    }
+        @SerializedName("EV_SPA")
+        private int evSPA;
 
-    public int getMove4PPUps() {
-        return move4PPUps;
-    }
+        @SerializedName("EV_SPD")
+        private int evSPD;
 
-    public void setMove4PPUps(int move4PPUps) {
-        this.move4PPUps = move4PPUps;
-    }
+        @SerializedName("ContestCool")
+        private int contestCool;
 
-    public int getOriginalTrainerFriendship() {
-        return originalTrainerFriendship;
-    }
+        @SerializedName("ContestBeauty")
+        private int contestBeauty;
 
-    public void setOriginalTrainerFriendship(int originalTrainerFriendship) {
-        this.originalTrainerFriendship = originalTrainerFriendship;
-    }
+        @SerializedName("ContestCute")
+        private int contestCute;
 
-    public int getMove1() {
-        return move1;
-    }
+        @SerializedName("ContestSmart")
+        private int contestSmart;
 
-    public void setMove1(int move1) {
-        this.move1 = move1;
-    }
+        @SerializedName("ContestTough")
+        private int contestTough;
 
-    public int getMove2() {
-        return move2;
-    }
+        @SerializedName("ContestSheen")
+        private int contestSheen;
 
-    public void setMove2(int move2) {
-        this.move2 = move2;
-    }
+        @SerializedName("PokerusState")
+        private int pokerusState;
 
-    public int getMove3() {
-        return move3;
-    }
+        @SerializedName("PokerusDays")
+        private int pokerusDays;
 
-    public void setMove3(int move3) {
-        this.move3 = move3;
-    }
+        @SerializedName("PokerusStrain")
+        private int pokerusStrain;
 
-    public int getMove4() {
-        return move4;
-    }
+        @SerializedName("MetLocation")
+        private int metLocation;
 
-    public void setMove4(int move4) {
-        this.move4 = move4;
-    }
+        @SerializedName("Origins")
+        private int origins;
 
-    public int getMove1PP() {
-        return move1PP;
-    }
+        @SerializedName("MetLevel")
+        private int metLevel;
 
-    public void setMove1PP(int move1PP) {
-        this.move1PP = move1PP;
-    }
+        @SerializedName("Version")
+        private int version;
 
-    public int getMove2PP() {
-        return move2PP;
-    }
+        @SerializedName("Ball")
+        private int ball;
 
-    public void setMove2PP(int move2PP) {
-        this.move2PP = move2PP;
-    }
+        @SerializedName("OriginalTrainerGender")
+        private int originalTrainerGender;
 
-    public int getMove3PP() {
-        return move3PP;
-    }
+        @SerializedName("IV32")
+        private long iv32;
 
-    public void setMove3PP(int move3PP) {
-        this.move3PP = move3PP;
-    }
+        @SerializedName("IV_HP")
+        private int ivHP;
 
-    public int getMove4PP() {
-        return move4PP;
-    }
+        @SerializedName("IV_ATK")
+        private int ivATK;
 
-    public void setMove4PP(int move4PP) {
-        this.move4PP = move4PP;
-    }
+        @SerializedName("IV_DEF")
+        private int ivDEF;
 
-    public int getEvHP() {
-        return evHP;
-    }
+        @SerializedName("IV_SPE")
+        private int ivSPE;
 
-    public void setEvHP(int evHP) {
-        this.evHP = evHP;
-    }
+        @SerializedName("IV_SPA")
+        private int ivSPA;
 
-    public int getEvATK() {
-        return evATK;
-    }
+        @SerializedName("IV_SPD")
+        private int ivSPD;
 
-    public void setEvATK(int evATK) {
-        this.evATK = evATK;
-    }
+        @SerializedName("IsEgg")
+        private boolean isEgg;
 
-    public int getEvDEF() {
-        return evDEF;
-    }
+        @SerializedName("AbilityBit")
+        private boolean abilityBit;
 
-    public void setEvDEF(int evDEF) {
-        this.evDEF = evDEF;
-    }
+        @SerializedName("RIB0")
+        private int rib0;
 
-    public int getEvSPE() {
-        return evSPE;
-    }
+        @SerializedName("RibbonCountG3Cool")
+        private int ribbonCountG3Cool;
 
-    public void setEvSPE(int evSPE) {
-        this.evSPE = evSPE;
-    }
+        @SerializedName("RibbonCountG3Beauty")
+        private int ribbonCountG3Beauty;
 
-    public int getEvSPA() {
-        return evSPA;
-    }
+        @SerializedName("RibbonCountG3Cute")
+        private int ribbonCountG3Cute;
 
-    public void setEvSPA(int evSPA) {
-        this.evSPA = evSPA;
-    }
+        @SerializedName("RibbonCountG3Smart")
+        private int ribbonCountG3Smart;
 
-    public int getEvSPD() {
-        return evSPD;
-    }
+        @SerializedName("RibbonCountG3Tough")
+        private int ribbonCountG3Tough;
 
-    public void setEvSPD(int evSPD) {
-        this.evSPD = evSPD;
-    }
+        @SerializedName("RibbonChampionG3")
+        private boolean ribbonChampionG3;
 
-    public int getContestCool() {
-        return contestCool;
-    }
+        @SerializedName("RibbonWinning")
+        private boolean ribbonWinning;
 
-    public void setContestCool(int contestCool) {
-        this.contestCool = contestCool;
-    }
+        @SerializedName("RibbonVictory")
+        private boolean ribbonVictory;
 
-    public int getContestBeauty() {
-        return contestBeauty;
-    }
+        @SerializedName("RibbonArtist")
+        private boolean ribbonArtist;
 
-    public void setContestBeauty(int contestBeauty) {
-        this.contestBeauty = contestBeauty;
-    }
+        @SerializedName("RibbonEffort")
+        private boolean ribbonEffort;
 
-    public int getContestCute() {
-        return contestCute;
-    }
+        @SerializedName("RibbonChampionBattle")
+        private boolean ribbonChampionBattle;
 
-    public void setContestCute(int contestCute) {
-        this.contestCute = contestCute;
-    }
+        @SerializedName("RibbonChampionRegional")
+        private boolean ribbonChampionRegional;
 
-    public int getContestSmart() {
-        return contestSmart;
-    }
+        @SerializedName("RibbonChampionNational")
+        private boolean ribbonChampionNational;
 
-    public void setContestSmart(int contestSmart) {
-        this.contestSmart = contestSmart;
-    }
+        @SerializedName("RibbonCountry")
+        private boolean ribbonCountry;
 
-    public int getContestTough() {
-        return contestTough;
-    }
+        @SerializedName("RibbonNational")
+        private boolean ribbonNational;
 
-    public void setContestTough(int contestTough) {
-        this.contestTough = contestTough;
-    }
+        @SerializedName("RibbonEarth")
+        private boolean ribbonEarth;
 
-    public int getContestSheen() {
-        return contestSheen;
-    }
+        @SerializedName("RibbonWorld")
+        private boolean ribbonWorld;
 
-    public void setContestSheen(int contestSheen) {
-        this.contestSheen = contestSheen;
-    }
+        @SerializedName("Unused1")
+        private boolean unused1;
 
-    public int getPokerusState() {
-        return pokerusState;
-    }
+        @SerializedName("Unused2")
+        private boolean unused2;
 
-    public void setPokerusState(int pokerusState) {
-        this.pokerusState = pokerusState;
-    }
+        @SerializedName("Unused3")
+        private boolean unused3;
 
-    public int getPokerusDays() {
-        return pokerusDays;
-    }
+        @SerializedName("Unused4")
+        private boolean unused4;
 
-    public void setPokerusDays(int pokerusDays) {
-        this.pokerusDays = pokerusDays;
-    }
+        @SerializedName("FatefulEncounter")
+        private boolean fatefulEncounter;
 
-    public int getPokerusStrain() {
-        return pokerusStrain;
-    }
+        @SerializedName("RibbonCount")
+        private int ribbonCount;
 
-    public void setPokerusStrain(int pokerusStrain) {
-        this.pokerusStrain = pokerusStrain;
-    }
+        @SerializedName("Status_Condition")
+        private int statusCondition;
 
-    public int getMetLocation() {
-        return metLocation;
-    }
+        @SerializedName("Stat_Level")
+        private int statLevel;
 
-    public void setMetLocation(int metLocation) {
-        this.metLocation = metLocation;
-    }
+        @SerializedName("HeldMailID")
+        private int heldMailID;
 
-    public int getOrigins() {
-        return origins;
-    }
+        @SerializedName("Stat_HPCurrent")
+        private int statHPCurrent;
 
-    public void setOrigins(int origins) {
-        this.origins = origins;
-    }
+        @SerializedName("Stat_HPMax")
+        private int statHPMax;
 
-    public int getMetLevel() {
-        return metLevel;
-    }
+        @SerializedName("Stat_ATK")
+        private int statATK;
 
-    public void setMetLevel(int metLevel) {
-        this.metLevel = metLevel;
-    }
+        @SerializedName("Stat_DEF")
+        private int statDEF;
 
-    public int getVersion() {
-        return version;
-    }
+        @SerializedName("Stat_SPE")
+        private int statSPE;
 
-    public void setVersion(int version) {
-        this.version = version;
-    }
+        @SerializedName("Stat_SPA")
+        private int statSPA;
 
-    public int getBall() {
-        return ball;
-    }
+        @SerializedName("Stat_SPD")
+        private int statSPD;
 
-    public void setBall(int ball) {
-        this.ball = ball;
-    }
+        @SerializedName("ChecksumValid")
+        private boolean checksumValid;
 
-    public int getOriginalTrainerGender() {
-        return originalTrainerGender;
-    }
+        @SerializedName("MaxMoveID")
+        private int maxMoveID;
 
-    public void setOriginalTrainerGender(int originalTrainerGender) {
-        this.originalTrainerGender = originalTrainerGender;
-    }
+        @SerializedName("MaxSpeciesID")
+        private int maxSpeciesID;
 
-    public long getIv32() {
-        return iv32;
-    }
+        @SerializedName("MaxAbilityID")
+        private int maxAbilityID;
 
-    public void setIv32(long iv32) {
-        this.iv32 = iv32;
-    }
+        @SerializedName("MaxItemID")
+        private int maxItemID;
 
-    public int getIvHP() {
-        return ivHP;
-    }
+        @SerializedName("MaxBallID")
+        private int maxBallID;
 
-    public void setIvHP(int ivHP) {
-        this.ivHP = ivHP;
-    }
+        @SerializedName("MaxGameID")
+        private int maxGameID;
 
-    public int getIvATK() {
-        return ivATK;
-    }
+        @SerializedName("MaxIV")
+        private int maxIV;
 
-    public void setIvATK(int ivATK) {
-        this.ivATK = ivATK;
-    }
+        @SerializedName("MaxEV")
+        private int maxEV;
 
-    public int getIvDEF() {
-        return ivDEF;
-    }
+        @SerializedName("MaxStringLengthTrainer")
+        private int maxStringLengthTrainer;
 
-    public void setIvDEF(int ivDEF) {
-        this.ivDEF = ivDEF;
-    }
+        @SerializedName("MaxStringLengthNickname")
+        private int maxStringLengthNickname;
 
-    public int getIvSPE() {
-        return ivSPE;
-    }
+        @SerializedName("PSV")
+        private int psv;
 
-    public void setIvSPE(int ivSPE) {
-        this.ivSPE = ivSPE;
-    }
+        @SerializedName("TSV")
+        private int tsv;
 
-    public int getIvSPA() {
-        return ivSPA;
-    }
+        @SerializedName("Japanese")
+        private boolean japanese;
 
-    public void setIvSPA(int ivSPA) {
-        this.ivSPA = ivSPA;
-    }
+        @SerializedName("Ability")
+        private int ability;
 
-    public int getIvSPD() {
-        return ivSPD;
-    }
+        @SerializedName("EncryptionConstant")
+        private long encryptionConstant;
 
-    public void setIvSPD(int ivSPD) {
-        this.ivSPD = ivSPD;
-    }
+        @SerializedName("Nature")
+        private int nature;
 
-    public boolean isEgg() {
-        return isEgg;
-    }
+        @SerializedName("IsNicknamed")
+        private boolean isNicknamed;
 
-    public void setEgg(boolean egg) {
-        isEgg = egg;
-    }
+        @SerializedName("Gender")
+        private int gender;
 
-    public boolean isAbilityBit() {
-        return abilityBit;
-    }
+        @SerializedName("Characteristic")
+        private int characteristic;
 
-    public void setAbilityBit(boolean abilityBit) {
-        this.abilityBit = abilityBit;
-    }
+        @SerializedName("CurrentFriendship")
+        private int currentFriendship;
 
-    public int getRib0() {
-        return rib0;
-    }
+        @SerializedName("CurrentHandler")
+        private int currentHandler;
 
-    public void setRib0(int rib0) {
-        this.rib0 = rib0;
-    }
+        @SerializedName("EggLocation")
+        private int eggLocation;
 
-    public int getRibbonCountG3Cool() {
-        return ribbonCountG3Cool;
-    }
+        @SerializedName("MarkingCount")
+        private int markingCount;
 
-    public void setRibbonCountG3Cool(int ribbonCountG3Cool) {
-        this.ribbonCountG3Cool = ribbonCountG3Cool;
-    }
+        @SerializedName("MarkingCircle")
+        private boolean markingCircle;
 
-    public int getRibbonCountG3Beauty() {
-        return ribbonCountG3Beauty;
-    }
+        @SerializedName("MarkingTriangle")
+        private boolean markingTriangle;
 
-    public void setRibbonCountG3Beauty(int ribbonCountG3Beauty) {
-        this.ribbonCountG3Beauty = ribbonCountG3Beauty;
-    }
+        @SerializedName("MarkingSquare")
+        private boolean markingSquare;
 
-    public int getRibbonCountG3Cute() {
-        return ribbonCountG3Cute;
-    }
+        @SerializedName("MarkingHeart")
+        private boolean markingHeart;
 
-    public void setRibbonCountG3Cute(int ribbonCountG3Cute) {
-        this.ribbonCountG3Cute = ribbonCountG3Cute;
-    }
+        @SerializedName("Form")
+        private int form;
 
-    public int getRibbonCountG3Smart() {
-        return ribbonCountG3Smart;
-    }
+        @SerializedName("AbilityNumber")
+        private int abilityNumber;
 
-    public void setRibbonCountG3Smart(int ribbonCountG3Smart) {
-        this.ribbonCountG3Smart = ribbonCountG3Smart;
-    }
+        @SerializedName("Valid")
+        private boolean valid;
 
-    public int getRibbonCountG3Tough() {
-        return ribbonCountG3Tough;
-    }
+        @SerializedName("Extension")
+        private String extension;
 
-    public void setRibbonCountG3Tough(int ribbonCountG3Tough) {
-        this.ribbonCountG3Tough = ribbonCountG3Tough;
-    }
+        @SerializedName("EncryptedPartyData")
+        private String encryptedPartyData;
 
-    public boolean isRibbonChampionG3() {
-        return ribbonChampionG3;
-    }
+        @SerializedName("EncryptedBoxData")
+        private String encryptedBoxData;
 
-    public void setRibbonChampionG3(boolean ribbonChampionG3) {
-        this.ribbonChampionG3 = ribbonChampionG3;
-    }
+        @SerializedName("DecryptedPartyData")
+        private String decryptedPartyData;
 
-    public boolean isRibbonWinning() {
-        return ribbonWinning;
-    }
+        @SerializedName("DecryptedBoxData")
+        private String decryptedBoxData;
 
-    public void setRibbonWinning(boolean ribbonWinning) {
-        this.ribbonWinning = ribbonWinning;
-    }
+        @SerializedName("Format")
+        private int format;
 
-    public boolean isRibbonVictory() {
-        return ribbonVictory;
-    }
+        @SerializedName("TrainerIDDisplayFormat")
+        private int trainerIDDisplayFormat;
 
-    public void setRibbonVictory(boolean ribbonVictory) {
-        this.ribbonVictory = ribbonVictory;
-    }
+        @SerializedName("StatNature")
+        private int statNature;
 
-    public boolean isRibbonArtist() {
-        return ribbonArtist;
-    }
+        @SerializedName("TrainerTID7")
+        private Integer trainerTID7;
 
-    public void setRibbonArtist(boolean ribbonArtist) {
-        this.ribbonArtist = ribbonArtist;
-    }
+        @SerializedName("TrainerSID7")
+        private Integer trainerSID7;
 
-    public boolean isRibbonEffort() {
-        return ribbonEffort;
-    }
+        @SerializedName("DisplayTID")
+        private int displayTID;
 
-    public void setRibbonEffort(boolean ribbonEffort) {
-        this.ribbonEffort = ribbonEffort;
-    }
+        @SerializedName("DisplaySID")
+        private int displaySID;
 
-    public boolean isRibbonChampionBattle() {
-        return ribbonChampionBattle;
-    }
+        @SerializedName("Korean")
+        private boolean korean;
 
-    public void setRibbonChampionBattle(boolean ribbonChampionBattle) {
-        this.ribbonChampionBattle = ribbonChampionBattle;
-    }
+        @SerializedName("MetYear")
+        private int metYear;
 
-    public boolean isRibbonChampionRegional() {
-        return ribbonChampionRegional;
-    }
+        @SerializedName("MetMonth")
+        private int metMonth;
 
-    public void setRibbonChampionRegional(boolean ribbonChampionRegional) {
-        this.ribbonChampionRegional = ribbonChampionRegional;
-    }
+        @SerializedName("MetDay")
+        private int metDay;
 
-    public boolean isRibbonChampionNational() {
-        return ribbonChampionNational;
-    }
+        @SerializedName("MetDate")
+        private String metDate;
 
-    public void setRibbonChampionNational(boolean ribbonChampionNational) {
-        this.ribbonChampionNational = ribbonChampionNational;
-    }
+        @SerializedName("HandlingTrainerName")
+        private String handlingTrainerName;
 
-    public boolean isRibbonCountry() {
-        return ribbonCountry;
-    }
+        @SerializedName("HandlingTrainerGender")
+        private int handlingTrainerGender;
 
-    public void setRibbonCountry(boolean ribbonCountry) {
-        this.ribbonCountry = ribbonCountry;
-    }
+        @SerializedName("HandlingTrainerFriendship")
+        private int handlingTrainerFriendship;
 
-    public boolean isRibbonNational() {
-        return ribbonNational;
-    }
+        @SerializedName("EggYear")
+        private int eggYear;
 
-    public void setRibbonNational(boolean ribbonNational) {
-        this.ribbonNational = ribbonNational;
-    }
+        @SerializedName("EggMonth")
+        private int eggMonth;
 
-    public boolean isRibbonEarth() {
-        return ribbonEarth;
-    }
+        @SerializedName("EggDay")
+        private int eggDay;
 
-    public void setRibbonEarth(boolean ribbonEarth) {
-        this.ribbonEarth = ribbonEarth;
-    }
+        @SerializedName("EggMetDate")
+        private String eggMetDate;
 
-    public boolean isRibbonWorld() {
-        return ribbonWorld;
-    }
+        @SerializedName("RelearnMove1")
+        private Integer relearnMove1;
 
-    public void setRibbonWorld(boolean ribbonWorld) {
-        this.ribbonWorld = ribbonWorld;
-    }
+        @SerializedName("relearnMove2")
+        private Integer relearnMove2;
 
-    public boolean isUnused1() {
-        return unused1;
-    }
+        @SerializedName("RelearnMove3")
+        private int relearnMove3;
 
-    public void setUnused1(boolean unused1) {
-        this.unused1 = unused1;
-    }
+        @SerializedName("RelearnMove4")
+        private int relearnMove4;
 
-    public boolean isUnused2() {
-        return unused2;
-    }
+        @SerializedName("MinGameID")
+        private int minGameID;
 
-    public void setUnused2(boolean unused2) {
-        this.unused2 = unused2;
-    }
+        @SerializedName("IsShiny")
+        private boolean isShiny;
 
-    public boolean isUnused3() {
-        return unused3;
-    }
+        @SerializedName("ShinyXor")
+        private int shinyXor;
 
-    public void setUnused3(boolean unused3) {
-        this.unused3 = unused3;
-    }
+        @SerializedName("E")
+        private boolean e;
 
-    public boolean isUnused4() {
-        return unused4;
-    }
+        @SerializedName("FRLG")
+        private boolean frlg;
 
-    public void setUnused4(boolean unused4) {
-        this.unused4 = unused4;
-    }
+        @SerializedName("Pt")
+        private boolean pt;
 
-    public boolean isFatefulEncounter() {
-        return fatefulEncounter;
-    }
+        @SerializedName("HGSS")
+        private boolean hgss;
 
-    public void setFatefulEncounter(boolean fatefulEncounter) {
-        this.fatefulEncounter = fatefulEncounter;
-    }
+        @SerializedName("BW")
+        private boolean bw;
 
-    public int getRibbonCount() {
-        return ribbonCount;
-    }
+        @SerializedName("BB2W2")
+        private boolean b2w2;
 
-    public void setRibbonCount(int ribbonCount) {
-        this.ribbonCount = ribbonCount;
-    }
+        @SerializedName("XY")
+        private boolean xy;
 
-    public int getStatusCondition() {
-        return statusCondition;
-    }
+        @SerializedName("AO")
+        private boolean ao;
 
-    public void setStatusCondition(int statusCondition) {
-        this.statusCondition = statusCondition;
-    }
+        @SerializedName("SM")
+        private boolean sm;
 
-    public int getStatLevel() {
-        return statLevel;
-    }
+        @SerializedName("USUM")
+        private boolean usum;
 
-    public void setStatLevel(int statLevel) {
-        this.statLevel = statLevel;
-    }
+        @SerializedName("GO")
+        private boolean go;
 
-    public int getHeldMailID() {
-        return heldMailID;
-    }
+        @SerializedName("VVC1")
+        private boolean vc1;
 
-    public void setHeldMailID(int heldMailID) {
-        this.heldMailID = heldMailID;
-    }
+        @SerializedName("VVC2")
+        private boolean vc2;
 
-    public int getStatHPCurrent() {
-        return statHPCurrent;
-    }
+        @SerializedName("LGPE")
+        private boolean lgpe;
 
-    public void setStatHPCurrent(int statHPCurrent) {
-        this.statHPCurrent = statHPCurrent;
-    }
+        @SerializedName("SWSH")
+        private boolean swsh;
 
-    public int getStatHPMax() {
-        return statHPMax;
-    }
+        @SerializedName("BDSP")
+        private boolean bdsp;
 
-    public void setStatHPMax(int statHPMax) {
-        this.statHPMax = statHPMax;
-    }
+        @SerializedName("LA")
+        private String la;
 
-    public int getStatATK() {
-        return statATK;
-    }
+        @SerializedName("SSV")
+        private boolean sv;
 
-    public void setStatATK(int statATK) {
-        this.statATK = statATK;
-    }
+        private boolean svv;
 
-    public int getStatDEF() {
-        return statDEF;
-    }
+        @SerializedName("GO_LG_LGPE")
+        private boolean goLGPE;
 
-    public void setStatDEF(int statDEF) {
-        this.statDEF = statDEF;
-    }
+        @SerializedName("GO_HOME")
+        private String goHome;
 
-    public int getStatSPE() {
-        return statSPE;
-    }
+        @SerializedName("VVC")
+        private boolean vc;
 
-    public void setStatSPE(int statSPE) {
-        this.statSPE = statSPE;
-    }
+        @SerializedName("GGGG")
+        private boolean gg;
 
-    public int getStatSPA() {
-        return statSPA;
-    }
+        @SerializedName("Gen9")
+        private String g;
 
-    public void setStatSPA(int statSPA) {
-        this.statSPA = statSPA;
-    }
+        @SerializedName("en8")
+        private boolean gen8;
 
-    public int getStatSPD() {
-        return statSPD;
-    }
+        @SerializedName("Gen7")
+        private String gen7;
 
-    public void setStatSPD(int statSPD) {
-        this.statSPD = statSPD;
-    }
+        @SerializedName("Gen8")
+        private boolean gen6;
 
-    public boolean isChecksumValid() {
-        return checksumValid;
-    }
+        @SerializedName("Gen5")
+        private String gen5;
 
-    public void setChecksumValid(boolean checksumValid) {
-        this.checksumValid = checksumValid;
-    }
+        @SerializedName("Gen4")
+        private String gen4;
 
-    public int getMaxMoveID() {
-        return maxMoveID;
-    }
+        @SerializedName("Gen3")
+        private boolean gen3;
 
-    public void setMaxMoveID(int maxMoveID) {
-        this.maxMoveID = maxMoveID;
-    }
+        @SerializedName("Gen2")
+        private String gen2;
 
-    public int getMaxSpeciesID() {
-        return maxSpeciesID;
-    }
+        @SerializedName("Gen1")
+        private boolean gen1;
 
-    public void setMaxSpeciesID(int maxSpeciesID) {
-        this.maxSpeciesID = maxSpeciesID;
-    }
+        @SerializedName("GenU")
+        private String gen;
 
-    public int getMaxAbilityID() {
-        return maxAbilityID;
-    }
+        @SerializedName("Generation")
+        private int generation;
 
-    public void setMaxAbilityID(int maxAbilityID) {
-        this.maxAbilityID = maxAbilityID;
-    }
+        @SerializedName("IsPokerusInfected")
+        private boolean isPokerusInfected;
 
-    public int getMaxItemID() {
-        return maxItemID;
-    }
+        @SerializedName("IsPokerusCured")
+        private boolean isPokerusCured;
 
-    public void setMaxItemID(int maxItemID) {
-        this.maxItemID = maxItemID;
-    }
+        @SerializedName("CurrentLevel")
+        private int currentLevel;
 
-    public int getMaxBallID() {
-        return maxBallID;
-    }
+        @SerializedName("IVTotal")
+        private int ivTotal;
 
-    public void setMaxBallID(int maxBallID) {
-        this.maxBallID = maxBallID;
-    }
+        @SerializedName("MaximumIV")
+        private int maximumIV;
 
-    public int getMaxGameID() {
-        return maxGameID;
-    }
+        @SerializedName("FlawlessIVCount")
+        private int flawlessIVCount;
 
-    public void setMaxGameID(int maxGameID) {
-        this.maxGameID = maxGameID;
-    }
+        @SerializedName("FileName")
+        private String fileName;
 
-    public int getMaxIV() {
-        return maxIV;
-    }
+        @SerializedName("FileNameWithoutExtension")
+        private String fileNameWithoutExtension;
 
-    public void setMaxIV(int maxIV) {
-        this.maxIV = maxIV;
-    }
+        @SerializedName("IVs")
+        private int[] ivs;
 
-    public int getMaxEV() {
-        return maxEV;
-    }
+        @SerializedName("Stats")
+        private int[] stats;
 
-    public void setMaxEV(int maxEV) {
-        this.maxEV = maxEV;
-    }
+        @SerializedName("Moves")
+        private int[] moves;
 
-    public int getMaxStringLengthTrainer() {
-        return maxStringLengthTrainer;
-    }
+        @SerializedName("MoveCount")
+        private int moveCount;
 
-    public void setMaxStringLengthTrainer(int maxStringLengthTrainer) {
-        this.maxStringLengthTrainer = maxStringLengthTrainer;
-    }
+        @SerializedName("RelearnMoves")
+        private int[] relearnMoves;
 
-    public int getMaxStringLengthNickname() {
-        return maxStringLengthNickname;
-    }
+        @SerializedName("PIDAbility")
+        private int pidAbility;
 
-    public void setMaxStringLengthNickname(int maxStringLengthNickname) {
-        this.maxStringLengthNickname = maxStringLengthNickname;
-    }
+        @SerializedName("HPPower")
+        private int hpPower;
 
-    public int getPsv() {
-        return psv;
-    }
+        @SerializedName("HPType")
+        private int hpType;
 
-    public void setPsv(int psv) {
-        this.psv = psv;
-    }
+        @SerializedName("WasEgg")
+        private boolean wasEgg;
 
-    public int getTsv() {
-        return tsv;
-    }
+        @SerializedName("WasTradedEgg")
+        private boolean wasTradedEgg;
 
-    public void setTsv(int tsv) {
-        this.tsv = tsv;
-    }
+        @SerializedName("IsTradedEgg")
+        private boolean isTradedEgg;
 
-    public boolean isJapanese() {
-        return japanese;
-    }
+        @SerializedName("IsUntraded")
+        private boolean isUntraded;
 
-    public void setJapanese(boolean japanese) {
-        this.japanese = japanese;
-    }
+        @SerializedName("IsOriginValid")
+        private boolean isOriginValid;
 
-    public int getAbility() {
-        return ability;
-    }
+        @SerializedName("HasOriginalMetLocation")
+        private boolean hasOriginalMetLocation;
 
-    public void setAbility(int ability) {
-        this.ability = ability;
-    }
+        @SerializedName("PotentialRating")
+        private int potentialRating;
 
-    public long getEncryptionConstant() {
-        return encryptionConstant;
-    }
+        @SerializedName("PartyStatsPresent")
+        private boolean partyStatsPresent;
 
-    public void setEncryptionConstant(long encryptionConstant) {
-        this.encryptionConstant = encryptionConstant;
-    }
+        @SerializedName("HPBitValPower")
+        private int hpBitValPower;
 
-    public int getNature() {
-        return nature;
-    }
+        @SerializedName("HPBitValType")
+        private int hpBitValType;
 
-    public void setNature(int nature) {
-        this.nature = nature;
-    }
+        public String getData() {
+            return data;
+        }
 
-    public boolean isNicknamed() {
-        return isNicknamed;
-    }
+        public void setData(String data) {
+            this.data = data;
+        }
 
-    public void setNicknamed(boolean nicknamed) {
-        isNicknamed = nicknamed;
-    }
+        public int getSizeParty() {
+            return sizeParty;
+        }
 
-    public int getGender() {
-        return gender;
-    }
+        public void setSizeParty(int sizeParty) {
+            this.sizeParty = sizeParty;
+        }
 
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
+        public int getSizeStored() {
+            return sizeStored;
+        }
 
-    public int getCharacteristic() {
-        return characteristic;
-    }
+        public void setSizeStored(int sizeStored) {
+            this.sizeStored = sizeStored;
+        }
 
-    public void setCharacteristic(int characteristic) {
-        this.characteristic = characteristic;
-    }
+        public int getContext() {
+            return context;
+        }
 
-    public int getCurrentFriendship() {
-        return currentFriendship;
-    }
+        public void setContext(int context) {
+            this.context = context;
+        }
 
-    public void setCurrentFriendship(int currentFriendship) {
-        this.currentFriendship = currentFriendship;
-    }
+        public PersonalInfo getPersonalInfo() {
+            return personalInfo;
+        }
 
-    public int getCurrentHandler() {
-        return currentHandler;
-    }
+        public void setPersonalInfo(PersonalInfo personalInfo) {
+            this.personalInfo = personalInfo;
+        }
 
-    public void setCurrentHandler(int currentHandler) {
-        this.currentHandler = currentHandler;
-    }
+        public int getTrashCharCountTrainer() {
+            return trashCharCountTrainer;
+        }
 
-    public int getEggLocation() {
-        return eggLocation;
-    }
+        public void setTrashCharCountTrainer(int trashCharCountTrainer) {
+            this.trashCharCountTrainer = trashCharCountTrainer;
+        }
 
-    public void setEggLocation(int eggLocation) {
-        this.eggLocation = eggLocation;
-    }
+        public int getTrashCharCountNickname() {
+            return trashCharCountNickname;
+        }
 
-    public int getMarkingCount() {
-        return markingCount;
-    }
+        public void setTrashCharCountNickname(int trashCharCountNickname) {
+            this.trashCharCountNickname = trashCharCountNickname;
+        }
 
-    public void setMarkingCount(int markingCount) {
-        this.markingCount = markingCount;
-    }
+        public long getPid() {
+            return pid;
+        }
 
-    public boolean isMarkingCircle() {
-        return markingCircle;
-    }
+        public void setPid(long pid) {
+            this.pid = pid;
+        }
 
-    public void setMarkingCircle(boolean markingCircle) {
-        this.markingCircle = markingCircle;
-    }
+        public long getId32() {
+            return id32;
+        }
 
-    public boolean isMarkingTriangle() {
-        return markingTriangle;
-    }
+        public void setId32(long id32) {
+            this.id32 = id32;
+        }
 
-    public void setMarkingTriangle(boolean markingTriangle) {
-        this.markingTriangle = markingTriangle;
-    }
+        public int getTid16() {
+            return tid16;
+        }
 
-    public boolean isMarkingSquare() {
-        return markingSquare;
-    }
+        public void setTid16(int tid16) {
+            this.tid16 = tid16;
+        }
 
-    public void setMarkingSquare(boolean markingSquare) {
-        this.markingSquare = markingSquare;
-    }
-
-    public boolean isMarkingHeart() {
-        return markingHeart;
-    }
-
-    public void setMarkingHeart(boolean markingHeart) {
-        this.markingHeart = markingHeart;
-    }
-
-    public int getForm() {
-        return form;
-    }
-
-    public void setForm(int form) {
-        this.form = form;
-    }
-
-    public int getAbilityNumber() {
-        return abilityNumber;
-    }
-
-    public void setAbilityNumber(int abilityNumber) {
-        this.abilityNumber = abilityNumber;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public String getExtension() {
-        return extension;
-    }
-
-    public void setExtension(String extension) {
-        this.extension = extension;
-    }
-
-    public String getEncryptedPartyData() {
-        return encryptedPartyData;
-    }
-
-    public void setEncryptedPartyData(String encryptedPartyData) {
-        this.encryptedPartyData = encryptedPartyData;
-    }
-
-    public String getEncryptedBoxData() {
-        return encryptedBoxData;
-    }
-
-    public void setEncryptedBoxData(String encryptedBoxData) {
-        this.encryptedBoxData = encryptedBoxData;
-    }
-
-    public String getDecryptedPartyData() {
-        return decryptedPartyData;
-    }
-
-    public void setDecryptedPartyData(String decryptedPartyData) {
-        this.decryptedPartyData = decryptedPartyData;
-    }
-
-    public String getDecryptedBoxData() {
-        return decryptedBoxData;
-    }
-
-    public void setDecryptedBoxData(String decryptedBoxData) {
-        this.decryptedBoxData = decryptedBoxData;
-    }
-
-    public int getFormat() {
-        return format;
-    }
-
-    public void setFormat(int format) {
-        this.format = format;
-    }
-
-    public int getTrainerIDDisplayFormat() {
-        return trainerIDDisplayFormat;
-    }
-
-    public void setTrainerIDDisplayFormat(int trainerIDDisplayFormat) {
-        this.trainerIDDisplayFormat = trainerIDDisplayFormat;
-    }
-
-    public int getStatNature() {
-        return statNature;
-    }
-
-    public void setStatNature(int statNature) {
-        this.statNature = statNature;
-    }
-
-    public int getTrainerTID7() {
-        return trainerTID7;
-    }
-
-    public void setTrainerTID7(int trainerTID7) {
-        this.trainerTID7 = trainerTID7;
-    }
-
-    public int getTrainerSID7() {
-        return trainerSID7;
-    }
-
-    public void setTrainerSID7(int trainerSID7) {
-        this.trainerSID7 = trainerSID7;
-    }
-
-    public int getDisplayTID() {
-        return displayTID;
-    }
-
-    public void setDisplayTID(int displayTID) {
-        this.displayTID = displayTID;
-    }
-
-    public int getDisplaySID() {
-        return displaySID;
-    }
-
-    public void setDisplaySID(int displaySID) {
-        this.displaySID = displaySID;
-    }
-
-    public boolean isKorean() {
-        return korean;
-    }
-
-    public void setKorean(boolean korean) {
-        this.korean = korean;
-    }
-
-    public int getMetYear() {
-        return metYear;
-    }
-
-    public void setMetYear(int metYear) {
-        this.metYear = metYear;
-    }
-
-    public int getMetMonth() {
-        return metMonth;
-    }
-
-    public void setMetMonth(int metMonth) {
-        this.metMonth = metMonth;
-    }
-
-    public int getMetDay() {
-        return metDay;
-    }
-
-    public void setMetDay(int metDay) {
-        this.metDay = metDay;
-    }
-
-    public String getHandlingTrainerName() {
-        return handlingTrainerName;
-    }
-
-    public void setHandlingTrainerName(String handlingTrainerName) {
-        this.handlingTrainerName = handlingTrainerName;
-    }
-
-    public int getHandlingTrainerGender() {
-        return handlingTrainerGender;
-    }
-
-    public void setHandlingTrainerGender(int handlingTrainerGender) {
-        this.handlingTrainerGender = handlingTrainerGender;
-    }
-
-    public int getHandlingTrainerFriendship() {
-        return handlingTrainerFriendship;
-    }
-
-    public void setHandlingTrainerFriendship(int handlingTrainerFriendship) {
-        this.handlingTrainerFriendship = handlingTrainerFriendship;
-    }
-
-    public Object getMetDate() {
-        return metDate;
-    }
-
-    public void setMetDate(Object metDate) {
-        this.metDate = metDate;
-    }
-
-    public int getEggYear() {
-        return eggYear;
-    }
-
-    public void setEggYear(int eggYear) {
-        this.eggYear = eggYear;
-    }
-
-    public int getEggMonth() {
-        return eggMonth;
-    }
-
-    public void setEggMonth(int eggMonth) {
-        this.eggMonth = eggMonth;
-    }
-
-    public int getEggDay() {
-        return eggDay;
-    }
-
-    public void setEggDay(int eggDay) {
-        this.eggDay = eggDay;
-    }
-
-    public Object getEggMetDate() {
-        return eggMetDate;
-    }
-
-    public void setEggMetDate(Object eggMetDate) {
-        this.eggMetDate = eggMetDate;
-    }
-
-    public int getRelearnMove1() {
-        return relearnMove1;
-    }
-
-    public void setRelearnMove1(int relearnMove1) {
-        this.relearnMove1 = relearnMove1;
-    }
-
-    public int getRelearnMove2() {
-        return relearnMove2;
-    }
-
-    public void setRelearnMove2(int relearnMove2) {
-        this.relearnMove2 = relearnMove2;
-    }
-
-    public int getRelearnMove3() {
-        return relearnMove3;
-    }
-
-    public void setRelearnMove3(int relearnMove3) {
-        this.relearnMove3 = relearnMove3;
-    }
-
-    public int getRelearnMove4() {
-        return relearnMove4;
-    }
-
-    public void setRelearnMove4(int relearnMove4) {
-        this.relearnMove4 = relearnMove4;
-    }
-
-    public int getMinGameID() {
-        return minGameID;
-    }
-
-    public void setMinGameID(int minGameID) {
-        this.minGameID = minGameID;
-    }
-
-    public boolean isShiny() {
-        return isShiny;
-    }
-
-    public void setShiny(boolean shiny) {
-        isShiny = shiny;
-    }
-
-    public int getShinyXor() {
-        return shinyXor;
-    }
-
-    public void setShinyXor(int shinyXor) {
-        this.shinyXor = shinyXor;
-    }
-
-    public boolean isE() {
-        return e;
-    }
-
-    public void setE(boolean e) {
-        this.e = e;
-    }
-
-    public boolean isFrlg() {
-        return frlg;
-    }
-
-    public void setFrlg(boolean frlg) {
-        this.frlg = frlg;
-    }
-
-    public boolean isPt() {
-        return pt;
-    }
-
-    public void setPt(boolean pt) {
-        this.pt = pt;
-    }
-
-    public boolean isHgss() {
-        return hgss;
-    }
-
-    public void setHgss(boolean hgss) {
-        this.hgss = hgss;
-    }
-
-    public boolean isBw() {
-        return bw;
-    }
-
-    public void setBw(boolean bw) {
-        this.bw = bw;
-    }
-
-    public boolean isB2w2() {
-        return b2w2;
-    }
-
-    public void setB2w2(boolean b2w2) {
-        this.b2w2 = b2w2;
-    }
-
-    public boolean isXy() {
-        return xy;
-    }
-
-    public void setXy(boolean xy) {
-        this.xy = xy;
-    }
-
-    public boolean isAo() {
-        return ao;
-    }
-
-    public void setAo(boolean ao) {
-        this.ao = ao;
-    }
-
-    public boolean isSm() {
-        return sm;
-    }
-
-    public void setSm(boolean sm) {
-        this.sm = sm;
-    }
-
-    public boolean isUsum() {
-        return usum;
-    }
-
-    public void setUsum(boolean usum) {
-        this.usum = usum;
-    }
-
-    public boolean isGo() {
-        return go;
-    }
-
-    public void setGo(boolean go) {
-        this.go = go;
-    }
-
-    public boolean isVc1() {
-        return vc1;
-    }
-
-    public void setVc1(boolean vc1) {
-        this.vc1 = vc1;
-    }
-
-    public boolean isVc2() {
-        return vc2;
-    }
-
-    public void setVc2(boolean vc2) {
-        this.vc2 = vc2;
-    }
-
-    public boolean isLgpe() {
-        return lgpe;
-    }
-
-    public void setLgpe(boolean lgpe) {
-        this.lgpe = lgpe;
-    }
-
-    public boolean isSwsh() {
-        return swsh;
-    }
-
-    public void setSwsh(boolean swsh) {
-        this.swsh = swsh;
-    }
-
-    public boolean isBdsp() {
-        return bdsp;
-    }
-
-    public void setBdsp(boolean bdsp) {
-        this.bdsp = bdsp;
-    }
-
-    public boolean isLa() {
-        return la;
-    }
-
-    public void setLa(boolean la) {
-        this.la = la;
-    }
-
-    public boolean isSv() {
-        return sv;
-    }
-
-    public void setSv(boolean sv) {
-        this.sv = sv;
-    }
-
-    public boolean isGoLgpe() {
-        return goLgpe;
-    }
-
-    public void setGoLgpe(boolean goLgpe) {
-        this.goLgpe = goLgpe;
-    }
-
-    public boolean isGoHome() {
-        return goHome;
-    }
-
-    public void setGoHome(boolean goHome) {
-        this.goHome = goHome;
-    }
-
-    public boolean isVc() {
-        return vc;
-    }
-
-    public void setVc(boolean vc) {
-        this.vc = vc;
-    }
-
-    public boolean isGg() {
-        return gg;
-    }
-
-    public void setGg(boolean gg) {
-        this.gg = gg;
-    }
-
-    public boolean isGen9() {
-        return gen9;
-    }
-
-    public void setGen9(boolean gen9) {
-        this.gen9 = gen9;
-    }
-
-    public boolean isGen8() {
-        return gen8;
-    }
-
-    public void setGen8(boolean gen8) {
-        this.gen8 = gen8;
-    }
-
-    public boolean isGen7() {
-        return gen7;
-    }
-
-    public void setGen7(boolean gen7) {
-        this.gen7 = gen7;
-    }
-
-    public boolean isGen6() {
-        return gen6;
-    }
-
-    public void setGen6(boolean gen6) {
-        this.gen6 = gen6;
-    }
-
-    public boolean isGen5() {
-        return gen5;
-    }
-
-    public void setGen5(boolean gen5) {
-        this.gen5 = gen5;
-    }
-
-    public boolean isGen4() {
-        return gen4;
-    }
-
-    public void setGen4(boolean gen4) {
-        this.gen4 = gen4;
-    }
-
-    public boolean isGen3() {
-        return gen3;
-    }
-
-    public void setGen3(boolean gen3) {
-        this.gen3 = gen3;
-    }
-
-    public boolean isGen2() {
-        return gen2;
-    }
-
-    public void setGen2(boolean gen2) {
-        this.gen2 = gen2;
-    }
-
-    public boolean isGen1() {
-        return gen1;
-    }
-
-    public void setGen1(boolean gen1) {
-        this.gen1 = gen1;
-    }
-
-    public boolean isGenU() {
-        return genU;
-    }
-
-    public void setGenU(boolean genU) {
-        this.genU = genU;
-    }
-
-    public int getGeneration() {
-        return generation;
-    }
-
-    public void setGeneration(int generation) {
-        this.generation = generation;
-    }
-
-    public boolean isPokerusInfected() {
-        return isPokerusInfected;
-    }
-
-    public void setPokerusInfected(boolean pokerusInfected) {
-        isPokerusInfected = pokerusInfected;
-    }
-
-    public boolean isPokerusCured() {
-        return isPokerusCured;
-    }
-
-    public void setPokerusCured(boolean pokerusCured) {
-        isPokerusCured = pokerusCured;
-    }
-
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
-
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
-    }
-
-    public int getIvTotal() {
-        return ivTotal;
-    }
-
-    public void setIvTotal(int ivTotal) {
-        this.ivTotal = ivTotal;
-    }
-
-    public int getMaximumIV() {
-        return maximumIV;
-    }
-
-    public void setMaximumIV(int maximumIV) {
-        this.maximumIV = maximumIV;
-    }
-
-    public int getFlawlessIVCount() {
-        return flawlessIVCount;
-    }
-
-    public void setFlawlessIVCount(int flawlessIVCount) {
-        this.flawlessIVCount = flawlessIVCount;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileNameWithoutExtension() {
-        return fileNameWithoutExtension;
-    }
-
-    public void setFileNameWithoutExtension(String fileNameWithoutExtension) {
-        this.fileNameWithoutExtension = fileNameWithoutExtension;
-    }
-
-    public List<Integer> getIvs() {
-        return ivs;
-    }
-
-    public void setIvs(List<Integer> ivs) {
-        this.ivs = ivs;
-    }
-
-    public List<Integer> getStats() {
-        return stats;
-    }
-
-    public void setStats(List<Integer> stats) {
-        this.stats = stats;
-    }
-
-    public List<Integer> getMoves() {
-        return moves;
-    }
-
-    public void setMoves(List<Integer> moves) {
-        this.moves = moves;
-    }
-
-    public int getMoveCount() {
-        return moveCount;
-    }
-
-    public void setMoveCount(int moveCount) {
-        this.moveCount = moveCount;
-    }
-
-    public List<Integer> getRelearnMoves() {
-        return relearnMoves;
-    }
-
-    public void setRelearnMoves(List<Integer> relearnMoves) {
-        this.relearnMoves = relearnMoves;
-    }
-
-    public int getPidAbility() {
-        return pidAbility;
-    }
-
-    public void setPidAbility(int pidAbility) {
-        this.pidAbility = pidAbility;
-    }
-
-    public int getHpPower() {
-        return hpPower;
-    }
-
-    public void setHpPower(int hpPower) {
-        this.hpPower = hpPower;
-    }
-
-    public int getHpType() {
-        return hpType;
-    }
-
-    public void setHpType(int hpType) {
-        this.hpType = hpType;
-    }
-
-    public boolean isWasEgg() {
-        return wasEgg;
-    }
-
-    public void setWasEgg(boolean wasEgg) {
-        this.wasEgg = wasEgg;
-    }
-
-    public boolean isWasTradedEgg() {
-        return wasTradedEgg;
-    }
-
-    public void setWasTradedEgg(boolean wasTradedEgg) {
-        this.wasTradedEgg = wasTradedEgg;
-    }
-
-    public boolean isTradedEgg() {
-        return isTradedEgg;
-    }
-
-    public void setTradedEgg(boolean tradedEgg) {
-        isTradedEgg = tradedEgg;
-    }
-
-    public boolean isUntraded() {
-        return isUntraded;
-    }
-
-    public void setUntraded(boolean untraded) {
-        isUntraded = untraded;
-    }
-
-    public boolean isOriginValid() {
-        return isOriginValid;
-    }
-
-    public void setOriginValid(boolean originValid) {
-        isOriginValid = originValid;
-    }
-
-    public boolean isHasOriginalMetLocation() {
-        return hasOriginalMetLocation;
-    }
-
-    public void setHasOriginalMetLocation(boolean hasOriginalMetLocation) {
-        this.hasOriginalMetLocation = hasOriginalMetLocation;
-    }
-
-    public int getPotentialRating() {
-        return potentialRating;
-    }
-
-    public void setPotentialRating(int potentialRating) {
-        this.potentialRating = potentialRating;
-    }
-
-    public boolean isPartyStatsPresent() {
-        return partyStatsPresent;
-    }
-
-    public void setPartyStatsPresent(boolean partyStatsPresent) {
-        this.partyStatsPresent = partyStatsPresent;
-    }
-
-    public int getHpBitValPower() {
-        return hpBitValPower;
-    }
-
-    public void setHpBitValPower(int hpBitValPower) {
-        this.hpBitValPower = hpBitValPower;
-    }
-
-    public int getHpBitValType() {
-        return hpBitValType;
-    }
-
-    public void setHpBitValType(int hpBitValType) {
-        this.hpBitValType = hpBitValType;
-    }
-}
-
-class BoxData {
-    private String data;
-    private int sizeParty;
-    private int sizeStored;
-    private int context;
-    private PersonalInfo personalInfo;
-    private int trashCharCountTrainer;
-    private int trashCharCountNickname;
-    private long pid;
-    private long id32;
-    private int tid16;
-    private int sid16;
-    private String nickname;
-    private int language;
-    private boolean flagIsBadEgg;
-    private boolean flagHasSpecies;
-    private boolean flagIsEgg;
-    private String originalTrainerName;
-    private int markingValue;
-    private int checksum;
-    private int sanity;
-    private int speciesInternal;
-    private int species;
-    private int spriteItem;
-    private int heldItem;
-    private int exp;
-    private int ppUps;
-    private int move1PPUps;
-    private int move2PPUps;
-    private int move3PPUps;
-    private int move4PPUps;
-    private int originalTrainerFriendship;
-    private int move1;
-    private int move2;
-    private int move3;
-    private int move4;
-    private int move1PP;
-    private int move2PP;
-    private int move3PP;
-    private int move4PP;
-    private int evHP;
-    private int evATK;
-    private int evDEF;
-    private int evSPE;
-    private int evSPA;
-    private int evSPD;
-    private int contestCool;
-    private int contestBeauty;
-    private int contestCute;
-    private int contestSmart;
-    private int contestTough;
-    private int contestSheen;
-    private int pokerusState;
-    private int pokerusDays;
-    private int pokerusStrain;
-    private int metLocation;
-    private int origins;
-    private int metLevel;
-    private int version;
-    private int ball;
-    private int originalTrainerGender;
-    private long iv32;
-    private int ivHP;
-    private int ivATK;
-    private int ivDEF;
-    private int ivSPE;
-    private int ivSPA;
-    private int ivSPD;
-    private boolean isEgg;
-    private boolean abilityBit;
-    private int rib0;
-    private int ribbonCountG3Cool;
-    private int ribbonCountG3Beauty;
-    private int ribbonCountG3Cute;
-    private int ribbonCountG3Smart;
-    private int ribbonCountG3Tough;
-    private boolean ribbonChampionG3;
-    private boolean ribbonWinning;
-    private boolean ribbonVictory;
-    private boolean ribbonArtist;
-    private boolean ribbonEffort;
-    private boolean ribbonChampionBattle;
-    private boolean ribbonChampionRegional;
-    private boolean ribbonChampionNational;
-    private boolean ribbonCountry;
-    private boolean ribbonNational;
-    private boolean ribbonEarth;
-    private boolean ribbonWorld;
-    private boolean unused1;
-    private boolean unused2;
-    private boolean unused3;
-    private boolean unused4;
-    private boolean fatefulEncounter;
-    private int ribbonCount;
-    private int statusCondition;
-    private int statLevel;
-    private int heldMailID;
-    private int statHPCurrent;
-    private int statHPMax;
-    private int statATK;
-    private int statDEF;
-    private int statSPE;
-    private int statSPA;
-    private int statSPD;
-    private boolean checksumValid;
-    private int maxMoveID;
-    private int maxSpeciesID;
-    private int maxAbilityID;
-    private int maxItemID;
-    private int maxBallID;
-    private int maxGameID;
-    private int maxIV;
-    private int maxEV;
-    private int maxStringLengthTrainer;
-    private int maxStringLengthNickname;
-    private int psv;
-    private int tsv;
-    private boolean japanese;
-    private int ability;
-    private long encryptionConstant;
-    private int nature;
-    private boolean isNicknamed;
-    private int gender;
-    private int characteristic;
-    private int currentFriendship;
-    private int currentHandler;
-    private int eggLocation;
-    private int markingCount;
-    private boolean markingCircle;
-    private boolean markingTriangle;
-    private boolean markingSquare;
-    private boolean markingHeart;
-    private int form;
-    private int abilityNumber;
-    private boolean valid;
-    private String extension;
-    private String encryptedPartyData;
-    private String encryptedBoxData;
-    private String decryptedPartyData;
-    private String decryptedBoxData;
-    private int format;
-    private int trainerIDDisplayFormat;
-    private int statNature;
-    private int trainerTID7;
-    private int trainerSID7;
-    private int displayTID;
-    private int displaySID;
-    private boolean korean;
-    private int metYear;
-    private int metMonth;
-    private int metDay;
-    private String handlingTrainerName;
-    private int handlingTrainerGender;
-    private int handlingTrainerFriendship;
-    private Object metDate;
-    private int eggYear;
-    private int eggMonth;
-    private int eggDay;
-    private Object eggMetDate;
-    private int relearnMove1;
-    private int relearnMove2;
-    private int relearnMove3;
-    private int relearnMove4;
-    private int minGameID;
-    private boolean isShiny;
-    private int shinyXor;
-    private boolean e;
-    private boolean frlg;
-    private boolean pt;
-    private boolean hgss;
-    private boolean bw;
-    private boolean b2w2;
-    private boolean xy;
-    private boolean ao;
-    private boolean sm;
-    private boolean usum;
-    private boolean go;
-    private boolean vc1;
-    private boolean vc2;
-    private boolean lgpe;
-    private boolean swsh;
-    private boolean bdsp;
-    private boolean la;
-    private boolean sv;
-    private boolean goLgpe;
-    private boolean goHome;
-    private boolean vc;
-    private boolean gg;
-    private boolean gen9;
-    private boolean gen8;
-    private boolean gen7;
-    private boolean gen6;
-    private boolean gen5;
-    private boolean gen4;
-    private boolean gen3;
-    private boolean gen2;
-    private boolean gen1;
-    private boolean genU;
-    private int generation;
-    private boolean isPokerusInfected;
-    private boolean isPokerusCured;
-    private int currentLevel;
-    private int ivTotal;
-    private int maximumIV;
-    private int flawlessIVCount;
-    private String fileName;
-    private String fileNameWithoutExtension;
-    private List<Integer> ivs;
-    private List<Integer> stats;
-    private List<Integer> moves;
-    private int moveCount;
-    private List<Integer> relearnMoves;
-    private int pidAbility;
-    private int hpPower;
-    private int hpType;
-    private boolean wasEgg;
-    private boolean wasTradedEgg;
-    private boolean isTradedEgg;
-    private boolean isUntraded;
-    private boolean isOriginValid;
-    private boolean hasOriginalMetLocation;
-    private int potentialRating;
-    private boolean partyStatsPresent;
-    private int hpBitValPower;
-    private int hpBitValType;
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public int getSizeParty() {
-        return sizeParty;
-    }
-
-    public void setSizeParty(int sizeParty) {
-        this.sizeParty = sizeParty;
-    }
-
-    public int getSizeStored() {
-        return sizeStored;
-    }
-
-    public void setSizeStored(int sizeStored) {
-        this.sizeStored = sizeStored;
-    }
-
-    public int getContext() {
-        return context;
-    }
-
-    public void setContext(int context) {
-        this.context = context;
-    }
-
-    public PersonalInfo getPersonalInfo() {
-        return personalInfo;
-    }
-
-    public void setPersonalInfo(PersonalInfo personalInfo) {
-        this.personalInfo = personalInfo;
-    }
-
-    public int getTrashCharCountTrainer() {
-        return trashCharCountTrainer;
-    }
-
-    public void setTrashCharCountTrainer(int trashCharCountTrainer) {
-        this.trashCharCountTrainer = trashCharCountTrainer;
-    }
-
-    public int getTrashCharCountNickname() {
-        return trashCharCountNickname;
-    }
-
-    public void setTrashCharCountNickname(int trashCharCountNickname) {
-        this.trashCharCountNickname = trashCharCountNickname;
-    }
-
-    public long getPid() {
-        return pid;
-    }
-
-    public void setPid(long pid) {
-        this.pid = pid;
-    }
-
-    public long getId32() {
-        return id32;
-    }
-
-    public void setId32(long id32) {
-        this.id32 = id32;
-    }
-
-    public int getTid16() {
-        return tid16;
-    }
-
-    public void setTid16(int tid16) {
-        this.tid16 = tid16;
-    }
-
-    public int getSid16() {
-        return sid16;
-    }
-
-    public void setSid16(int sid16) {
-        this.sid16 = sid16;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public int getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(int language) {
-        this.language = language;
-    }
-
-    public boolean isFlagIsBadEgg() {
-        return flagIsBadEgg;
-    }
-
-    public void setFlagIsBadEgg(boolean flagIsBadEgg) {
-        this.flagIsBadEgg = flagIsBadEgg;
-    }
-
-    public boolean isFlagHasSpecies() {
-        return flagHasSpecies;
-    }
-
-    public void setFlagHasSpecies(boolean flagHasSpecies) {
-        this.flagHasSpecies = flagHasSpecies;
-    }
-
-    public boolean isFlagIsEgg() {
-        return flagIsEgg;
-    }
-
-    public void setFlagIsEgg(boolean flagIsEgg) {
-        this.flagIsEgg = flagIsEgg;
-    }
-
-    public String getOriginalTrainerName() {
-        return originalTrainerName;
-    }
-
-    public void setOriginalTrainerName(String originalTrainerName) {
-        this.originalTrainerName = originalTrainerName;
-    }
-
-    public int getMarkingValue() {
-        return markingValue;
-    }
-
-    public void setMarkingValue(int markingValue) {
-        this.markingValue = markingValue;
-    }
-
-    public int getChecksum() {
-        return checksum;
-    }
-
-    public void setChecksum(int checksum) {
-        this.checksum = checksum;
-    }
-
-    public int getSanity() {
-        return sanity;
-    }
-
-    public void setSanity(int sanity) {
-        this.sanity = sanity;
-    }
-
-    public int getSpeciesInternal() {
-        return speciesInternal;
-    }
-
-    public void setSpeciesInternal(int speciesInternal) {
-        this.speciesInternal = speciesInternal;
-    }
-
-    public int getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(int species) {
-        this.species = species;
-    }
-
-    public int getSpriteItem() {
-        return spriteItem;
-    }
-
-    public void setSpriteItem(int spriteItem) {
-        this.spriteItem = spriteItem;
-    }
-
-    public int getHeldItem() {
-        return heldItem;
-    }
-
-    public void setHeldItem(int heldItem) {
-        this.heldItem = heldItem;
-    }
-
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-    public int getPpUps() {
-        return ppUps;
-    }
-
-    public void setPpUps(int ppUps) {
-        this.ppUps = ppUps;
-    }
-
-    public int getMove1PPUps() {
-        return move1PPUps;
-    }
-
-    public void setMove1PPUps(int move1PPUps) {
-        this.move1PPUps = move1PPUps;
-    }
-
-    public int getMove2PPUps() {
-        return move2PPUps;
-    }
-
-    public void setMove2PPUps(int move2PPUps) {
-        this.move2PPUps = move2PPUps;
-    }
-
-    public int getMove3PPUps() {
-        return move3PPUps;
-    }
-
-    public void setMove3PPUps(int move3PPUps) {
-        this.move3PPUps = move3PPUps;
-    }
-
-    public int getMove4PPUps() {
-        return move4PPUps;
-    }
-
-    public void setMove4PPUps(int move4PPUps) {
-        this.move4PPUps = move4PPUps;
-    }
-
-    public int getOriginalTrainerFriendship() {
-        return originalTrainerFriendship;
-    }
+        public int getSid16() {
+            return sid16;
+        }
 
-    public void setOriginalTrainerFriendship(int originalTrainerFriendship) {
-        this.originalTrainerFriendship = originalTrainerFriendship;
-    }
+        public void setSid16(int sid16) {
+            this.sid16 = sid16;
+        }
 
-    public int getMove1() {
-        return move1;
-    }
+        public String getNickname() {
+            return nickname;
+        }
 
-    public void setMove1(int move1) {
-        this.move1 = move1;
-    }
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
 
-    public int getMove2() {
-        return move2;
-    }
+        public int getLanguage() {
+            return language;
+        }
 
-    public void setMove2(int move2) {
-        this.move2 = move2;
-    }
+        public void setLanguage(int language) {
+            this.language = language;
+        }
 
-    public int getMove3() {
-        return move3;
-    }
+        public boolean isFlagIsBadEgg() {
+            return flagIsBadEgg;
+        }
 
-    public void setMove3(int move3) {
-        this.move3 = move3;
-    }
+        public void setFlagIsBadEgg(boolean flagIsBadEgg) {
+            this.flagIsBadEgg = flagIsBadEgg;
+        }
 
-    public int getMove4() {
-        return move4;
-    }
+        public boolean isFlagHasSpecies() {
+            return flagHasSpecies;
+        }
 
-    public void setMove4(int move4) {
-        this.move4 = move4;
-    }
+        public void setFlagHasSpecies(boolean flagHasSpecies) {
+            this.flagHasSpecies = flagHasSpecies;
+        }
 
-    public int getMove1PP() {
-        return move1PP;
-    }
+        public boolean isFlagIsEgg() {
+            return flagIsEgg;
+        }
 
-    public void setMove1PP(int move1PP) {
-        this.move1PP = move1PP;
-    }
+        public void setFlagIsEgg(boolean flagIsEgg) {
+            this.flagIsEgg = flagIsEgg;
+        }
 
-    public int getMove2PP() {
-        return move2PP;
-    }
+        public String getOriginalTrainerName() {
+            return originalTrainerName;
+        }
 
-    public void setMove2PP(int move2PP) {
-        this.move2PP = move2PP;
-    }
+        public void setOriginalTrainerName(String originalTrainerName) {
+            this.originalTrainerName = originalTrainerName;
+        }
 
-    public int getMove3PP() {
-        return move3PP;
-    }
+        public int getMarkingValue() {
+            return markingValue;
+        }
 
-    public void setMove3PP(int move3PP) {
-        this.move3PP = move3PP;
-    }
+        public void setMarkingValue(int markingValue) {
+            this.markingValue = markingValue;
+        }
 
-    public int getMove4PP() {
-        return move4PP;
-    }
+        public int getChecksum() {
+            return checksum;
+        }
 
-    public void setMove4PP(int move4PP) {
-        this.move4PP = move4PP;
-    }
+        public void setChecksum(int checksum) {
+            this.checksum = checksum;
+        }
 
-    public int getEvHP() {
-        return evHP;
-    }
+        public int getSanity() {
+            return sanity;
+        }
 
-    public void setEvHP(int evHP) {
-        this.evHP = evHP;
-    }
+        public void setSanity(int sanity) {
+            this.sanity = sanity;
+        }
 
-    public int getEvATK() {
-        return evATK;
-    }
+        public int getSpeciesInternal() {
+            return speciesInternal;
+        }
 
-    public void setEvATK(int evATK) {
-        this.evATK = evATK;
-    }
+        public void setSpeciesInternal(int speciesInternal) {
+            this.speciesInternal = speciesInternal;
+        }
 
-    public int getEvDEF() {
-        return evDEF;
-    }
+        public int getSpecies() {
+            return species;
+        }
 
-    public void setEvDEF(int evDEF) {
-        this.evDEF = evDEF;
-    }
+        public void setSpecies(int species) {
+            this.species = species;
+        }
 
-    public int getEvSPE() {
-        return evSPE;
-    }
+        public int getSpriteItem() {
+            return spriteItem;
+        }
 
-    public void setEvSPE(int evSPE) {
-        this.evSPE = evSPE;
-    }
+        public void setSpriteItem(int spriteItem) {
+            this.spriteItem = spriteItem;
+        }
 
-    public int getEvSPA() {
-        return evSPA;
-    }
+        public int getHeldItem() {
+            return heldItem;
+        }
 
-    public void setEvSPA(int evSPA) {
-        this.evSPA = evSPA;
-    }
+        public void setHeldItem(int heldItem) {
+            this.heldItem = heldItem;
+        }
 
-    public int getEvSPD() {
-        return evSPD;
-    }
+        public int getExp() {
+            return exp;
+        }
 
-    public void setEvSPD(int evSPD) {
-        this.evSPD = evSPD;
-    }
+        public void setExp(int exp) {
+            this.exp = exp;
+        }
 
-    public int getContestCool() {
-        return contestCool;
-    }
+        public int getPpUps() {
+            return ppUps;
+        }
 
-    public void setContestCool(int contestCool) {
-        this.contestCool = contestCool;
-    }
+        public void setPpUps(int ppUps) {
+            this.ppUps = ppUps;
+        }
 
-    public int getContestBeauty() {
-        return contestBeauty;
-    }
+        public int getMove1PPUps() {
+            return move1PPUps;
+        }
 
-    public void setContestBeauty(int contestBeauty) {
-        this.contestBeauty = contestBeauty;
-    }
+        public void setMove1PPUps(int move1PPUps) {
+            this.move1PPUps = move1PPUps;
+        }
 
-    public int getContestCute() {
-        return contestCute;
-    }
+        public int getMove2PPUps() {
+            return move2PPUps;
+        }
 
-    public void setContestCute(int contestCute) {
-        this.contestCute = contestCute;
-    }
+        public void setMove2PPUps(int move2PPUps) {
+            this.move2PPUps = move2PPUps;
+        }
 
-    public int getContestSmart() {
-        return contestSmart;
-    }
+        public int getMove3PPUps() {
+            return move3PPUps;
+        }
 
-    public void setContestSmart(int contestSmart) {
-        this.contestSmart = contestSmart;
-    }
+        public void setMove3PPUps(int move3PPUps) {
+            this.move3PPUps = move3PPUps;
+        }
 
-    public int getContestTough() {
-        return contestTough;
-    }
+        public int getMove4PPUps() {
+            return move4PPUps;
+        }
 
-    public void setContestTough(int contestTough) {
-        this.contestTough = contestTough;
-    }
+        public void setMove4PPUps(int move4PPUps) {
+            this.move4PPUps = move4PPUps;
+        }
 
-    public int getContestSheen() {
-        return contestSheen;
-    }
+        public int getOriginalTrainerFriendship() {
+            return originalTrainerFriendship;
+        }
 
-    public void setContestSheen(int contestSheen) {
-        this.contestSheen = contestSheen;
-    }
+        public void setOriginalTrainerFriendship(int originalTrainerFriendship) {
+            this.originalTrainerFriendship = originalTrainerFriendship;
+        }
 
-    public int getPokerusState() {
-        return pokerusState;
-    }
+        public int getMove1() {
+            return move1;
+        }
 
-    public void setPokerusState(int pokerusState) {
-        this.pokerusState = pokerusState;
-    }
+        public void setMove1(int move1) {
+            this.move1 = move1;
+        }
 
-    public int getPokerusDays() {
-        return pokerusDays;
-    }
+        public int getMove2() {
+            return move2;
+        }
 
-    public void setPokerusDays(int pokerusDays) {
-        this.pokerusDays = pokerusDays;
-    }
+        public void setMove2(int move2) {
+            this.move2 = move2;
+        }
 
-    public int getPokerusStrain() {
-        return pokerusStrain;
-    }
+        public int getMove3() {
+            return move3;
+        }
 
-    public void setPokerusStrain(int pokerusStrain) {
-        this.pokerusStrain = pokerusStrain;
-    }
+        public void setMove3(int move3) {
+            this.move3 = move3;
+        }
 
-    public int getMetLocation() {
-        return metLocation;
-    }
+        public int getMove4() {
+            return move4;
+        }
 
-    public void setMetLocation(int metLocation) {
-        this.metLocation = metLocation;
-    }
+        public void setMove4(int move4) {
+            this.move4 = move4;
+        }
 
-    public int getOrigins() {
-        return origins;
-    }
+        public int getMove1PP() {
+            return move1PP;
+        }
 
-    public void setOrigins(int origins) {
-        this.origins = origins;
-    }
+        public void setMove1PP(int move1PP) {
+            this.move1PP = move1PP;
+        }
 
-    public int getMetLevel() {
-        return metLevel;
-    }
+        public int getMove2PP() {
+            return move2PP;
+        }
 
-    public void setMetLevel(int metLevel) {
-        this.metLevel = metLevel;
-    }
+        public void setMove2PP(int move2PP) {
+            this.move2PP = move2PP;
+        }
 
-    public int getVersion() {
-        return version;
-    }
+        public int getMove3PP() {
+            return move3PP;
+        }
 
-    public void setVersion(int version) {
-        this.version = version;
-    }
+        public void setMove3PP(int move3PP) {
+            this.move3PP = move3PP;
+        }
 
-    public int getBall() {
-        return ball;
-    }
+        public int getMove4PP() {
+            return move4PP;
+        }
 
-    public void setBall(int ball) {
-        this.ball = ball;
-    }
+        public void setMove4PP(int move4PP) {
+            this.move4PP = move4PP;
+        }
 
-    public int getOriginalTrainerGender() {
-        return originalTrainerGender;
-    }
+        public int getEvHP() {
+            return evHP;
+        }
 
-    public void setOriginalTrainerGender(int originalTrainerGender) {
-        this.originalTrainerGender = originalTrainerGender;
-    }
+        public void setEvHP(int evHP) {
+            this.evHP = evHP;
+        }
 
-    public long getIv32() {
-        return iv32;
-    }
+        public int getEvATK() {
+            return evATK;
+        }
 
-    public void setIv32(long iv32) {
-        this.iv32 = iv32;
-    }
+        public void setEvATK(int evATK) {
+            this.evATK = evATK;
+        }
 
-    public int getIvHP() {
-        return ivHP;
-    }
+        public int getEvDEF() {
+            return evDEF;
+        }
 
-    public void setIvHP(int ivHP) {
-        this.ivHP = ivHP;
-    }
+        public void setEvDEF(int evDEF) {
+            this.evDEF = evDEF;
+        }
 
-    public int getIvATK() {
-        return ivATK;
-    }
+        public int getEvSPE() {
+            return evSPE;
+        }
 
-    public void setIvATK(int ivATK) {
-        this.ivATK = ivATK;
-    }
+        public void setEvSPE(int evSPE) {
+            this.evSPE = evSPE;
+        }
 
-    public int getIvDEF() {
-        return ivDEF;
-    }
+        public int getEvSPA() {
+            return evSPA;
+        }
 
-    public void setIvDEF(int ivDEF) {
-        this.ivDEF = ivDEF;
-    }
+        public void setEvSPA(int evSPA) {
+            this.evSPA = evSPA;
+        }
 
-    public int getIvSPE() {
-        return ivSPE;
-    }
+        public int getEvSPD() {
+            return evSPD;
+        }
 
-    public void setIvSPE(int ivSPE) {
-        this.ivSPE = ivSPE;
-    }
+        public void setEvSPD(int evSPD) {
+            this.evSPD = evSPD;
+        }
 
-    public int getIvSPA() {
-        return ivSPA;
-    }
+        public int getContestCool() {
+            return contestCool;
+        }
 
-    public void setIvSPA(int ivSPA) {
-        this.ivSPA = ivSPA;
-    }
+        public void setContestCool(int contestCool) {
+            this.contestCool = contestCool;
+        }
 
-    public int getIvSPD() {
-        return ivSPD;
-    }
+        public int getContestBeauty() {
+            return contestBeauty;
+        }
 
-    public void setIvSPD(int ivSPD) {
-        this.ivSPD = ivSPD;
-    }
+        public void setContestBeauty(int contestBeauty) {
+            this.contestBeauty = contestBeauty;
+        }
 
-    public boolean isEgg() {
-        return isEgg;
-    }
+        public int getContestCute() {
+            return contestCute;
+        }
 
-    public void setEgg(boolean egg) {
-        isEgg = egg;
-    }
+        public void setContestCute(int contestCute) {
+            this.contestCute = contestCute;
+        }
 
-    public boolean isAbilityBit() {
-        return abilityBit;
-    }
+        public int getContestSmart() {
+            return contestSmart;
+        }
 
-    public void setAbilityBit(boolean abilityBit) {
-        this.abilityBit = abilityBit;
-    }
+        public void setContestSmart(int contestSmart) {
+            this.contestSmart = contestSmart;
+        }
 
-    public int getRib0() {
-        return rib0;
-    }
+        public int getContestTough() {
+            return contestTough;
+        }
 
-    public void setRib0(int rib0) {
-        this.rib0 = rib0;
-    }
+        public void setContestTough(int contestTough) {
+            this.contestTough = contestTough;
+        }
 
-    public int getRibbonCountG3Cool() {
-        return ribbonCountG3Cool;
-    }
+        public int getContestSheen() {
+            return contestSheen;
+        }
 
-    public void setRibbonCountG3Cool(int ribbonCountG3Cool) {
-        this.ribbonCountG3Cool = ribbonCountG3Cool;
-    }
+        public void setContestSheen(int contestSheen) {
+            this.contestSheen = contestSheen;
+        }
 
-    public int getRibbonCountG3Beauty() {
-        return ribbonCountG3Beauty;
-    }
+        public int getPokerusState() {
+            return pokerusState;
+        }
 
-    public void setRibbonCountG3Beauty(int ribbonCountG3Beauty) {
-        this.ribbonCountG3Beauty = ribbonCountG3Beauty;
-    }
+        public void setPokerusState(int pokerusState) {
+            this.pokerusState = pokerusState;
+        }
 
-    public int getRibbonCountG3Cute() {
-        return ribbonCountG3Cute;
-    }
+        public int getPokerusDays() {
+            return pokerusDays;
+        }
 
-    public void setRibbonCountG3Cute(int ribbonCountG3Cute) {
-        this.ribbonCountG3Cute = ribbonCountG3Cute;
-    }
+        public void setPokerusDays(int pokerusDays) {
+            this.pokerusDays = pokerusDays;
+        }
 
-    public int getRibbonCountG3Smart() {
-        return ribbonCountG3Smart;
-    }
+        public int getPokerusStrain() {
+            return pokerusStrain;
+        }
 
-    public void setRibbonCountG3Smart(int ribbonCountG3Smart) {
-        this.ribbonCountG3Smart = ribbonCountG3Smart;
-    }
+        public void setPokerusStrain(int pokerusStrain) {
+            this.pokerusStrain = pokerusStrain;
+        }
 
-    public int getRibbonCountG3Tough() {
-        return ribbonCountG3Tough;
-    }
+        public int getMetLocation() {
+            return metLocation;
+        }
 
-    public void setRibbonCountG3Tough(int ribbonCountG3Tough) {
-        this.ribbonCountG3Tough = ribbonCountG3Tough;
-    }
+        public void setMetLocation(int metLocation) {
+            this.metLocation = metLocation;
+        }
 
-    public boolean isRibbonChampionG3() {
-        return ribbonChampionG3;
-    }
+        public int getOrigins() {
+            return origins;
+        }
 
-    public void setRibbonChampionG3(boolean ribbonChampionG3) {
-        this.ribbonChampionG3 = ribbonChampionG3;
-    }
+        public void setOrigins(int origins) {
+            this.origins = origins;
+        }
 
-    public boolean isRibbonWinning() {
-        return ribbonWinning;
-    }
+        public int getMetLevel() {
+            return metLevel;
+        }
 
-    public void setRibbonWinning(boolean ribbonWinning) {
-        this.ribbonWinning = ribbonWinning;
-    }
+        public void setMetLevel(int metLevel) {
+            this.metLevel = metLevel;
+        }
 
-    public boolean isRibbonVictory() {
-        return ribbonVictory;
-    }
+        public int getVersion() {
+            return version;
+        }
 
-    public void setRibbonVictory(boolean ribbonVictory) {
-        this.ribbonVictory = ribbonVictory;
-    }
+        public void setVersion(int version) {
+            this.version = version;
+        }
 
-    public boolean isRibbonArtist() {
-        return ribbonArtist;
-    }
+        public int getBall() {
+            return ball;
+        }
 
-    public void setRibbonArtist(boolean ribbonArtist) {
-        this.ribbonArtist = ribbonArtist;
-    }
+        public void setBall(int ball) {
+            this.ball = ball;
+        }
 
-    public boolean isRibbonEffort() {
-        return ribbonEffort;
-    }
+        public int getOriginalTrainerGender() {
+            return originalTrainerGender;
+        }
 
-    public void setRibbonEffort(boolean ribbonEffort) {
-        this.ribbonEffort = ribbonEffort;
-    }
+        public void setOriginalTrainerGender(int originalTrainerGender) {
+            this.originalTrainerGender = originalTrainerGender;
+        }
 
-    public boolean isRibbonChampionBattle() {
-        return ribbonChampionBattle;
-    }
+        public long getIv32() {
+            return iv32;
+        }
 
-    public void setRibbonChampionBattle(boolean ribbonChampionBattle) {
-        this.ribbonChampionBattle = ribbonChampionBattle;
-    }
+        public void setIv32(long iv32) {
+            this.iv32 = iv32;
+        }
 
-    public boolean isRibbonChampionRegional() {
-        return ribbonChampionRegional;
-    }
+        public int getIvHP() {
+            return ivHP;
+        }
 
-    public void setRibbonChampionRegional(boolean ribbonChampionRegional) {
-        this.ribbonChampionRegional = ribbonChampionRegional;
-    }
+        public void setIvHP(int ivHP) {
+            this.ivHP = ivHP;
+        }
 
-    public boolean isRibbonChampionNational() {
-        return ribbonChampionNational;
-    }
+        public int getIvATK() {
+            return ivATK;
+        }
 
-    public void setRibbonChampionNational(boolean ribbonChampionNational) {
-        this.ribbonChampionNational = ribbonChampionNational;
-    }
+        public void setIvATK(int ivATK) {
+            this.ivATK = ivATK;
+        }
 
-    public boolean isRibbonCountry() {
-        return ribbonCountry;
-    }
+        public int getIvDEF() {
+            return ivDEF;
+        }
 
-    public void setRibbonCountry(boolean ribbonCountry) {
-        this.ribbonCountry = ribbonCountry;
-    }
+        public void setIvDEF(int ivDEF) {
+            this.ivDEF = ivDEF;
+        }
 
-    public boolean isRibbonNational() {
-        return ribbonNational;
-    }
+        public int getIvSPE() {
+            return ivSPE;
+        }
 
-    public void setRibbonNational(boolean ribbonNational) {
-        this.ribbonNational = ribbonNational;
-    }
+        public void setIvSPE(int ivSPE) {
+            this.ivSPE = ivSPE;
+        }
 
-    public boolean isRibbonEarth() {
-        return ribbonEarth;
-    }
+        public int getIvSPA() {
+            return ivSPA;
+        }
 
-    public void setRibbonEarth(boolean ribbonEarth) {
-        this.ribbonEarth = ribbonEarth;
-    }
+        public void setIvSPA(int ivSPA) {
+            this.ivSPA = ivSPA;
+        }
 
-    public boolean isRibbonWorld() {
-        return ribbonWorld;
-    }
+        public int getIvSPD() {
+            return ivSPD;
+        }
 
-    public void setRibbonWorld(boolean ribbonWorld) {
-        this.ribbonWorld = ribbonWorld;
-    }
+        public void setIvSPD(int ivSPD) {
+            this.ivSPD = ivSPD;
+        }
 
-    public boolean isUnused1() {
-        return unused1;
-    }
+        public boolean isEgg() {
+            return isEgg;
+        }
 
-    public void setUnused1(boolean unused1) {
-        this.unused1 = unused1;
-    }
+        public void setEgg(boolean egg) {
+            isEgg = egg;
+        }
 
-    public boolean isUnused2() {
-        return unused2;
-    }
+        public boolean isAbilityBit() {
+            return abilityBit;
+        }
 
-    public void setUnused2(boolean unused2) {
-        this.unused2 = unused2;
-    }
+        public void setAbilityBit(boolean abilityBit) {
+            this.abilityBit = abilityBit;
+        }
 
-    public boolean isUnused3() {
-        return unused3;
-    }
+        public int getRib0() {
+            return rib0;
+        }
 
-    public void setUnused3(boolean unused3) {
-        this.unused3 = unused3;
-    }
+        public void setRib0(int rib0) {
+            this.rib0 = rib0;
+        }
 
-    public boolean isUnused4() {
-        return unused4;
-    }
+        public int getRibbonCountG3Cool() {
+            return ribbonCountG3Cool;
+        }
 
-    public void setUnused4(boolean unused4) {
-        this.unused4 = unused4;
-    }
+        public void setRibbonCountG3Cool(int ribbonCountG3Cool) {
+            this.ribbonCountG3Cool = ribbonCountG3Cool;
+        }
 
-    public boolean isFatefulEncounter() {
-        return fatefulEncounter;
-    }
+        public int getRibbonCountG3Beauty() {
+            return ribbonCountG3Beauty;
+        }
 
-    public void setFatefulEncounter(boolean fatefulEncounter) {
-        this.fatefulEncounter = fatefulEncounter;
-    }
+        public void setRibbonCountG3Beauty(int ribbonCountG3Beauty) {
+            this.ribbonCountG3Beauty = ribbonCountG3Beauty;
+        }
 
-    public int getRibbonCount() {
-        return ribbonCount;
-    }
+        public int getRibbonCountG3Cute() {
+            return ribbonCountG3Cute;
+        }
 
-    public void setRibbonCount(int ribbonCount) {
-        this.ribbonCount = ribbonCount;
-    }
+        public void setRibbonCountG3Cute(int ribbonCountG3Cute) {
+            this.ribbonCountG3Cute = ribbonCountG3Cute;
+        }
 
-    public int getStatusCondition() {
-        return statusCondition;
-    }
+        public int getRibbonCountG3Smart() {
+            return ribbonCountG3Smart;
+        }
 
-    public void setStatusCondition(int statusCondition) {
-        this.statusCondition = statusCondition;
-    }
+        public void setRibbonCountG3Smart(int ribbonCountG3Smart) {
+            this.ribbonCountG3Smart = ribbonCountG3Smart;
+        }
 
-    public int getStatLevel() {
-        return statLevel;
-    }
+        public int getRibbonCountG3Tough() {
+            return ribbonCountG3Tough;
+        }
 
-    public void setStatLevel(int statLevel) {
-        this.statLevel = statLevel;
-    }
+        public void setRibbonCountG3Tough(int ribbonCountG3Tough) {
+            this.ribbonCountG3Tough = ribbonCountG3Tough;
+        }
 
-    public int getHeldMailID() {
-        return heldMailID;
-    }
+        public boolean isRibbonChampionG3() {
+            return ribbonChampionG3;
+        }
 
-    public void setHeldMailID(int heldMailID) {
-        this.heldMailID = heldMailID;
-    }
+        public void setRibbonChampionG3(boolean ribbonChampionG3) {
+            this.ribbonChampionG3 = ribbonChampionG3;
+        }
 
-    public int getStatHPCurrent() {
-        return statHPCurrent;
-    }
+        public boolean isRibbonWinning() {
+            return ribbonWinning;
+        }
 
-    public void setStatHPCurrent(int statHPCurrent) {
-        this.statHPCurrent = statHPCurrent;
-    }
+        public void setRibbonWinning(boolean ribbonWinning) {
+            this.ribbonWinning = ribbonWinning;
+        }
 
-    public int getStatHPMax() {
-        return statHPMax;
-    }
+        public boolean isRibbonVictory() {
+            return ribbonVictory;
+        }
 
-    public void setStatHPMax(int statHPMax) {
-        this.statHPMax = statHPMax;
-    }
+        public void setRibbonVictory(boolean ribbonVictory) {
+            this.ribbonVictory = ribbonVictory;
+        }
 
-    public int getStatATK() {
-        return statATK;
-    }
+        public boolean isRibbonArtist() {
+            return ribbonArtist;
+        }
 
-    public void setStatATK(int statATK) {
-        this.statATK = statATK;
-    }
+        public void setRibbonArtist(boolean ribbonArtist) {
+            this.ribbonArtist = ribbonArtist;
+        }
 
-    public int getStatDEF() {
-        return statDEF;
-    }
+        public boolean isRibbonEffort() {
+            return ribbonEffort;
+        }
 
-    public void setStatDEF(int statDEF) {
-        this.statDEF = statDEF;
-    }
+        public void setRibbonEffort(boolean ribbonEffort) {
+            this.ribbonEffort = ribbonEffort;
+        }
 
-    public int getStatSPE() {
-        return statSPE;
-    }
+        public boolean isRibbonChampionBattle() {
+            return ribbonChampionBattle;
+        }
 
-    public void setStatSPE(int statSPE) {
-        this.statSPE = statSPE;
-    }
+        public void setRibbonChampionBattle(boolean ribbonChampionBattle) {
+            this.ribbonChampionBattle = ribbonChampionBattle;
+        }
 
-    public int getStatSPA() {
-        return statSPA;
-    }
+        public boolean isRibbonChampionRegional() {
+            return ribbonChampionRegional;
+        }
 
-    public void setStatSPA(int statSPA) {
-        this.statSPA = statSPA;
-    }
+        public void setRibbonChampionRegional(boolean ribbonChampionRegional) {
+            this.ribbonChampionRegional = ribbonChampionRegional;
+        }
 
-    public int getStatSPD() {
-        return statSPD;
-    }
+        public boolean isRibbonChampionNational() {
+            return ribbonChampionNational;
+        }
 
-    public void setStatSPD(int statSPD) {
-        this.statSPD = statSPD;
-    }
+        public void setRibbonChampionNational(boolean ribbonChampionNational) {
+            this.ribbonChampionNational = ribbonChampionNational;
+        }
 
-    public boolean isChecksumValid() {
-        return checksumValid;
-    }
+        public boolean isRibbonCountry() {
+            return ribbonCountry;
+        }
 
-    public void setChecksumValid(boolean checksumValid) {
-        this.checksumValid = checksumValid;
-    }
+        public void setRibbonCountry(boolean ribbonCountry) {
+            this.ribbonCountry = ribbonCountry;
+        }
 
-    public int getMaxMoveID() {
-        return maxMoveID;
-    }
+        public boolean isRibbonNational() {
+            return ribbonNational;
+        }
 
-    public void setMaxMoveID(int maxMoveID) {
-        this.maxMoveID = maxMoveID;
-    }
+        public void setRibbonNational(boolean ribbonNational) {
+            this.ribbonNational = ribbonNational;
+        }
 
-    public int getMaxSpeciesID() {
-        return maxSpeciesID;
-    }
+        public boolean isRibbonEarth() {
+            return ribbonEarth;
+        }
 
-    public void setMaxSpeciesID(int maxSpeciesID) {
-        this.maxSpeciesID = maxSpeciesID;
-    }
+        public void setRibbonEarth(boolean ribbonEarth) {
+            this.ribbonEarth = ribbonEarth;
+        }
 
-    public int getMaxAbilityID() {
-        return maxAbilityID;
-    }
+        public boolean isRibbonWorld() {
+            return ribbonWorld;
+        }
 
-    public void setMaxAbilityID(int maxAbilityID) {
-        this.maxAbilityID = maxAbilityID;
-    }
+        public void setRibbonWorld(boolean ribbonWorld) {
+            this.ribbonWorld = ribbonWorld;
+        }
 
-    public int getMaxItemID() {
-        return maxItemID;
-    }
+        public boolean isUnused1() {
+            return unused1;
+        }
 
-    public void setMaxItemID(int maxItemID) {
-        this.maxItemID = maxItemID;
-    }
+        public void setUnused1(boolean unused1) {
+            this.unused1 = unused1;
+        }
 
-    public int getMaxBallID() {
-        return maxBallID;
-    }
+        public boolean isUnused2() {
+            return unused2;
+        }
 
-    public void setMaxBallID(int maxBallID) {
-        this.maxBallID = maxBallID;
-    }
+        public void setUnused2(boolean unused2) {
+            this.unused2 = unused2;
+        }
 
-    public int getMaxGameID() {
-        return maxGameID;
-    }
+        public boolean isUnused3() {
+            return unused3;
+        }
 
-    public void setMaxGameID(int maxGameID) {
-        this.maxGameID = maxGameID;
-    }
+        public void setUnused3(boolean unused3) {
+            this.unused3 = unused3;
+        }
 
-    public int getMaxIV() {
-        return maxIV;
-    }
+        public boolean isUnused4() {
+            return unused4;
+        }
 
-    public void setMaxIV(int maxIV) {
-        this.maxIV = maxIV;
-    }
+        public void setUnused4(boolean unused4) {
+            this.unused4 = unused4;
+        }
 
-    public int getMaxEV() {
-        return maxEV;
-    }
+        public boolean isFatefulEncounter() {
+            return fatefulEncounter;
+        }
 
-    public void setMaxEV(int maxEV) {
-        this.maxEV = maxEV;
-    }
+        public void setFatefulEncounter(boolean fatefulEncounter) {
+            this.fatefulEncounter = fatefulEncounter;
+        }
 
-    public int getMaxStringLengthTrainer() {
-        return maxStringLengthTrainer;
-    }
+        public int getRibbonCount() {
+            return ribbonCount;
+        }
 
-    public void setMaxStringLengthTrainer(int maxStringLengthTrainer) {
-        this.maxStringLengthTrainer = maxStringLengthTrainer;
-    }
+        public void setRibbonCount(int ribbonCount) {
+            this.ribbonCount = ribbonCount;
+        }
 
-    public int getMaxStringLengthNickname() {
-        return maxStringLengthNickname;
-    }
+        public int getStatusCondition() {
+            return statusCondition;
+        }
 
-    public void setMaxStringLengthNickname(int maxStringLengthNickname) {
-        this.maxStringLengthNickname = maxStringLengthNickname;
-    }
+        public void setStatusCondition(int statusCondition) {
+            this.statusCondition = statusCondition;
+        }
 
-    public int getPsv() {
-        return psv;
-    }
+        public int getStatLevel() {
+            return statLevel;
+        }
 
-    public void setPsv(int psv) {
-        this.psv = psv;
-    }
+        public void setStatLevel(int statLevel) {
+            this.statLevel = statLevel;
+        }
 
-    public int getTsv() {
-        return tsv;
-    }
+        public int getHeldMailID() {
+            return heldMailID;
+        }
 
-    public void setTsv(int tsv) {
-        this.tsv = tsv;
-    }
+        public void setHeldMailID(int heldMailID) {
+            this.heldMailID = heldMailID;
+        }
 
-    public boolean isJapanese() {
-        return japanese;
-    }
+        public int getStatHPCurrent() {
+            return statHPCurrent;
+        }
 
-    public void setJapanese(boolean japanese) {
-        this.japanese = japanese;
-    }
+        public void setStatHPCurrent(int statHPCurrent) {
+            this.statHPCurrent = statHPCurrent;
+        }
 
-    public int getAbility() {
-        return ability;
-    }
+        public int getStatHPMax() {
+            return statHPMax;
+        }
 
-    public void setAbility(int ability) {
-        this.ability = ability;
-    }
+        public void setStatHPMax(int statHPMax) {
+            this.statHPMax = statHPMax;
+        }
 
-    public long getEncryptionConstant() {
-        return encryptionConstant;
-    }
+        public int getStatATK() {
+            return statATK;
+        }
 
-    public void setEncryptionConstant(long encryptionConstant) {
-        this.encryptionConstant = encryptionConstant;
-    }
+        public void setStatATK(int statATK) {
+            this.statATK = statATK;
+        }
 
-    public int getNature() {
-        return nature;
-    }
+        public int getStatDEF() {
+            return statDEF;
+        }
 
-    public void setNature(int nature) {
-        this.nature = nature;
-    }
+        public void setStatDEF(int statDEF) {
+            this.statDEF = statDEF;
+        }
 
-    public boolean isNicknamed() {
-        return isNicknamed;
-    }
+        public int getStatSPE() {
+            return statSPE;
+        }
 
-    public void setNicknamed(boolean nicknamed) {
-        isNicknamed = nicknamed;
-    }
+        public void setStatSPE(int statSPE) {
+            this.statSPE = statSPE;
+        }
 
-    public int getGender() {
-        return gender;
-    }
+        public int getStatSPA() {
+            return statSPA;
+        }
 
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
+        public void setStatSPA(int statSPA) {
+            this.statSPA = statSPA;
+        }
 
-    public int getCharacteristic() {
-        return characteristic;
-    }
+        public int getStatSPD() {
+            return statSPD;
+        }
 
-    public void setCharacteristic(int characteristic) {
-        this.characteristic = characteristic;
-    }
+        public void setStatSPD(int statSPD) {
+            this.statSPD = statSPD;
+        }
 
-    public int getCurrentFriendship() {
-        return currentFriendship;
-    }
+        public boolean isChecksumValid() {
+            return checksumValid;
+        }
 
-    public void setCurrentFriendship(int currentFriendship) {
-        this.currentFriendship = currentFriendship;
-    }
+        public void setChecksumValid(boolean checksumValid) {
+            this.checksumValid = checksumValid;
+        }
 
-    public int getCurrentHandler() {
-        return currentHandler;
-    }
+        public int getMaxMoveID() {
+            return maxMoveID;
+        }
 
-    public void setCurrentHandler(int currentHandler) {
-        this.currentHandler = currentHandler;
-    }
+        public void setMaxMoveID(int maxMoveID) {
+            this.maxMoveID = maxMoveID;
+        }
 
-    public int getEggLocation() {
-        return eggLocation;
-    }
+        public int getMaxSpeciesID() {
+            return maxSpeciesID;
+        }
 
-    public void setEggLocation(int eggLocation) {
-        this.eggLocation = eggLocation;
-    }
+        public void setMaxSpeciesID(int maxSpeciesID) {
+            this.maxSpeciesID = maxSpeciesID;
+        }
 
-    public int getMarkingCount() {
-        return markingCount;
-    }
+        public int getMaxAbilityID() {
+            return maxAbilityID;
+        }
 
-    public void setMarkingCount(int markingCount) {
-        this.markingCount = markingCount;
-    }
+        public void setMaxAbilityID(int maxAbilityID) {
+            this.maxAbilityID = maxAbilityID;
+        }
 
-    public boolean isMarkingCircle() {
-        return markingCircle;
-    }
+        public int getMaxItemID() {
+            return maxItemID;
+        }
 
-    public void setMarkingCircle(boolean markingCircle) {
-        this.markingCircle = markingCircle;
-    }
+        public void setMaxItemID(int maxItemID) {
+            this.maxItemID = maxItemID;
+        }
 
-    public boolean isMarkingTriangle() {
-        return markingTriangle;
-    }
+        public int getMaxBallID() {
+            return maxBallID;
+        }
 
-    public void setMarkingTriangle(boolean markingTriangle) {
-        this.markingTriangle = markingTriangle;
-    }
+        public void setMaxBallID(int maxBallID) {
+            this.maxBallID = maxBallID;
+        }
 
-    public boolean isMarkingSquare() {
-        return markingSquare;
-    }
+        public int getMaxGameID() {
+            return maxGameID;
+        }
 
-    public void setMarkingSquare(boolean markingSquare) {
-        this.markingSquare = markingSquare;
-    }
+        public void setMaxGameID(int maxGameID) {
+            this.maxGameID = maxGameID;
+        }
 
-    public boolean isMarkingHeart() {
-        return markingHeart;
-    }
+        public int getMaxIV() {
+            return maxIV;
+        }
 
-    public void setMarkingHeart(boolean markingHeart) {
-        this.markingHeart = markingHeart;
-    }
+        public void setMaxIV(int maxIV) {
+            this.maxIV = maxIV;
+        }
 
-    public int getForm() {
-        return form;
-    }
+        public int getMaxEV() {
+            return maxEV;
+        }
 
-    public void setForm(int form) {
-        this.form = form;
-    }
+        public void setMaxEV(int maxEV) {
+            this.maxEV = maxEV;
+        }
 
-    public int getAbilityNumber() {
-        return abilityNumber;
-    }
+        public int getMaxStringLengthTrainer() {
+            return maxStringLengthTrainer;
+        }
 
-    public void setAbilityNumber(int abilityNumber) {
-        this.abilityNumber = abilityNumber;
-    }
+        public void setMaxStringLengthTrainer(int maxStringLengthTrainer) {
+            this.maxStringLengthTrainer = maxStringLengthTrainer;
+        }
 
-    public boolean isValid() {
-        return valid;
-    }
+        public int getMaxStringLengthNickname() {
+            return maxStringLengthNickname;
+        }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
+        public void setMaxStringLengthNickname(int maxStringLengthNickname) {
+            this.maxStringLengthNickname = maxStringLengthNickname;
+        }
 
-    public String getExtension() {
-        return extension;
-    }
+        public int getPsv() {
+            return psv;
+        }
 
-    public void setExtension(String extension) {
-        this.extension = extension;
-    }
+        public void setPsv(int psv) {
+            this.psv = psv;
+        }
 
-    public String getEncryptedPartyData() {
-        return encryptedPartyData;
-    }
+        public int getTsv() {
+            return tsv;
+        }
 
-    public void setEncryptedPartyData(String encryptedPartyData) {
-        this.encryptedPartyData = encryptedPartyData;
-    }
+        public void setTsv(int tsv) {
+            this.tsv = tsv;
+        }
 
-    public String getEncryptedBoxData() {
-        return encryptedBoxData;
-    }
+        public boolean isJapanese() {
+            return japanese;
+        }
 
-    public void setEncryptedBoxData(String encryptedBoxData) {
-        this.encryptedBoxData = encryptedBoxData;
-    }
+        public void setJapanese(boolean japanese) {
+            this.japanese = japanese;
+        }
 
-    public String getDecryptedPartyData() {
-        return decryptedPartyData;
-    }
+        public int getAbility() {
+            return ability;
+        }
 
-    public void setDecryptedPartyData(String decryptedPartyData) {
-        this.decryptedPartyData = decryptedPartyData;
-    }
+        public void setAbility(int ability) {
+            this.ability = ability;
+        }
 
-    public String getDecryptedBoxData() {
-        return decryptedBoxData;
-    }
+        public long getEncryptionConstant() {
+            return encryptionConstant;
+        }
 
-    public void setDecryptedBoxData(String decryptedBoxData) {
-        this.decryptedBoxData = decryptedBoxData;
-    }
+        public void setEncryptionConstant(long encryptionConstant) {
+            this.encryptionConstant = encryptionConstant;
+        }
 
-    public int getFormat() {
-        return format;
-    }
+        public int getNature() {
+            return nature;
+        }
 
-    public void setFormat(int format) {
-        this.format = format;
-    }
+        public void setNature(int nature) {
+            this.nature = nature;
+        }
 
-    public int getTrainerIDDisplayFormat() {
-        return trainerIDDisplayFormat;
-    }
+        public boolean isNicknamed() {
+            return isNicknamed;
+        }
 
-    public void setTrainerIDDisplayFormat(int trainerIDDisplayFormat) {
-        this.trainerIDDisplayFormat = trainerIDDisplayFormat;
-    }
+        public void setNicknamed(boolean nicknamed) {
+            isNicknamed = nicknamed;
+        }
 
-    public int getStatNature() {
-        return statNature;
-    }
+        public int getGender() {
+            return gender;
+        }
 
-    public void setStatNature(int statNature) {
-        this.statNature = statNature;
-    }
+        public void setGender(int gender) {
+            this.gender = gender;
+        }
 
-    public int getTrainerTID7() {
-        return trainerTID7;
-    }
+        public int getCharacteristic() {
+            return characteristic;
+        }
 
-    public void setTrainerTID7(int trainerTID7) {
-        this.trainerTID7 = trainerTID7;
-    }
+        public void setCharacteristic(int characteristic) {
+            this.characteristic = characteristic;
+        }
 
-    public int getTrainerSID7() {
-        return trainerSID7;
-    }
+        public int getCurrentFriendship() {
+            return currentFriendship;
+        }
 
-    public void setTrainerSID7(int trainerSID7) {
-        this.trainerSID7 = trainerSID7;
-    }
+        public void setCurrentFriendship(int currentFriendship) {
+            this.currentFriendship = currentFriendship;
+        }
 
-    public int getDisplayTID() {
-        return displayTID;
-    }
+        public int getCurrentHandler() {
+            return currentHandler;
+        }
 
-    public void setDisplayTID(int displayTID) {
-        this.displayTID = displayTID;
-    }
+        public void setCurrentHandler(int currentHandler) {
+            this.currentHandler = currentHandler;
+        }
 
-    public int getDisplaySID() {
-        return displaySID;
-    }
+        public int getEggLocation() {
+            return eggLocation;
+        }
 
-    public void setDisplaySID(int displaySID) {
-        this.displaySID = displaySID;
-    }
+        public void setEggLocation(int eggLocation) {
+            this.eggLocation = eggLocation;
+        }
 
-    public boolean isKorean() {
-        return korean;
-    }
+        public int getMarkingCount() {
+            return markingCount;
+        }
 
-    public void setKorean(boolean korean) {
-        this.korean = korean;
-    }
+        public void setMarkingCount(int markingCount) {
+            this.markingCount = markingCount;
+        }
 
-    public int getMetYear() {
-        return metYear;
-    }
+        public boolean isMarkingCircle() {
+            return markingCircle;
+        }
 
-    public void setMetYear(int metYear) {
-        this.metYear = metYear;
-    }
+        public void setMarkingCircle(boolean markingCircle) {
+            this.markingCircle = markingCircle;
+        }
 
-    public int getMetMonth() {
-        return metMonth;
-    }
+        public boolean isMarkingTriangle() {
+            return markingTriangle;
+        }
 
-    public void setMetMonth(int metMonth) {
-        this.metMonth = metMonth;
-    }
+        public void setMarkingTriangle(boolean markingTriangle) {
+            this.markingTriangle = markingTriangle;
+        }
 
-    public int getMetDay() {
-        return metDay;
-    }
+        public boolean isMarkingSquare() {
+            return markingSquare;
+        }
 
-    public void setMetDay(int metDay) {
-        this.metDay = metDay;
-    }
+        public void setMarkingSquare(boolean markingSquare) {
+            this.markingSquare = markingSquare;
+        }
 
-    public String getHandlingTrainerName() {
-        return handlingTrainerName;
-    }
+        public boolean isMarkingHeart() {
+            return markingHeart;
+        }
 
-    public void setHandlingTrainerName(String handlingTrainerName) {
-        this.handlingTrainerName = handlingTrainerName;
-    }
+        public void setMarkingHeart(boolean markingHeart) {
+            this.markingHeart = markingHeart;
+        }
 
-    public int getHandlingTrainerGender() {
-        return handlingTrainerGender;
-    }
+        public int getForm() {
+            return form;
+        }
 
-    public void setHandlingTrainerGender(int handlingTrainerGender) {
-        this.handlingTrainerGender = handlingTrainerGender;
-    }
+        public void setForm(int form) {
+            this.form = form;
+        }
 
-    public int getHandlingTrainerFriendship() {
-        return handlingTrainerFriendship;
-    }
+        public int getAbilityNumber() {
+            return abilityNumber;
+        }
 
-    public void setHandlingTrainerFriendship(int handlingTrainerFriendship) {
-        this.handlingTrainerFriendship = handlingTrainerFriendship;
-    }
+        public void setAbilityNumber(int abilityNumber) {
+            this.abilityNumber = abilityNumber;
+        }
 
-    public Object getMetDate() {
-        return metDate;
-    }
+        public boolean isValid() {
+            return valid;
+        }
 
-    public void setMetDate(Object metDate) {
-        this.metDate = metDate;
-    }
+        public void setValid(boolean valid) {
+            this.valid = valid;
+        }
 
-    public int getEggYear() {
-        return eggYear;
-    }
+        public String getExtension() {
+            return extension;
+        }
 
-    public void setEggYear(int eggYear) {
-        this.eggYear = eggYear;
-    }
+        public void setExtension(String extension) {
+            this.extension = extension;
+        }
 
-    public int getEggMonth() {
-        return eggMonth;
-    }
+        public String getEncryptedPartyData() {
+            return encryptedPartyData;
+        }
 
-    public void setEggMonth(int eggMonth) {
-        this.eggMonth = eggMonth;
-    }
+        public void setEncryptedPartyData(String encryptedPartyData) {
+            this.encryptedPartyData = encryptedPartyData;
+        }
 
-    public int getEggDay() {
-        return eggDay;
-    }
+        public String getEncryptedBoxData() {
+            return encryptedBoxData;
+        }
 
-    public void setEggDay(int eggDay) {
-        this.eggDay = eggDay;
-    }
+        public void setEncryptedBoxData(String encryptedBoxData) {
+            this.encryptedBoxData = encryptedBoxData;
+        }
 
-    public Object getEggMetDate() {
-        return eggMetDate;
-    }
+        public String getDecryptedPartyData() {
+            return decryptedPartyData;
+        }
 
-    public void setEggMetDate(Object eggMetDate) {
-        this.eggMetDate = eggMetDate;
-    }
+        public void setDecryptedPartyData(String decryptedPartyData) {
+            this.decryptedPartyData = decryptedPartyData;
+        }
 
-    public int getRelearnMove1() {
-        return relearnMove1;
-    }
+        public String getDecryptedBoxData() {
+            return decryptedBoxData;
+        }
 
-    public void setRelearnMove1(int relearnMove1) {
-        this.relearnMove1 = relearnMove1;
-    }
+        public void setDecryptedBoxData(String decryptedBoxData) {
+            this.decryptedBoxData = decryptedBoxData;
+        }
 
-    public int getRelearnMove2() {
-        return relearnMove2;
-    }
+        public int getFormat() {
+            return format;
+        }
 
-    public void setRelearnMove2(int relearnMove2) {
-        this.relearnMove2 = relearnMove2;
-    }
+        public void setFormat(int format) {
+            this.format = format;
+        }
 
-    public int getRelearnMove3() {
-        return relearnMove3;
-    }
+        public int getTrainerIDDisplayFormat() {
+            return trainerIDDisplayFormat;
+        }
 
-    public void setRelearnMove3(int relearnMove3) {
-        this.relearnMove3 = relearnMove3;
-    }
+        public void setTrainerIDDisplayFormat(int trainerIDDisplayFormat) {
+            this.trainerIDDisplayFormat = trainerIDDisplayFormat;
+        }
 
-    public int getRelearnMove4() {
-        return relearnMove4;
-    }
+        public int getStatNature() {
+            return statNature;
+        }
 
-    public void setRelearnMove4(int relearnMove4) {
-        this.relearnMove4 = relearnMove4;
-    }
+        public void setStatNature(int statNature) {
+            this.statNature = statNature;
+        }
 
-    public int getMinGameID() {
-        return minGameID;
-    }
+        public Integer getTrainerTID7() {
+            return trainerTID7;
+        }
 
-    public void setMinGameID(int minGameID) {
-        this.minGameID = minGameID;
-    }
+        public void setTrainerTID7(Integer trainerTID7) {
+            this.trainerTID7 = trainerTID7;
+        }
 
-    public boolean isShiny() {
-        return isShiny;
-    }
+        public Integer getTrainerSID7() {
+            return trainerSID7;
+        }
 
-    public void setShiny(boolean shiny) {
-        isShiny = shiny;
-    }
+        public void setTrainerSID7(Integer trainerSID7) {
+            this.trainerSID7 = trainerSID7;
+        }
 
-    public int getShinyXor() {
-        return shinyXor;
-    }
+        public int getDisplayTID() {
+            return displayTID;
+        }
 
-    public void setShinyXor(int shinyXor) {
-        this.shinyXor = shinyXor;
-    }
+        public void setDisplayTID(int displayTID) {
+            this.displayTID = displayTID;
+        }
 
-    public boolean isE() {
-        return e;
-    }
+        public int getDisplaySID() {
+            return displaySID;
+        }
 
-    public void setE(boolean e) {
-        this.e = e;
-    }
+        public void setDisplaySID(int displaySID) {
+            this.displaySID = displaySID;
+        }
 
-    public boolean isFrlg() {
-        return frlg;
-    }
+        public boolean isKorean() {
+            return korean;
+        }
 
-    public void setFrlg(boolean frlg) {
-        this.frlg = frlg;
-    }
+        public void setKorean(boolean korean) {
+            this.korean = korean;
+        }
 
-    public boolean isPt() {
-        return pt;
-    }
+        public int getMetYear() {
+            return metYear;
+        }
 
-    public void setPt(boolean pt) {
-        this.pt = pt;
-    }
+        public void setMetYear(int metYear) {
+            this.metYear = metYear;
+        }
 
-    public boolean isHgss() {
-        return hgss;
-    }
+        public int getMetMonth() {
+            return metMonth;
+        }
 
-    public void setHgss(boolean hgss) {
-        this.hgss = hgss;
-    }
+        public void setMetMonth(int metMonth) {
+            this.metMonth = metMonth;
+        }
 
-    public boolean isBw() {
-        return bw;
-    }
+        public int getMetDay() {
+            return metDay;
+        }
 
-    public void setBw(boolean bw) {
-        this.bw = bw;
-    }
+        public void setMetDay(int metDay) {
+            this.metDay = metDay;
+        }
 
-    public boolean isB2w2() {
-        return b2w2;
-    }
+        public String getMetDate() {
+            return metDate;
+        }
 
-    public void setB2w2(boolean b2w2) {
-        this.b2w2 = b2w2;
-    }
+        public void setMetDate(String metDate) {
+            this.metDate = metDate;
+        }
 
-    public boolean isXy() {
-        return xy;
-    }
+        public String getHandlingTrainerName() {
+            return handlingTrainerName;
+        }
 
-    public void setXy(boolean xy) {
-        this.xy = xy;
-    }
+        public void setHandlingTrainerName(String handlingTrainerName) {
+            this.handlingTrainerName = handlingTrainerName;
+        }
 
-    public boolean isAo() {
-        return ao;
-    }
+        public int getHandlingTrainerGender() {
+            return handlingTrainerGender;
+        }
 
-    public void setAo(boolean ao) {
-        this.ao = ao;
-    }
+        public void setHandlingTrainerGender(int handlingTrainerGender) {
+            this.handlingTrainerGender = handlingTrainerGender;
+        }
 
-    public boolean isSm() {
-        return sm;
-    }
+        public int getHandlingTrainerFriendship() {
+            return handlingTrainerFriendship;
+        }
 
-    public void setSm(boolean sm) {
-        this.sm = sm;
-    }
+        public void setHandlingTrainerFriendship(int handlingTrainerFriendship) {
+            this.handlingTrainerFriendship = handlingTrainerFriendship;
+        }
 
-    public boolean isUsum() {
-        return usum;
-    }
+        public int getEggYear() {
+            return eggYear;
+        }
 
-    public void setUsum(boolean usum) {
-        this.usum = usum;
-    }
+        public void setEggYear(int eggYear) {
+            this.eggYear = eggYear;
+        }
 
-    public boolean isGo() {
-        return go;
-    }
+        public int getEggMonth() {
+            return eggMonth;
+        }
 
-    public void setGo(boolean go) {
-        this.go = go;
-    }
+        public void setEggMonth(int eggMonth) {
+            this.eggMonth = eggMonth;
+        }
 
-    public boolean isVc1() {
-        return vc1;
-    }
+        public int getEggDay() {
+            return eggDay;
+        }
 
-    public void setVc1(boolean vc1) {
-        this.vc1 = vc1;
-    }
+        public void setEggDay(int eggDay) {
+            this.eggDay = eggDay;
+        }
 
-    public boolean isVc2() {
-        return vc2;
-    }
+        public String getEggMetDate() {
+            return eggMetDate;
+        }
 
-    public void setVc2(boolean vc2) {
-        this.vc2 = vc2;
-    }
+        public void setEggMetDate(String eggMetDate) {
+            this.eggMetDate = eggMetDate;
+        }
 
-    public boolean isLgpe() {
-        return lgpe;
-    }
+        public Integer getRelearnMove1() {
+            return relearnMove1;
+        }
 
-    public void setLgpe(boolean lgpe) {
-        this.lgpe = lgpe;
-    }
+        public void setRelearnMove1(Integer relearnMove1) {
+            this.relearnMove1 = relearnMove1;
+        }
 
-    public boolean isSwsh() {
-        return swsh;
-    }
+        public Integer getRelearnMove2() {
+            return relearnMove2;
+        }
 
-    public void setSwsh(boolean swsh) {
-        this.swsh = swsh;
-    }
+        public void setRelearnMove2(Integer relearnMove2) {
+            this.relearnMove2 = relearnMove2;
+        }
 
-    public boolean isBdsp() {
-        return bdsp;
-    }
+        public int getRelearnMove3() {
+            return relearnMove3;
+        }
 
-    public void setBdsp(boolean bdsp) {
-        this.bdsp = bdsp;
-    }
+        public void setRelearnMove3(int relearnMove3) {
+            this.relearnMove3 = relearnMove3;
+        }
 
-    public boolean isLa() {
-        return la;
-    }
+        public int getRelearnMove4() {
+            return relearnMove4;
+        }
 
-    public void setLa(boolean la) {
-        this.la = la;
-    }
+        public void setRelearnMove4(int relearnMove4) {
+            this.relearnMove4 = relearnMove4;
+        }
 
-    public boolean isSv() {
-        return sv;
-    }
+        public int getMinGameID() {
+            return minGameID;
+        }
 
-    public void setSv(boolean sv) {
-        this.sv = sv;
-    }
+        public void setMinGameID(int minGameID) {
+            this.minGameID = minGameID;
+        }
 
-    public boolean isGoLgpe() {
-        return goLgpe;
-    }
+        public boolean isShiny() {
+            return isShiny;
+        }
 
-    public void setGoLgpe(boolean goLgpe) {
-        this.goLgpe = goLgpe;
-    }
+        public void setShiny(boolean shiny) {
+            isShiny = shiny;
+        }
 
-    public boolean isGoHome() {
-        return goHome;
-    }
+        public int getShinyXor() {
+            return shinyXor;
+        }
 
-    public void setGoHome(boolean goHome) {
-        this.goHome = goHome;
-    }
+        public void setShinyXor(int shinyXor) {
+            this.shinyXor = shinyXor;
+        }
 
-    public boolean isVc() {
-        return vc;
-    }
+        public boolean isE() {
+            return e;
+        }
 
-    public void setVc(boolean vc) {
-        this.vc = vc;
-    }
+        public void setE(boolean e) {
+            this.e = e;
+        }
 
-    public boolean isGg() {
-        return gg;
-    }
+        public boolean isFrlg() {
+            return frlg;
+        }
 
-    public void setGg(boolean gg) {
-        this.gg = gg;
-    }
+        public void setFrlg(boolean frlg) {
+            this.frlg = frlg;
+        }
 
-    public boolean isGen9() {
-        return gen9;
-    }
+        public boolean isPt() {
+            return pt;
+        }
 
-    public void setGen9(boolean gen9) {
-        this.gen9 = gen9;
-    }
+        public void setPt(boolean pt) {
+            this.pt = pt;
+        }
 
-    public boolean isGen8() {
-        return gen8;
-    }
+        public boolean isHgss() {
+            return hgss;
+        }
 
-    public void setGen8(boolean gen8) {
-        this.gen8 = gen8;
-    }
+        public void setHgss(boolean hgss) {
+            this.hgss = hgss;
+        }
 
-    public boolean isGen7() {
-        return gen7;
-    }
+        public boolean isBw() {
+            return bw;
+        }
 
-    public void setGen7(boolean gen7) {
-        this.gen7 = gen7;
-    }
+        public void setBw(boolean bw) {
+            this.bw = bw;
+        }
 
-    public boolean isGen6() {
-        return gen6;
-    }
+        public boolean isB2w2() {
+            return b2w2;
+        }
 
-    public void setGen6(boolean gen6) {
-        this.gen6 = gen6;
-    }
+        public void setB2w2(boolean b2w2) {
+            this.b2w2 = b2w2;
+        }
 
-    public boolean isGen5() {
-        return gen5;
-    }
+        public boolean isXy() {
+            return xy;
+        }
 
-    public void setGen5(boolean gen5) {
-        this.gen5 = gen5;
-    }
+        public void setXy(boolean xy) {
+            this.xy = xy;
+        }
 
-    public boolean isGen4() {
-        return gen4;
-    }
+        public boolean isAo() {
+            return ao;
+        }
 
-    public void setGen4(boolean gen4) {
-        this.gen4 = gen4;
-    }
+        public void setAo(boolean ao) {
+            this.ao = ao;
+        }
 
-    public boolean isGen3() {
-        return gen3;
-    }
+        public boolean isSm() {
+            return sm;
+        }
 
-    public void setGen3(boolean gen3) {
-        this.gen3 = gen3;
-    }
+        public void setSm(boolean sm) {
+            this.sm = sm;
+        }
 
-    public boolean isGen2() {
-        return gen2;
-    }
+        public boolean isUsum() {
+            return usum;
+        }
 
-    public void setGen2(boolean gen2) {
-        this.gen2 = gen2;
-    }
+        public void setUsum(boolean usum) {
+            this.usum = usum;
+        }
 
-    public boolean isGen1() {
-        return gen1;
-    }
+        public boolean isGo() {
+            return go;
+        }
 
-    public void setGen1(boolean gen1) {
-        this.gen1 = gen1;
-    }
+        public void setGo(boolean go) {
+            this.go = go;
+        }
 
-    public boolean isGenU() {
-        return genU;
-    }
+        public boolean isVc1() {
+            return vc1;
+        }
 
-    public void setGenU(boolean genU) {
-        this.genU = genU;
-    }
+        public void setVc1(boolean vc1) {
+            this.vc1 = vc1;
+        }
 
-    public int getGeneration() {
-        return generation;
-    }
+        public boolean isVc2() {
+            return vc2;
+        }
 
-    public void setGeneration(int generation) {
-        this.generation = generation;
-    }
+        public void setVc2(boolean vc2) {
+            this.vc2 = vc2;
+        }
 
-    public boolean isPokerusInfected() {
-        return isPokerusInfected;
-    }
+        public boolean isLgpe() {
+            return lgpe;
+        }
 
-    public void setPokerusInfected(boolean pokerusInfected) {
-        isPokerusInfected = pokerusInfected;
-    }
+        public void setLgpe(boolean lgpe) {
+            this.lgpe = lgpe;
+        }
 
-    public boolean isPokerusCured() {
-        return isPokerusCured;
-    }
+        public boolean isSwsh() {
+            return swsh;
+        }
 
-    public void setPokerusCured(boolean pokerusCured) {
-        isPokerusCured = pokerusCured;
-    }
+        public void setSwsh(boolean swsh) {
+            this.swsh = swsh;
+        }
 
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
+        public boolean isBdsp() {
+            return bdsp;
+        }
 
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
-    }
+        public void setBdsp(boolean bdsp) {
+            this.bdsp = bdsp;
+        }
 
-    public int getIvTotal() {
-        return ivTotal;
-    }
+        public String getLa() {
+            return la;
+        }
 
-    public void setIvTotal(int ivTotal) {
-        this.ivTotal = ivTotal;
-    }
+        public void setLa(String la) {
+            this.la = la;
+        }
 
-    public int getMaximumIV() {
-        return maximumIV;
-    }
+        public boolean isSv() {
+            return sv;
+        }
 
-    public void setMaximumIV(int maximumIV) {
-        this.maximumIV = maximumIV;
-    }
+        public void setSv(boolean sv) {
+            this.sv = sv;
+        }
 
-    public int getFlawlessIVCount() {
-        return flawlessIVCount;
-    }
+        public boolean isSvv() {
+            return svv;
+        }
 
-    public void setFlawlessIVCount(int flawlessIVCount) {
-        this.flawlessIVCount = flawlessIVCount;
-    }
+        public void setSvv(boolean svv) {
+            this.svv = svv;
+        }
 
-    public String getFileName() {
-        return fileName;
-    }
+        public boolean isGoLGPE() {
+            return goLGPE;
+        }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+        public void setGoLGPE(boolean goLGPE) {
+            this.goLGPE = goLGPE;
+        }
 
-    public String getFileNameWithoutExtension() {
-        return fileNameWithoutExtension;
-    }
+        public String getGoHome() {
+            return goHome;
+        }
 
-    public void setFileNameWithoutExtension(String fileNameWithoutExtension) {
-        this.fileNameWithoutExtension = fileNameWithoutExtension;
-    }
+        public void setGoHome(String goHome) {
+            this.goHome = goHome;
+        }
 
-    public List<Integer> getIvs() {
-        return ivs;
-    }
+        public boolean isVc() {
+            return vc;
+        }
 
-    public void setIvs(List<Integer> ivs) {
-        this.ivs = ivs;
-    }
+        public void setVc(boolean vc) {
+            this.vc = vc;
+        }
 
-    public List<Integer> getStats() {
-        return stats;
-    }
+        public boolean isGg() {
+            return gg;
+        }
 
-    public void setStats(List<Integer> stats) {
-        this.stats = stats;
-    }
+        public void setGg(boolean gg) {
+            this.gg = gg;
+        }
 
-    public List<Integer> getMoves() {
-        return moves;
-    }
+        public String getG() {
+            return g;
+        }
 
-    public void setMoves(List<Integer> moves) {
-        this.moves = moves;
-    }
+        public void setG(String g) {
+            this.g = g;
+        }
 
-    public int getMoveCount() {
-        return moveCount;
-    }
+        public boolean isGen8() {
+            return gen8;
+        }
 
-    public void setMoveCount(int moveCount) {
-        this.moveCount = moveCount;
-    }
+        public void setGen8(boolean gen8) {
+            this.gen8 = gen8;
+        }
 
-    public List<Integer> getRelearnMoves() {
-        return relearnMoves;
-    }
+        public String getGen7() {
+            return gen7;
+        }
 
-    public void setRelearnMoves(List<Integer> relearnMoves) {
-        this.relearnMoves = relearnMoves;
-    }
+        public void setGen7(String gen7) {
+            this.gen7 = gen7;
+        }
 
-    public int getPidAbility() {
-        return pidAbility;
-    }
+        public boolean isGen6() {
+            return gen6;
+        }
 
-    public void setPidAbility(int pidAbility) {
-        this.pidAbility = pidAbility;
-    }
+        public void setGen6(boolean gen6) {
+            this.gen6 = gen6;
+        }
 
-    public int getHpPower() {
-        return hpPower;
-    }
+        public String getGen5() {
+            return gen5;
+        }
 
-    public void setHpPower(int hpPower) {
-        this.hpPower = hpPower;
-    }
+        public void setGen5(String gen5) {
+            this.gen5 = gen5;
+        }
 
-    public int getHpType() {
-        return hpType;
-    }
+        public String getGen4() {
+            return gen4;
+        }
 
-    public void setHpType(int hpType) {
-        this.hpType = hpType;
-    }
+        public void setGen4(String gen4) {
+            this.gen4 = gen4;
+        }
 
-    public boolean isWasEgg() {
-        return wasEgg;
-    }
+        public boolean isGen3() {
+            return gen3;
+        }
 
-    public void setWasEgg(boolean wasEgg) {
-        this.wasEgg = wasEgg;
-    }
+        public void setGen3(boolean gen3) {
+            this.gen3 = gen3;
+        }
 
-    public boolean isWasTradedEgg() {
-        return wasTradedEgg;
-    }
+        public String getGen2() {
+            return gen2;
+        }
 
-    public void setWasTradedEgg(boolean wasTradedEgg) {
-        this.wasTradedEgg = wasTradedEgg;
-    }
+        public void setGen2(String gen2) {
+            this.gen2 = gen2;
+        }
 
-    public boolean isTradedEgg() {
-        return isTradedEgg;
-    }
+        public boolean isGen1() {
+            return gen1;
+        }
 
-    public void setTradedEgg(boolean tradedEgg) {
-        isTradedEgg = tradedEgg;
-    }
+        public void setGen1(boolean gen1) {
+            this.gen1 = gen1;
+        }
 
-    public boolean isUntraded() {
-        return isUntraded;
-    }
+        public String getGen() {
+            return gen;
+        }
 
-    public void setUntraded(boolean untraded) {
-        isUntraded = untraded;
-    }
+        public void setGen(String gen) {
+            this.gen = gen;
+        }
 
-    public boolean isOriginValid() {
-        return isOriginValid;
-    }
+        public int getGeneration() {
+            return generation;
+        }
 
-    public void setOriginValid(boolean originValid) {
-        isOriginValid = originValid;
-    }
+        public void setGeneration(int generation) {
+            this.generation = generation;
+        }
 
-    public boolean isHasOriginalMetLocation() {
-        return hasOriginalMetLocation;
-    }
+        public boolean isPokerusInfected() {
+            return isPokerusInfected;
+        }
 
-    public void setHasOriginalMetLocation(boolean hasOriginalMetLocation) {
-        this.hasOriginalMetLocation = hasOriginalMetLocation;
-    }
+        public void setPokerusInfected(boolean pokerusInfected) {
+            isPokerusInfected = pokerusInfected;
+        }
 
-    public int getPotentialRating() {
-        return potentialRating;
-    }
+        public boolean isPokerusCured() {
+            return isPokerusCured;
+        }
 
-    public void setPotentialRating(int potentialRating) {
-        this.potentialRating = potentialRating;
-    }
+        public void setPokerusCured(boolean pokerusCured) {
+            isPokerusCured = pokerusCured;
+        }
 
-    public boolean isPartyStatsPresent() {
-        return partyStatsPresent;
-    }
+        public int getCurrentLevel() {
+            return currentLevel;
+        }
 
-    public void setPartyStatsPresent(boolean partyStatsPresent) {
-        this.partyStatsPresent = partyStatsPresent;
-    }
+        public void setCurrentLevel(int currentLevel) {
+            this.currentLevel = currentLevel;
+        }
 
-    public int getHpBitValPower() {
-        return hpBitValPower;
-    }
+        public int getIvTotal() {
+            return ivTotal;
+        }
 
-    public void setHpBitValPower(int hpBitValPower) {
-        this.hpBitValPower = hpBitValPower;
-    }
+        public void setIvTotal(int ivTotal) {
+            this.ivTotal = ivTotal;
+        }
 
-    public int getHpBitValType() {
-        return hpBitValType;
-    }
+        public int getMaximumIV() {
+            return maximumIV;
+        }
 
-    public void setHpBitValType(int hpBitValType) {
-        this.hpBitValType = hpBitValType;
-    }
-}
-
-class PersonalInfo {
-    private int hp;
-    private int atk;
-    private int def;
-    private int spe;
-    private int spa;
-    private int spd;
-    private int type1;
-    private int type2;
-    private int catchRate;
-    private int baseEXP;
-    private int evYield;
-    private int evHP;
-    private int evATK;
-    private int evDEF;
-    private int evSPE;
-    private int evSPA;
-    private int evSPD;
-    private int item1;
-    private int item2;
-    private int gender;
-    private int hatchCycles;
-    private int baseFriendship;
-    private int expGrowth;
-    private int eggGroup1;
-    private int eggGroup2;
-    private int ability1;
-    private int ability2;
-    private int escapeRate;
-    private int color;
-    private boolean noFlip;
-    private int abilityCount;
-    private boolean hasSecondAbility;
-    private List<Boolean> tmhm;
-    private List<Boolean> typeTutors;
-    private int evoStage;
-    private int formCount;
-    private int formStatsIndex;
-    private int height;
-    private int weight;
-    private boolean isDualGender;
-    private boolean genderless;
-    private boolean onlyFemale;
-    private boolean onlyMale;
-    private boolean hasForms;
-
-    public int getHp() {
-        return hp;
-    }
+        public void setMaximumIV(int maximumIV) {
+            this.maximumIV = maximumIV;
+        }
 
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
+        public int getFlawlessIVCount() {
+            return flawlessIVCount;
+        }
 
-    public int getAtk() {
-        return atk;
-    }
+        public void setFlawlessIVCount(int flawlessIVCount) {
+            this.flawlessIVCount = flawlessIVCount;
+        }
 
-    public void setAtk(int atk) {
-        this.atk = atk;
-    }
+        public String getFileName() {
+            return fileName;
+        }
 
-    public int getDef() {
-        return def;
-    }
+        public void setFileName(String fileName) {
+            this.fileName = fileName;
+        }
 
-    public void setDef(int def) {
-        this.def = def;
-    }
+        public String getFileNameWithoutExtension() {
+            return fileNameWithoutExtension;
+        }
 
-    public int getSpe() {
-        return spe;
-    }
+        public void setFileNameWithoutExtension(String fileNameWithoutExtension) {
+            this.fileNameWithoutExtension = fileNameWithoutExtension;
+        }
 
-    public void setSpe(int spe) {
-        this.spe = spe;
-    }
+        public int[] getIvs() {
+            return ivs;
+        }
 
-    public int getSpa() {
-        return spa;
-    }
+        public void setIvs(int[] ivs) {
+            this.ivs = ivs;
+        }
 
-    public void setSpa(int spa) {
-        this.spa = spa;
-    }
+        public int[] getStats() {
+            return stats;
+        }
 
-    public int getSpd() {
-        return spd;
-    }
+        public void setStats(int[] stats) {
+            this.stats = stats;
+        }
 
-    public void setSpd(int spd) {
-        this.spd = spd;
-    }
+        public int[] getMoves() {
+            return moves;
+        }
 
-    public int getType1() {
-        return type1;
-    }
+        public void setMoves(int[] moves) {
+            this.moves = moves;
+        }
 
-    public void setType1(int type1) {
-        this.type1 = type1;
-    }
+        public int getMoveCount() {
+            return moveCount;
+        }
 
-    public int getType2() {
-        return type2;
-    }
+        public void setMoveCount(int moveCount) {
+            this.moveCount = moveCount;
+        }
 
-    public void setType2(int type2) {
-        this.type2 = type2;
-    }
+        public int[] getRelearnMoves() {
+            return relearnMoves;
+        }
 
-    public int getCatchRate() {
-        return catchRate;
-    }
+        public void setRelearnMoves(int[] relearnMoves) {
+            this.relearnMoves = relearnMoves;
+        }
 
-    public void setCatchRate(int catchRate) {
-        this.catchRate = catchRate;
-    }
+        public int getPidAbility() {
+            return pidAbility;
+        }
 
-    public int getBaseEXP() {
-        return baseEXP;
-    }
+        public void setPidAbility(int pidAbility) {
+            this.pidAbility = pidAbility;
+        }
 
-    public void setBaseEXP(int baseEXP) {
-        this.baseEXP = baseEXP;
-    }
+        public int getHpPower() {
+            return hpPower;
+        }
 
-    public int getEvYield() {
-        return evYield;
-    }
+        public void setHpPower(int hpPower) {
+            this.hpPower = hpPower;
+        }
 
-    public void setEvYield(int evYield) {
-        this.evYield = evYield;
-    }
+        public int getHpType() {
+            return hpType;
+        }
 
-    public int getEvHP() {
-        return evHP;
-    }
+        public void setHpType(int hpType) {
+            this.hpType = hpType;
+        }
 
-    public void setEvHP(int evHP) {
-        this.evHP = evHP;
-    }
+        public boolean isWasEgg() {
+            return wasEgg;
+        }
 
-    public int getEvATK() {
-        return evATK;
-    }
+        public void setWasEgg(boolean wasEgg) {
+            this.wasEgg = wasEgg;
+        }
 
-    public void setEvATK(int evATK) {
-        this.evATK = evATK;
-    }
+        public boolean isWasTradedEgg() {
+            return wasTradedEgg;
+        }
 
-    public int getEvDEF() {
-        return evDEF;
-    }
+        public void setWasTradedEgg(boolean wasTradedEgg) {
+            this.wasTradedEgg = wasTradedEgg;
+        }
 
-    public void setEvDEF(int evDEF) {
-        this.evDEF = evDEF;
-    }
+        public boolean isTradedEgg() {
+            return isTradedEgg;
+        }
 
-    public int getEvSPE() {
-        return evSPE;
-    }
+        public void setTradedEgg(boolean tradedEgg) {
+            isTradedEgg = tradedEgg;
+        }
 
-    public void setEvSPE(int evSPE) {
-        this.evSPE = evSPE;
-    }
+        public boolean isUntraded() {
+            return isUntraded;
+        }
 
-    public int getEvSPA() {
-        return evSPA;
-    }
+        public void setUntraded(boolean untraded) {
+            isUntraded = untraded;
+        }
 
-    public void setEvSPA(int evSPA) {
-        this.evSPA = evSPA;
-    }
+        public boolean isOriginValid() {
+            return isOriginValid;
+        }
 
-    public int getEvSPD() {
-        return evSPD;
-    }
+        public void setOriginValid(boolean originValid) {
+            isOriginValid = originValid;
+        }
 
-    public void setEvSPD(int evSPD) {
-        this.evSPD = evSPD;
-    }
+        public boolean isHasOriginalMetLocation() {
+            return hasOriginalMetLocation;
+        }
 
-    public int getItem1() {
-        return item1;
-    }
+        public void setHasOriginalMetLocation(boolean hasOriginalMetLocation) {
+            this.hasOriginalMetLocation = hasOriginalMetLocation;
+        }
 
-    public void setItem1(int item1) {
-        this.item1 = item1;
-    }
+        public int getPotentialRating() {
+            return potentialRating;
+        }
 
-    public int getItem2() {
-        return item2;
-    }
+        public void setPotentialRating(int potentialRating) {
+            this.potentialRating = potentialRating;
+        }
 
-    public void setItem2(int item2) {
-        this.item2 = item2;
-    }
+        public boolean isPartyStatsPresent() {
+            return partyStatsPresent;
+        }
 
-    public int getGender() {
-        return gender;
-    }
+        public void setPartyStatsPresent(boolean partyStatsPresent) {
+            this.partyStatsPresent = partyStatsPresent;
+        }
 
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
+        public int getHpBitValPower() {
+            return hpBitValPower;
+        }
 
-    public int getHatchCycles() {
-        return hatchCycles;
-    }
+        public void setHpBitValPower(int hpBitValPower) {
+            this.hpBitValPower = hpBitValPower;
+        }
 
-    public void setHatchCycles(int hatchCycles) {
-        this.hatchCycles = hatchCycles;
-    }
+        public int getHpBitValType() {
+            return hpBitValType;
+        }
 
-    public int getBaseFriendship() {
-        return baseFriendship;
+        public void setHpBitValType(int hpBitValType) {
+            this.hpBitValType = hpBitValType;
+        }
     }
 
-    public void setBaseFriendship(int baseFriendship) {
-        this.baseFriendship = baseFriendship;
-    }
+    public static class PersonalInfo {
+        @SerializedName("HP")
+        private int hp;
 
-    public int getExpGrowth() {
-        return expGrowth;
-    }
+        @SerializedName("ATK")
+        private int atk;
 
-    public void setExpGrowth(int expGrowth) {
-        this.expGrowth = expGrowth;
-    }
+        @SerializedName("DEF")
+        private int def;
 
-    public int getEggGroup1() {
-        return eggGroup1;
-    }
+        @SerializedName("SPE")
+        private int spe;
 
-    public void setEggGroup1(int eggGroup1) {
-        this.eggGroup1 = eggGroup1;
-    }
+        @SerializedName("SPA")
+        private int spa;
 
-    public int getEggGroup2() {
-        return eggGroup2;
-    }
+        @SerializedName("SPD")
+        private int spd;
 
-    public void setEggGroup2(int eggGroup2) {
-        this.eggGroup2 = eggGroup2;
-    }
+        @SerializedName("Type1")
+        private int type1;
 
-    public int getAbility1() {
-        return ability1;
-    }
+        @SerializedName("Type2")
+        private int type2;
 
-    public void setAbility1(int ability1) {
-        this.ability1 = ability1;
-    }
+        @SerializedName("CatchRate")
+        private int catchRate;
 
-    public int getAbility2() {
-        return ability2;
-    }
+        @SerializedName("BaseEXP")
+        private int baseEXP;
 
-    public void setAbility2(int ability2) {
-        this.ability2 = ability2;
-    }
+        @SerializedName("EVYield")
+        private int evYield;
 
-    public int getEscapeRate() {
-        return escapeRate;
-    }
+        @SerializedName("EV_HP")
+        private int evHP;
 
-    public void setEscapeRate(int escapeRate) {
-        this.escapeRate = escapeRate;
-    }
+        @SerializedName("EV_ATK")
+        private int evATK;
 
-    public int getColor() {
-        return color;
-    }
+        @SerializedName("EV_DEF")
+        private int evDEF;
 
-    public void setColor(int color) {
-        this.color = color;
-    }
+        @SerializedName("EV_SPE")
+        private int evSPE;
 
-    public boolean isNoFlip() {
-        return noFlip;
-    }
+        @SerializedName("EV_SPA")
+        private int evSPA;
 
-    public void setNoFlip(boolean noFlip) {
-        this.noFlip = noFlip;
-    }
+        @SerializedName("EV_SPD")
+        private int evSPD;
 
-    public int getAbilityCount() {
-        return abilityCount;
-    }
+        @SerializedName("Item1")
+        private int item1;
 
-    public void setAbilityCount(int abilityCount) {
-        this.abilityCount = abilityCount;
-    }
+        @SerializedName("Item2")
+        private int item2;
 
-    public boolean isHasSecondAbility() {
-        return hasSecondAbility;
-    }
+        @SerializedName("Gender")
+        private int gender;
 
-    public void setHasSecondAbility(boolean hasSecondAbility) {
-        this.hasSecondAbility = hasSecondAbility;
-    }
+        @SerializedName("HatchCycles")
+        private int hatchCycles;
 
-    public List<Boolean> getTmhm() {
-        return tmhm;
-    }
+        @SerializedName("BaseFriendship")
+        private int baseFriendship;
 
-    public void setTmhm(List<Boolean> tmhm) {
-        this.tmhm = tmhm;
-    }
+        @SerializedName("EXPGrowth")
+        private int expGrowth;
 
-    public List<Boolean> getTypeTutors() {
-        return typeTutors;
-    }
+        @SerializedName("EggGroup1")
+        private int eggGroup1;
 
-    public void setTypeTutors(List<Boolean> typeTutors) {
-        this.typeTutors = typeTutors;
-    }
+        @SerializedName("EggGroup2")
+        private int eggGroup2;
 
-    public int getEvoStage() {
-        return evoStage;
-    }
+        @SerializedName("Ability1")
+        private int ability1;
 
-    public void setEvoStage(int evoStage) {
-        this.evoStage = evoStage;
-    }
+        @SerializedName("Ability2")
+        private int ability2;
 
-    public int getFormCount() {
-        return formCount;
-    }
+        @SerializedName("EscapeRate")
+        private int escapeRate;
 
-    public void setFormCount(int formCount) {
-        this.formCount = formCount;
-    }
+        @SerializedName("Color")
+        private int color;
 
-    public int getFormStatsIndex() {
-        return formStatsIndex;
-    }
+        @SerializedName("NoCustom")
+        private boolean noFlip;
 
-    public void setFormStatsIndex(int formStatsIndex) {
-        this.formStatsIndex = formStatsIndex;
-    }
+        @SerializedName("AbilityCount")
+        private int abilityCount;
 
-    public int getHeight() {
-        return height;
-    }
+        @SerializedName("HasSecondAbility")
+        private boolean hasSecondAbility;
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+        @SerializedName("TMHM")
+        private boolean[] tmHm;
 
-    public int getWeight() {
-        return weight;
-    }
+        @SerializedName("TypeTutors")
+        private boolean[] typeTutors;
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
+        @SerializedName("EvoStage")
+        private int evoStage;
 
-    public boolean isDualGender() {
-        return isDualGender;
-    }
+        @SerializedName("FormCount")
+        private int formCount;
 
-    public void setDualGender(boolean dualGender) {
-        isDualGender = dualGender;
-    }
+        @SerializedName("FormStatsIndex")
+        private int formStatsIndex;
 
-    public boolean isGenderless() {
-        return genderless;
-    }
+        @SerializedName("Height")
+        private int height;
 
-    public void setGenderless(boolean genderless) {
-        this.genderless = genderless;
-    }
+        @SerializedName("Weight")
+        private int weight;
 
-    public boolean isOnlyFemale() {
-        return onlyFemale;
-    }
+        @SerializedName("IsDualGender")
+        private boolean isDualGender;
 
-    public void setOnlyFemale(boolean onlyFemale) {
-        this.onlyFemale = onlyFemale;
-    }
+        @SerializedName("Genderless")
+        private boolean genderless;
 
-    public boolean isOnlyMale() {
-        return onlyMale;
-    }
+        @SerializedName("OnlyFemale")
+        private boolean onlyFemale;
 
-    public void setOnlyMale(boolean onlyMale) {
-        this.onlyMale = onlyMale;
-    }
+        @SerializedName("OnlyMale")
+        private boolean onlyMale;
 
-    public boolean isHasForms() {
-        return hasForms;
-    }
+        @SerializedName("HasForms")
+        private boolean hasForms;
 
-    public void setHasForms(boolean hasForms) {
-        this.hasForms = hasForms;
+        // Getters and setters
+        public int getHp() { return hp; }
+        public void setHp(int hp) { this.hp = hp; }
+        public int getMax() { return atk; }
+        public void setAt(int atk) { this.atk = atk; }
+        public int getDef() { return def; }
+        public void setDef(int def) { this.def = def; }
+        public int getSpe() { return spe; }
+        public void setSpe(int spe) { this.spe = spe; }
+        public int getSpa() { return spa; }
+        public void setSpa(int spa) { this.spa = spa; }
+        public int getSpd() { return spd; }
+        public void setSpd(int spd) { this.spd = spd; }
+        public int getType1() { return type1; }
+        public void setType1(int type1) { this.type1 = type1; }
+        public int getType2() { return type2; }
+        public void setType2(int type2) { this.type2 = type2; }
+        public int getCatchRate() { return catchRate; }
+        public void setCatchRate(int catchRate) { this.catchRate = catchRate; }
+        public int getBaseEXP() { return baseEXP; }
+        public void setBaseEXP(int baseEXP) { this.baseEXP = baseEXP; }
+        public int getEvYield() { return evYield; }
+        public void setEvYield(int evYield) { this.evYield = evYield; }
+        public int getEvHP() { return evHP; }
+        public void setEvHP(int evHP) { this.evHP = evHP; }
+        public int getEvATK() { return evATK; }
+        public void setEvATK(int evATK) { this.evATK = evATK; }
+        public int getEvDEF() { return evDEF; }
+        public void setEvDEF(int evDEF) { this.evDEF = evDEF; }
+        public int getEvSPE() { return evSPE; }
+        public void setEvSPE(int evSPE) { this.evSPE = evSPE; }
+        public int getEvSPA() { return evSPA; }
+        public void setEvSPA(int evSPA) { this.evSPA = evSPA; }
+        public int getEvSPD() { return evSPD; }
+        public void setEvSPD(int evSPD) { this.evSPD = evSPD; }
+        public int getItem1() { return item1; }
+        public void setItem1(int item1) { this.item1 = item1; }
+        public int getItem2() { return item2; }
+        public void setItem2(int item2) { this.item2 = item2; }
+        public int getGender() { return gender; }
+        public void setGender(int gender) { this.gender = gender; }
+        public int getHatchCycles() { return hatchCycles; }
+        public void setHatchCycles(int hatchCycles) { this.hatchCycles = hatchCycles; }
+        public int getBaseFriendship() { return baseFriendship; }
+        public void setBaseFriendship(int baseFriendship) { this.baseFriendship = baseFriendship; }
+        public int getExpGrowth() { return this.expGrowth; }
+        public void setExpGrowth(int growth) { this.expGrowth = growth;}
+        public int getEggGroup1() { return eggGroup1; }
+        public void setEggGroup1(int eggGroup1) { this.eggGroup1 = eggGroup1; }
+        public int getEggGroup2() { return eggGroup2; }
+        public void setEggGroup2(int eggGroup2) { this.eggGroup2 = eggGroup2; }
+        public int getAbility1() { return ability1; }
+        public void setAbility1(int ability1) { this.ability1 = ability1; }
+        public int getAbility2() { return ability2; }
+        public void setAbility2(int ability2) { this.ability2 = ability2; }
+        public int getEscapeRate() { return escapeRate; }
+        public void setEscapeRate(int escapeRate) { this.escapeRate = escapeRate; }
+        public int getColor() { return color; }
+        public void setColor(int color) { this.color = color; }
+        public boolean isNoFlip() { return noFlip; }
+        public void setNoFlip(boolean noFlip) { this.noFlip = noFlip; }
+        public int getAbilityCount() { return abilityCount; }
+        public void setAbilityCount(int abilityCount) { this.abilityCount = abilityCount; }
+        public boolean isHasSecondAbility() { return hasSecondAbility; }
+        public void setHasSecondAbility(boolean hasSecondAbility) { this.hasSecondAbility = hasSecondAbility; }
+        public boolean[] getTmHm() { return tmHm; }
+        public void setTmHm(boolean[] tmHm) { this.tmHm = tmHm; }
+        public boolean[] getTypeTutors() { return typeTutors; }
+        public void setTypeTutors(boolean[] typeTutors) { this.typeTutors = typeTutors; }
+        public int getEvoStage() { return evoStage; }
+        public void setEvoStage(int evoStage) { this.evoStage = evoStage; }
+        public int getFormCount() { return formCount; }
+        public void setFormCount(int formCount) { this.formCount = formCount; }
+        public int getFormStatsIndex() { return formStatsIndex; }
+        public void setFormStatsIndex(int index) { this.formStatsIndex = formStatsIndex; }
+        public int getHeight() { return height; }
+        public void setHeight(int height) { this.height = height; }
+        public int getWeight() { return weight; }
+        public void setWeight(int weight) { this.weight = weight; }
+        public boolean isIsDualGender() { return isDualGender; }
+        public void setIsDualGender(boolean isDualGender) { this.isDualGender = isDualGender; }
+        public boolean isGenderless() { return genderless; }
+        public void setGenderless(boolean genderless) { this.genderless = genderless; }
+        public boolean isOnlyFemale() { return onlyFemale; }
+        public void setOnlyFemale(boolean onlyFemale) { this.onlyFemale = onlyFemale; }
+        public boolean isOnlyMale() { return onlyMale; }
+        public void setOnlyMale(boolean onlyMale) { this.onlyMale = onlyMale; }
+        public boolean isHasForms() { return hasForms; }
+        public void setHasForms(boolean hasForms) { this.hasForms = hasForms; }
     }
 }
