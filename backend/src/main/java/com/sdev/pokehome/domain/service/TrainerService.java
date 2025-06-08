@@ -1,4 +1,4 @@
-package com.sdev.pokehome.service;
+package com.sdev.pokehome.domain.service;
 
 import com.sdev.pokehome.utilities.Response;
 

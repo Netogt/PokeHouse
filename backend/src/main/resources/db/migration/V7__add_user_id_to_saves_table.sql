@@ -1,0 +1,7 @@
+ALTER TABLE saves
+ADD COLUMN user_id UUID;
+
+ALTER TABLE saves
+ADD CONSTRAINT fk_saves_user
+FOREIGN KEY (user_id) REFERENCES users(id)
+ON DELETE CASCADE;

@@ -1,6 +1,6 @@
-package com.sdev.pokehome.service;
+package com.sdev.pokehome.domain.service;
 
-import com.sdev.pokehome.dto.PokeSav;
+import com.sdev.pokehome.domain.dto.PokeSav;
 import com.sdev.pokehome.utilities.Response;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -102,7 +101,8 @@ public class FileService {
         try {
             byte[] bytes = file.getBytes();
             ByteArrayResource resource = new ByteArrayResource(bytes) {
-                @Override public String getFilename() {
+                @Override
+                public String getFilename() {
                     return file.getOriginalFilename();
                 }
             };

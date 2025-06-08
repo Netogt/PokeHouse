@@ -1,6 +1,6 @@
 package com.sdev.pokehome.controller;
 
-import com.sdev.pokehome.service.FileService;
+import com.sdev.pokehome.domain.service.FileService;
 import com.sdev.pokehome.utilities.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 
 @RestController

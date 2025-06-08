@@ -1,4 +1,5 @@
 package com.sdev.pokehome.domain.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -27,6 +28,10 @@ public class Save {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "trainer_id", referencedColumnName = "id")
     private Trainer trainer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
+    private User user;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)

@@ -1,4 +1,4 @@
-package com.sdev.pokehome.dto;
+package com.sdev.pokehome.domain.dto;
 
 import java.util.ArrayList;
 
