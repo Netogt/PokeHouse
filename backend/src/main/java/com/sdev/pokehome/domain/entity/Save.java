@@ -1,6 +1,10 @@
 package com.sdev.pokehome.domain.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -10,9 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Table(name = "saves")
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "saves")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Save {
 
     @Id
@@ -39,81 +47,4 @@ public class Save {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Save() {
-    }
-
-    public Save(UUID id, String pathJson, String pathSav, List<Pokemon> pokemons, Trainer trainer, User user, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.pathJson = pathJson;
-        this.pathSav = pathSav;
-        this.pokemons = pokemons;
-        this.trainer = trainer;
-        this.user = user;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getPathJson() {
-        return pathJson;
-    }
-
-    public void setPathJson(String pathJson) {
-        this.pathJson = pathJson;
-    }
-
-    public String getPathSav() {
-        return pathSav;
-    }
-
-    public void setPathSav(String pathSav) {
-        this.pathSav = pathSav;
-    }
-
-    public List<Pokemon> getPokemons() {
-        return pokemons;
-    }
-
-    public void setPokemons(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
-    }
-
-    public Trainer getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

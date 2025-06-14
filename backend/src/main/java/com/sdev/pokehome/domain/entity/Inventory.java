@@ -1,10 +1,18 @@
 package com.sdev.pokehome.domain.entity;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Inventory {
     @SerializedName("Type")
     private int type;
@@ -33,23 +41,4 @@ public class Inventory {
     @SerializedName("IsCramped")
     private boolean isCramped;
 
-    // Getters and setters
-    public int getType() { return type; }
-    public void setType(int type) { this.type = type; }
-    public Map<String, Object> getInfo() { return info; }
-    public void setInfo(Map<String, Object> info) { this.info = info; }
-    public int getMaxCount() { return maxCount; }
-    public void setMaxCount(int maxCount) { this.maxCount = maxCount; }
-    public List<Item> getItems() { return items; }
-    public void setItems(List<Item> items) { this.items = items; }
-    public int getOffset() { return offset; }
-    public void setOffset(int offset) { this.offset = offset; }
-    public int getPouchDataSize() { return pouchDataSize; }
-    public void setPouchDataSize(int pouchDataSize) { this.pouchDataSize = pouchDataSize; }
-    public long getSecurityKey() { return securityKey; }
-    public void setSecurityKey(long securityKey) { this.securityKey = securityKey; }
-    public int getCount() { return count; }
-    public void setCount(int count) { this.count = count; }
-    public boolean isCramped() { return isCramped; }
-    public void setCramped(boolean cramped) { isCramped = cramped; }
 }
